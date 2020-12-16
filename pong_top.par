@@ -1,0 +1,199 @@
+Release 14.5 par P.58f (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+DESKTOP-F0RMQPM::  Tue Dec 15 09:57:48 2020
+
+par -w -intstyle ise -ol high -t 1 pong_top_map.ncd pong_top.ncd pong_top.pcf 
+
+
+Constraints file: pong_top.pcf.
+Loading device for application Rf_Device from file '3s100e.nph' in environment C:\Xilinx\14.5\ISE_DS\ISE\.
+   "pong_top" is an NCD, version 3.2, device xc3s100e, package cp132, speed -5
+
+Initializing temperature to 85.000 Celsius. (default - Range: -40.000 to 100.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.320 Volts)
+
+
+Device speed data version:  "PRODUCTION 1.27 2013-03-26".
+
+
+Design Summary Report:
+
+ Number of External IOBs                          18 out of 83     21%
+
+   Number of External Input IOBs                  4
+
+      Number of External Input IBUFs              4
+        Number of LOCed External Input IBUFs      3 out of 4      75%
+
+
+   Number of External Output IOBs                14
+
+      Number of External Output IOBs             14
+        Number of LOCed External Output IOBs     11 out of 14     78%
+
+
+   Number of External Bidir IOBs                  0
+
+
+   Number of BUFGMUXs                        2 out of 24      8%
+   Number of DCMs                            1 out of 2      50%
+   Number of RAMB16s                         1 out of 4      25%
+   Number of Slices                        323 out of 960    33%
+      Number of SLICEMs                      0 out of 480     0%
+
+
+
+Overall effort level (-ol):   High 
+Placer effort level (-pl):    High 
+Placer cost table entry (-t): 1
+Router effort level (-rl):    High 
+
+Starting initial Timing Analysis.  REAL time: 0 secs 
+Finished initial Timing Analysis.  REAL time: 0 secs 
+
+
+Starting Placer
+Total REAL time at the beginning of Placer: 0 secs 
+Total CPU  time at the beginning of Placer: 0 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:1fb70772) REAL time: 1 secs 
+
+Phase 2.7  Design Feasibility Check
+INFO:Place:834 - Only a subset of IOs are locked. Out of 14 IOs, 11 are locked and 3 are not locked. If you would like
+   to print the names of these IOs, please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
+Phase 2.7  Design Feasibility Check (Checksum:1fb70772) REAL time: 1 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:1fb70772) REAL time: 1 secs 
+
+Phase 4.2  Initial Clock and IO Placement
+.......
+Phase 4.2  Initial Clock and IO Placement (Checksum:35919454) REAL time: 1 secs 
+
+Phase 5.30  Global Clock Region Assignment
+Phase 5.30  Global Clock Region Assignment (Checksum:35919454) REAL time: 1 secs 
+
+Phase 6.36  Local Placement Optimization
+Phase 6.36  Local Placement Optimization (Checksum:35919454) REAL time: 1 secs 
+
+Phase 7.3  Local Placement Optimization
+........
+Phase 7.3  Local Placement Optimization (Checksum:7be62588) REAL time: 1 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:7be62588) REAL time: 1 secs 
+
+Phase 9.8  Global Placement
+..
+..............................
+.................
+.......
+Phase 9.8  Global Placement (Checksum:6771938f) REAL time: 2 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:6771938f) REAL time: 2 secs 
+
+Phase 11.18  Placement Optimization
+Phase 11.18  Placement Optimization (Checksum:5ae7f26a) REAL time: 2 secs 
+
+Phase 12.5  Local Placement Optimization
+Phase 12.5  Local Placement Optimization (Checksum:5ae7f26a) REAL time: 2 secs 
+
+Total REAL time to Placer completion: 2 secs 
+Total CPU  time to Placer completion: 2 secs 
+Writing design to file pong_top.ncd
+
+
+
+Starting Router
+
+
+Phase  1  : 2225 unrouted;      REAL time: 3 secs 
+
+Phase  2  : 2135 unrouted;      REAL time: 3 secs 
+
+Phase  3  : 474 unrouted;      REAL time: 3 secs 
+
+Phase  4  : 474 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
+
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
+
+Updating file: pong_top.ncd with current fully routed design.
+
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
+
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 3 secs 
+
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 4 secs 
+
+Total REAL time to Router completion: 4 secs 
+Total CPU time to Router completion: 3 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|                 clk |  BUFGMUX_X1Y0| No   |   66 |  0.025     |  0.059      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 0 (Setup: 0, Hold: 0, Component Switching Limit: 0)
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+  TS_clk = PERIOD TIMEGRP "clk" 40 ns HIGH  | SETUP       |    27.541ns|    12.459ns|       0|           0
+  50%                                       | HOLD        |     1.066ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 4 secs 
+Total CPU time to PAR completion: 4 secs 
+
+Peak Memory Usage:  4405 MB
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+Timing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 0
+Number of info messages: 1
+
+Writing design to file pong_top.ncd
+
+
+
+PAR done!

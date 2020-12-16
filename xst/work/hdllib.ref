@@ -1,0 +1,16 @@
+EN clockmanager NULL D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/ClockManager.vhd sub00/vhpl02 1608026253
+EN vga_sync NULL D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch12_01_vga_sync.vhd sub00/vhpl04 1608026255
+EN pong_graph NULL D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_07_pong_graph.vhd sub00/vhpl08 1608026259
+AR m100_counter arch D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_08_pong_counter.vhd sub00/vhpl13 1608026264
+AR clockmanager behavioral D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/ClockManager.vhd sub00/vhpl03 1608026254
+AR pong_top arch D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_10_pong_top.vhd sub00/vhpl15 1608026266
+EN pong_text NULL D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_06_pong_text.vhd sub00/vhpl06 1608026257
+AR font_rom arch D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_01_font_rom.vhd sub00/vhpl01 1608026252
+EN font_rom NULL D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_01_font_rom.vhd sub00/vhpl00 1608026251
+EN m100_counter NULL D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_08_pong_counter.vhd sub00/vhpl12 1608026263
+AR vga_sync arch D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch12_01_vga_sync.vhd sub00/vhpl05 1608026256
+EN pong_top NULL D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_10_pong_top.vhd sub00/vhpl14 1608026265
+AR timer arch D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_09_pong_timer.vhd sub00/vhpl11 1608026262
+AR pong_graph arch D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_07_pong_graph.vhd sub00/vhpl09 1608026260
+AR pong_text arch D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_06_pong_text.vhd sub00/vhpl07 1608026258
+EN timer NULL D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_09_pong_timer.vhd sub00/vhpl10 1608026261
