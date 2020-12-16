@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="par" timeStamp="Tue Dec 15 09:57:48 2020">
+  <application stringID="par" timeStamp="Wed Dec 16 21:19:32 2020">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -59,13 +59,13 @@
     </task>
     <task stringID="PAR_DEVICE_UTILIZATION">
       <section stringID="PAR_DESIGN_SUMMARY">
-        <item AVAILABLE="960" dataType="int" stringID="PAR_SLICES" value="323"></item>
+        <item AVAILABLE="960" dataType="int" stringID="PAR_SLICES" value="436"></item>
       </section>
     </task>
     <task stringID="PAR_PAR">
       <section stringID="PAR_DESIGN_SUMMARY">
         <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="4 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="3 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="4 secs "/>
         <item dataType="int" stringID="PAR_UNROUTES" value="0"/>
         <item dataType="float" stringID="PAR_TIMING_SCORE" value="0.000000"/>
         <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="4 secs "/>
@@ -88,9 +88,9 @@
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
             <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X1Y0"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
-            <item dataType="float" label="Fanout" stringID="FANOUT" value="66.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.025000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.059000"/>
+            <item dataType="float" label="Fanout" stringID="FANOUT" value="75.000000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.022000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.057000"/>
           </row>
         </table>
       </section>
@@ -468,7 +468,7 @@
           </row>
           <row stringID="row" value="58">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="F12"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="rgb&lt;2>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="rgb&lt;1>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO/A0"/>
             <item stringID="Direction" value="OUTPUT"/>
@@ -595,7 +595,7 @@
           </row>
           <row stringID="row" value="70">
             <item label="Pin&#xA;Number" sort="smart" stringID="Pin_Number" value="H12"/>
-            <item label="Signal&#xA;Name" stringID="Signal_Name" value="rgb&lt;1>"/>
+            <item label="Signal&#xA;Name" stringID="Signal_Name" value="rgb&lt;2>"/>
             <item label="Pin&#xA;Usage" stringID="Pin_Usage" value="IOB"/>
             <item label="Pin&#xA;Name" sort="smart" stringID="Pin_Name" value="IO_L06N_1/A5/RHCLK5"/>
             <item stringID="Direction" value="OUTPUT"/>

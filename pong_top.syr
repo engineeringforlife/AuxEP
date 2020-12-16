@@ -3,14 +3,14 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: pong_top.prj
 
@@ -180,8 +180,8 @@ Analyzing Entity <font_rom> in library <work> (Architecture <arch>).
 Entity <font_rom> analyzed. Unit <font_rom> generated.
 
 Analyzing Entity <pong_graph> in library <work> (Architecture <arch>).
-WARNING:Xst:819 - "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_07_pong_graph.vhd" line 556: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <Player1_rom_bit>
+WARNING:Xst:819 - "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_07_pong_graph.vhd" line 672: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <Player1_rom_bit>, <Player2_rom_bit>, <Glove_P1L_rom_bit>, <Glove_PlR_rom_bit>, <Glove_P2L_rom_bit>, <Glove_P2R_rom_bit>
 Entity <pong_graph> analyzed. Unit <pong_graph> generated.
 
 Analyzing Entity <timer> in library <work> (Architecture <arch>).
@@ -220,14 +220,12 @@ Unit <vga_sync> synthesized.
 Synthesizing Unit <pong_graph>.
     Related source file is "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_07_pong_graph.vhd".
 WARNING:Xst:1780 - Signal <rd_player1_on> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <player2_y_t> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <player2_y_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <player2_y_next> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <player2_y_b> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <player2_x_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <player2_x_r> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <player2_y_b> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <player2_x_reg> is used but never assigned. This sourceless signal will be automatically connected to value 0000000000.
+WARNING:Xst:646 - Signal <player2_x_r> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <player2_x_next> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <player2_x_l> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <player1_y_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <player1_y_next> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <player1_y_b> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -242,87 +240,115 @@ WARNING:Xst:1780 - Signal <glove_x_reg> is never used or assigned. This unconnec
 WARNING:Xst:1780 - Signal <glove_x_r> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <glove_x_next> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <glove_x_l> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <glove_p1L_y_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <glove_p1L_y_next> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <glove_p1L_y_b> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <glove_p1L_x_reg> is used but never assigned. This sourceless signal will be automatically connected to value 0000000000.
+WARNING:Xst:646 - Signal <glove_p1L_x_r> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <glove_p1L_x_next> is used but never assigned. This sourceless signal will be automatically connected to value 0000000000.
 WARNING:Xst:1780 - Signal <Player2_rom_data> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <Player2_rom_col> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <Player2_rom_bit> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <Player2_rom_addr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <Player1_rom_data> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <Glove_rom_data> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <Glove_rom_col> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <Glove_rom_bit> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <Glove_rom_addr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <Glove_P2R_rom_data> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <Glove_P2L_rom_data> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <Glove_P1R_rom_data> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <Glove_P1L_rom_data> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
     Found 8x8-bit ROM for signal <rom_data>.
+    Found 16x30-bit ROM for signal <not0006$rom0000>.
+    Found 16x30-bit ROM for signal <not0004$rom0000>.
+    Found 32x21-bit ROM for signal <not0001$rom0000>.
     Found 32x24-bit ROM for signal <not0000$rom0000>.
+    Found 16x30-bit ROM for signal <not0003$rom0000>.
+    Found 16x30-bit ROM for signal <Glove_PlR_rom_addr$rom0000>.
     Found 10-bit register for signal <ball_vx_reg>.
-    Found 10-bit comparator less for signal <ball_vx_reg$cmp_gt0000> created at line 545.
-    Found 10-bit comparator greater for signal <ball_vx_reg$cmp_gt0001> created at line 545.
-    Found 10-bit comparator greater for signal <ball_vx_reg$cmp_gt0002> created at line 545.
-    Found 10-bit comparator greater for signal <ball_vx_reg$cmp_gt0003> created at line 545.
-    Found 10-bit comparator greater for signal <ball_vx_reg$cmp_gt0004> created at line 543.
+    Found 10-bit comparator less for signal <ball_vx_reg$cmp_gt0000> created at line 661.
+    Found 10-bit comparator greater for signal <ball_vx_reg$cmp_gt0001> created at line 661.
+    Found 10-bit comparator greater for signal <ball_vx_reg$cmp_gt0002> created at line 661.
+    Found 10-bit comparator greater for signal <ball_vx_reg$cmp_gt0003> created at line 661.
+    Found 10-bit comparator greater for signal <ball_vx_reg$cmp_gt0004> created at line 659.
     Found 10-bit register for signal <ball_vy_reg>.
     Found 10-bit subtractor for signal <ball_x_r>.
-    Found 10-bit adder for signal <ball_x_r$addsub0000> created at line 401.
+    Found 10-bit adder for signal <ball_x_r$addsub0000> created at line 429.
     Found 10-bit register for signal <ball_x_reg>.
-    Found 10-bit adder for signal <ball_x_reg$addsub0000> created at line 519.
+    Found 10-bit adder for signal <ball_x_reg$addsub0000> created at line 635.
     Found 10-bit subtractor for signal <ball_y_b>.
-    Found 10-bit adder for signal <ball_y_b$addsub0000> created at line 402.
+    Found 10-bit adder for signal <ball_y_b$addsub0000> created at line 430.
     Found 10-bit register for signal <ball_y_reg>.
-    Found 10-bit adder for signal <ball_y_reg$addsub0000> created at line 523.
-    Found 10-bit comparator greatequal for signal <bar_on$cmp_le0000> created at line 377.
-    Found 10-bit comparator lessequal for signal <bar_on$cmp_le0001> created at line 377.
-    Found 10-bit comparator lessequal for signal <bar_on$cmp_le0002> created at line 377.
-    Found 10-bit comparator lessequal for signal <bar_on$cmp_le0003> created at line 377.
+    Found 10-bit adder for signal <ball_y_reg$addsub0000> created at line 639.
+    Found 10-bit comparator greatequal for signal <bar_on$cmp_le0000> created at line 403.
+    Found 10-bit comparator lessequal for signal <bar_on$cmp_le0001> created at line 403.
+    Found 10-bit comparator lessequal for signal <bar_on$cmp_le0002> created at line 403.
+    Found 10-bit comparator lessequal for signal <bar_on$cmp_le0003> created at line 403.
     Found 10-bit subtractor for signal <bar_y_b>.
-    Found 10-bit adder for signal <bar_y_b$addsub0000> created at line 376.
+    Found 10-bit adder for signal <bar_y_b$addsub0000> created at line 402.
     Found 10-bit register for signal <bar_y_reg>.
     Found 10-bit addsub for signal <bar_y_reg$addsub0000>.
-    Found 10-bit comparator greatequal for signal <bar_y_reg$cmp_ge0000> created at line 389.
-    Found 10-bit comparator lessequal for signal <bar_y_reg$cmp_le0000> created at line 390.
-    Found 10-bit comparator less for signal <bar_y_reg$cmp_lt0000> created at line 389.
-    Found 10-bit comparator greater for signal <miss$cmp_gt0000> created at line 541.
-    Found 10-bit comparator greater for signal <miss$cmp_gt0001> created at line 550.
-    Found 10-bit comparator lessequal for signal <miss$cmp_le0000> created at line 543.
-    Found 10-bit comparator greatequal for signal <miss$cmp_le0001> created at line 545.
-    Found 10-bit comparator lessequal for signal <miss$cmp_le0002> created at line 545.
-    Found 10-bit comparator lessequal for signal <miss$cmp_le0003> created at line 545.
-    Found 10-bit comparator lessequal for signal <miss$cmp_le0004> created at line 545.
-    Found 10-bit comparator less for signal <miss$cmp_lt0000> created at line 539.
+    Found 10-bit comparator greatequal for signal <bar_y_reg$cmp_ge0000> created at line 415.
+    Found 10-bit comparator lessequal for signal <bar_y_reg$cmp_le0000> created at line 416.
+    Found 10-bit comparator less for signal <bar_y_reg$cmp_lt0000> created at line 415.
+    Found 10-bit comparator greatequal for signal <glove_L_P1L_on$cmp_le0000> created at line 525.
+    Found 10-bit comparator lessequal for signal <glove_L_P1L_on$cmp_le0001> created at line 525.
+    Found 10-bit comparator greatequal for signal <glove_L_P2_on$cmp_le0000> created at line 576.
+    Found 10-bit comparator lessequal for signal <glove_L_P2_on$cmp_le0001> created at line 576.
+    Found 10-bit comparator greatequal for signal <glove_L_PlR_on$cmp_le0000> created at line 547.
+    Found 10-bit comparator lessequal for signal <glove_L_PlR_on$cmp_le0001> created at line 547.
+    Found 10-bit comparator greatequal for signal <glove_L_PlR_on$cmp_le0002> created at line 547.
+    Found 10-bit comparator lessequal for signal <glove_L_PlR_on$cmp_le0003> created at line 547.
+    Found 3-bit 16-to-1 multiplexer for signal <Glove_P1L_rom_bit>.
+    Found 4-bit subtractor for signal <Glove_P1L_rom_col>.
+    Found 3-bit 16-to-1 multiplexer for signal <Glove_P2L_rom_bit>.
+    Found 3-bit 16-to-1 multiplexer for signal <Glove_P2R_rom_bit>.
+    Found 4-bit subtractor for signal <Glove_PlR_rom_addr>.
+    Found 3-bit 16-to-1 multiplexer for signal <Glove_PlR_rom_bit>.
+    Found 10-bit comparator greatequal for signal <glove_R_P2_on$cmp_le0000> created at line 599.
+    Found 10-bit comparator lessequal for signal <glove_R_P2_on$cmp_le0001> created at line 599.
+    Found 10-bit comparator greatequal for signal <glove_R_P2_on$cmp_le0002> created at line 599.
+    Found 10-bit comparator lessequal for signal <glove_R_P2_on$cmp_le0003> created at line 599.
+    Found 10-bit comparator greater for signal <miss$cmp_gt0000> created at line 657.
+    Found 10-bit comparator greater for signal <miss$cmp_gt0001> created at line 666.
+    Found 10-bit comparator lessequal for signal <miss$cmp_le0000> created at line 659.
+    Found 10-bit comparator greatequal for signal <miss$cmp_le0001> created at line 661.
+    Found 10-bit comparator lessequal for signal <miss$cmp_le0002> created at line 661.
+    Found 10-bit comparator lessequal for signal <miss$cmp_le0003> created at line 661.
+    Found 10-bit comparator lessequal for signal <miss$cmp_le0004> created at line 661.
+    Found 10-bit comparator less for signal <miss$cmp_lt0000> created at line 655.
     Found 5-bit subtractor for signal <Player1_rom_addr>.
     Found 3-bit 16-to-1 multiplexer for signal <Player1_rom_bit>.
     Found 4-bit subtractor for signal <Player1_rom_col>.
+    Found 3-bit 16-to-1 multiplexer for signal <Player2_rom_bit>.
     Found 3-bit subtractor for signal <rom_addr>.
     Found 1-bit 8-to-1 multiplexer for signal <rom_bit>.
     Found 3-bit subtractor for signal <rom_col>.
-    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0000> created at line 404.
-    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0001> created at line 404.
-    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0002> created at line 404.
-    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0003> created at line 404.
-    Found 10-bit comparator greatequal for signal <sq_ball_on$cmp_le0004> created at line 404.
-    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0005> created at line 404.
-    Found 10-bit comparator greatequal for signal <sq_ball_on$cmp_le0006> created at line 404.
-    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0007> created at line 404.
-    Found 10-bit comparator greatequal for signal <sq_ball_on$cmp_le0008> created at line 404.
-    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0009> created at line 404.
-    Found 10-bit comparator greatequal for signal <sq_ball_on$cmp_le0010> created at line 404.
-    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0011> created at line 404.
-    Found 10-bit comparator greatequal for signal <sq_player1_on$cmp_le0000> created at line 445.
-    Found 10-bit comparator lessequal for signal <sq_player1_on$cmp_le0001> created at line 445.
-    Found 10-bit comparator greatequal for signal <sq_player1_on$cmp_le0002> created at line 445.
-    Found 10-bit comparator lessequal for signal <sq_player1_on$cmp_le0003> created at line 445.
-    Found 10-bit comparator greatequal for signal <wall_on$cmp_le0000> created at line 356.
-    Found 10-bit comparator lessequal for signal <wall_on$cmp_le0001> created at line 356.
-    Found 10-bit comparator greatequal for signal <wall_on$cmp_le0002> created at line 356.
-    Found 10-bit comparator lessequal for signal <wall_on$cmp_le0003> created at line 356.
-    Found 10-bit comparator greatequal for signal <wall_on$cmp_le0004> created at line 356.
-    Found 10-bit comparator lessequal for signal <wall_on$cmp_le0005> created at line 356.
-    Found 10-bit comparator lessequal for signal <wall_on$cmp_le0006> created at line 356.
-    Found 10-bit comparator greatequal for signal <wall_on$cmp_le0007> created at line 356.
+    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0000> created at line 432.
+    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0001> created at line 432.
+    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0002> created at line 432.
+    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0003> created at line 432.
+    Found 10-bit comparator greatequal for signal <sq_ball_on$cmp_le0004> created at line 432.
+    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0005> created at line 432.
+    Found 10-bit comparator greatequal for signal <sq_ball_on$cmp_le0006> created at line 432.
+    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0007> created at line 432.
+    Found 10-bit comparator greatequal for signal <sq_ball_on$cmp_le0008> created at line 432.
+    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0009> created at line 432.
+    Found 10-bit comparator greatequal for signal <sq_ball_on$cmp_le0010> created at line 432.
+    Found 10-bit comparator lessequal for signal <sq_ball_on$cmp_le0011> created at line 432.
+    Found 10-bit comparator greatequal for signal <sq_player1_on$cmp_le0000> created at line 475.
+    Found 10-bit comparator lessequal for signal <sq_player1_on$cmp_le0001> created at line 475.
+    Found 10-bit comparator greatequal for signal <sq_player2_on$cmp_le0000> created at line 500.
+    Found 10-bit comparator lessequal for signal <sq_player2_on$cmp_le0001> created at line 500.
+    Found 10-bit comparator lessequal for signal <sq_player2_on$cmp_le0002> created at line 500.
+    Found 10-bit comparator greatequal for signal <wall_on$cmp_le0000> created at line 387.
+    Found 10-bit comparator lessequal for signal <wall_on$cmp_le0001> created at line 387.
+    Found 10-bit comparator greatequal for signal <wall_on$cmp_le0002> created at line 387.
+    Found 10-bit comparator lessequal for signal <wall_on$cmp_le0003> created at line 387.
+    Found 10-bit comparator greatequal for signal <wall_on$cmp_le0004> created at line 387.
+    Found 10-bit comparator lessequal for signal <wall_on$cmp_le0005> created at line 387.
+    Found 10-bit comparator lessequal for signal <wall_on$cmp_le0006> created at line 387.
+    Found 10-bit comparator greatequal for signal <wall_on$cmp_le0007> created at line 387.
     Summary:
-	inferred   2 ROM(s).
+	inferred   7 ROM(s).
 	inferred  30 D-type flip-flop(s).
-	inferred  13 Adder/Subtractor(s).
-	inferred  44 Comparator(s).
-	inferred   4 Multiplexer(s).
+	inferred  15 Adder/Subtractor(s).
+	inferred  57 Comparator(s).
+	inferred  19 Multiplexer(s).
 Unit <pong_graph> synthesized.
 
 
@@ -410,20 +436,22 @@ INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmet
 HDL Synthesis Report
 
 Macro Statistics
-# ROMs                                                 : 5
+# ROMs                                                 : 10
+ 16x30-bit ROM                                         : 4
  16x7-bit ROM                                          : 1
  2048x8-bit ROM                                        : 1
+ 32x21-bit ROM                                         : 1
  32x24-bit ROM                                         : 1
  64x7-bit ROM                                          : 1
  8x8-bit ROM                                           : 1
-# Adders/Subtractors                                   : 16
+# Adders/Subtractors                                   : 18
  10-bit adder                                          : 5
  10-bit addsub                                         : 1
  10-bit subtractor                                     : 3
  2-bit subtractor                                      : 1
  3-bit subtractor                                      : 2
  4-bit adder                                           : 2
- 4-bit subtractor                                      : 1
+ 4-bit subtractor                                      : 3
  5-bit subtractor                                      : 1
 # Counters                                             : 3
  10-bit up counter                                     : 2
@@ -435,19 +463,19 @@ Macro Statistics
  2-bit register                                        : 1
  3-bit register                                        : 1
  4-bit register                                        : 2
-# Comparators                                          : 55
- 10-bit comparator greatequal                          : 15
+# Comparators                                          : 68
+ 10-bit comparator greatequal                          : 21
  10-bit comparator greater                             : 6
  10-bit comparator less                                : 5
- 10-bit comparator lessequal                           : 24
+ 10-bit comparator lessequal                           : 31
  4-bit comparator greatequal                           : 1
  4-bit comparator lessequal                            : 1
  5-bit comparator greatequal                           : 1
  5-bit comparator lessequal                            : 1
  6-bit comparator less                                 : 1
-# Multiplexers                                         : 3
+# Multiplexers                                         : 8
  1-bit 8-to-1 multiplexer                              : 2
- 3-bit 16-to-1 multiplexer                             : 1
+ 3-bit 16-to-1 multiplexer                             : 6
 
 =========================================================================
 
@@ -494,38 +522,40 @@ Macro Statistics
 # FSMs                                                 : 1
 # RAMs                                                 : 1
  2048x8-bit single-port block RAM                      : 1
-# ROMs                                                 : 4
+# ROMs                                                 : 9
+ 16x30-bit ROM                                         : 4
  16x7-bit ROM                                          : 1
+ 32x21-bit ROM                                         : 1
  32x24-bit ROM                                         : 1
  64x7-bit ROM                                          : 1
  8x8-bit ROM                                           : 1
-# Adders/Subtractors                                   : 16
+# Adders/Subtractors                                   : 18
  10-bit adder                                          : 5
  10-bit addsub                                         : 1
  10-bit subtractor                                     : 3
  2-bit subtractor                                      : 1
  3-bit subtractor                                      : 2
  4-bit adder                                           : 2
- 4-bit subtractor                                      : 1
+ 4-bit subtractor                                      : 3
  5-bit subtractor                                      : 1
 # Counters                                             : 3
  10-bit up counter                                     : 2
  7-bit down counter                                    : 1
 # Registers                                            : 66
  Flip-Flops                                            : 66
-# Comparators                                          : 55
- 10-bit comparator greatequal                          : 15
+# Comparators                                          : 68
+ 10-bit comparator greatequal                          : 21
  10-bit comparator greater                             : 6
  10-bit comparator less                                : 5
- 10-bit comparator lessequal                           : 24
+ 10-bit comparator lessequal                           : 31
  4-bit comparator greatequal                           : 1
  4-bit comparator lessequal                            : 1
  5-bit comparator greatequal                           : 1
  5-bit comparator lessequal                            : 1
  6-bit comparator less                                 : 1
-# Multiplexers                                         : 3
+# Multiplexers                                         : 8
  1-bit 8-to-1 multiplexer                              : 2
- 3-bit 16-to-1 multiplexer                             : 1
+ 3-bit 16-to-1 multiplexer                             : 6
 
 =========================================================================
 
@@ -536,6 +566,7 @@ INFO:Xst:2261 - The FF/Latch <3> in Unit <LPM_DFF_7> is equivalent to the follow
 INFO:Xst:2261 - The FF/Latch <3> in Unit <LPM_DFF_4> is equivalent to the following 6 FFs/Latches, which will be removed : <4> <7> <5> <6> <8> <9> 
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <LPM_DFF_7>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <LPM_DFF_4>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2146 - In block <pong_graph>, ROM <Mrom_not0006_rom0000> <Mrom_not0004_rom0000> <Mrom_not0003_rom0000> are equivalent, XST will keep only <Mrom_not0006_rom0000>.
 
 Optimizing unit <pong_top> ...
 
@@ -549,19 +580,26 @@ Optimizing unit <pong_text> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block pong_top, actual ratio is 36.
+Found area constraint ratio of 100 (+ 5) on block pong_top, actual ratio is 47.
 FlipFlop vga_sync_unit/h_count_reg_1 has been replicated 1 time(s)
 FlipFlop vga_sync_unit/h_count_reg_2 has been replicated 1 time(s)
 FlipFlop vga_sync_unit/h_count_reg_3 has been replicated 1 time(s)
 FlipFlop vga_sync_unit/h_count_reg_4 has been replicated 1 time(s)
+FlipFlop vga_sync_unit/h_count_reg_5 has been replicated 1 time(s)
 FlipFlop vga_sync_unit/h_count_reg_6 has been replicated 1 time(s)
 FlipFlop vga_sync_unit/h_count_reg_7 has been replicated 1 time(s)
 FlipFlop vga_sync_unit/h_count_reg_8 has been replicated 1 time(s)
-FlipFlop vga_sync_unit/v_count_reg_1 has been replicated 1 time(s)
-FlipFlop vga_sync_unit/v_count_reg_2 has been replicated 1 time(s)
+FlipFlop vga_sync_unit/h_count_reg_9 has been replicated 1 time(s)
+FlipFlop vga_sync_unit/v_count_reg_0 has been replicated 1 time(s)
+FlipFlop vga_sync_unit/v_count_reg_1 has been replicated 2 time(s)
+FlipFlop vga_sync_unit/v_count_reg_2 has been replicated 2 time(s)
 FlipFlop vga_sync_unit/v_count_reg_3 has been replicated 1 time(s)
 FlipFlop vga_sync_unit/v_count_reg_4 has been replicated 1 time(s)
 FlipFlop vga_sync_unit/v_count_reg_5 has been replicated 1 time(s)
+FlipFlop vga_sync_unit/v_count_reg_6 has been replicated 1 time(s)
+FlipFlop vga_sync_unit/v_count_reg_7 has been replicated 1 time(s)
+FlipFlop vga_sync_unit/v_count_reg_8 has been replicated 1 time(s)
+FlipFlop vga_sync_unit/v_count_reg_9 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -569,8 +607,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 93
- Flip-Flops                                            : 93
+# Registers                                            : 102
+ Flip-Flops                                            : 102
 
 =========================================================================
 
@@ -599,27 +637,27 @@ Design Statistics
 # IOs                              : 18
 
 Cell Usage :
-# BELS                             : 886
+# BELS                             : 1155
 #      GND                         : 1
-#      INV                         : 11
+#      INV                         : 12
 #      LUT1                        : 26
-#      LUT2                        : 151
+#      LUT2                        : 162
 #      LUT2_D                      : 4
-#      LUT2_L                      : 6
-#      LUT3                        : 109
-#      LUT3_D                      : 9
-#      LUT3_L                      : 7
-#      LUT4                        : 221
-#      LUT4_D                      : 16
-#      LUT4_L                      : 42
+#      LUT2_L                      : 8
+#      LUT3                        : 144
+#      LUT3_D                      : 11
+#      LUT3_L                      : 6
+#      LUT4                        : 357
+#      LUT4_D                      : 34
+#      LUT4_L                      : 40
 #      MUXCY                       : 152
-#      MUXF5                       : 41
-#      MUXF6                       : 9
+#      MUXF5                       : 95
+#      MUXF6                       : 22
 #      VCC                         : 1
 #      XORCY                       : 80
-# FlipFlops/Latches                : 93
+# FlipFlops/Latches                : 102
 #      FDC                         : 7
-#      FDCE                        : 77
+#      FDCE                        : 86
 #      FDPE                        : 9
 # RAMS                             : 1
 #      RAMB16_S9                   : 1
@@ -638,9 +676,9 @@ Device utilization summary:
 
 Selected Device : 3s100ecp132-5 
 
- Number of Slices:                      314  out of    960    32%  
- Number of Slice Flip Flops:             93  out of   1920     4%  
- Number of 4 input LUTs:                602  out of   1920    31%  
+ Number of Slices:                      424  out of    960    44%  
+ Number of Slice Flip Flops:            102  out of   1920     5%  
+ Number of 4 input LUTs:                804  out of   1920    41%  
  Number of IOs:                          18
  Number of bonded IOBs:                  18  out of     83    21%  
  Number of BRAMs:                         1  out of      4    25%  
@@ -668,7 +706,7 @@ Clock Information:
 -----------------------------------+------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)              | Load  |
 -----------------------------------+------------------------------------+-------+
-clock                              | ClockManager_unit/DCM_SP_INST:CLK2X| 94    |
+clock                              | ClockManager_unit/DCM_SP_INST:CLK2X| 103   |
 -----------------------------------+------------------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -676,15 +714,15 @@ Asynchronous Control Signals Information:
 -----------------------------------+------------------------+-------+
 Control Signal                     | Buffer(FF name)        | Load  |
 -----------------------------------+------------------------+-------+
-reset                              | IBUF                   | 93    |
+reset                              | IBUF                   | 102   |
 -----------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 21.673ns (Maximum Frequency: 46.140MHz)
-   Minimum input arrival time before clock: 5.521ns
+   Minimum period: 22.887ns (Maximum Frequency: 43.693MHz)
+   Minimum input arrival time before clock: 5.507ns
    Maximum output required time after clock: 4.182ns
    Maximum combinational path delay: No path found
 
@@ -694,42 +732,41 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock'
-  Clock period: 21.673ns (frequency: 46.140MHz)
-  Total number of paths / destination ports: 55609 / 188
+  Clock period: 22.887ns (frequency: 43.693MHz)
+  Total number of paths / destination ports: 81608 / 206
 -------------------------------------------------------------------------
-Delay:               10.837ns (Levels of Logic = 12)
-  Source:            graph_unit/bar_y_reg_6 (FF)
-  Destination:       rgb_reg_0 (FF)
+Delay:               11.443ns (Levels of Logic = 11)
+  Source:            vga_sync_unit/h_count_reg_6_1 (FF)
+  Destination:       rgb_reg_1 (FF)
   Source Clock:      clock rising 2.0X
   Destination Clock: clock rising 2.0X
 
-  Data Path: graph_unit/bar_y_reg_6 to rgb_reg_0
+  Data Path: vga_sync_unit/h_count_reg_6_1 to rgb_reg_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             6   0.514   0.721  graph_unit/bar_y_reg_6 (graph_unit/bar_y_reg_6)
-     LUT4:I0->O            3   0.612   0.520  graph_unit/Madd_bar_y_b_addsub0000_xor<9>121 (graph_unit/N18)
-     LUT2:I1->O            1   0.612   0.000  graph_unit/Msub_bar_y_b_lut<7> (graph_unit/Msub_bar_y_b_lut<7>)
-     MUXCY:S->O            1   0.404   0.000  graph_unit/Msub_bar_y_b_cy<7> (graph_unit/Msub_bar_y_b_cy<7>)
-     MUXCY:CI->O           0   0.051   0.000  graph_unit/Msub_bar_y_b_cy<8> (graph_unit/Msub_bar_y_b_cy<8>)
-     XORCY:CI->O           3   0.699   0.520  graph_unit/Msub_bar_y_b_xor<9> (graph_unit/bar_y_b<9>)
-     LUT2:I1->O            1   0.612   0.000  graph_unit/Mcompar_bar_on_cmp_le0003_lut<9> (graph_unit/Mcompar_bar_on_cmp_le0003_lut<9>)
-     MUXCY:S->O            3   0.752   0.454  graph_unit/Mcompar_bar_on_cmp_le0003_cy<9> (graph_unit/bar_on_cmp_le0003)
-     LUT4_D:I3->O          4   0.612   0.502  graph_unit/bar_on_and000039 (graph_unit/bar_on)
-     LUT4:I3->O            3   0.612   0.481  graph_unit/graph_on1 (graph_on)
-     LUT3:I2->O            1   0.612   0.000  rgb_next<0>237_SW1_F (N298)
-     MUXF5:I0->O           1   0.278   0.387  rgb_next<0>237_SW1 (N132)
-     LUT4:I2->O            1   0.612   0.000  rgb_next<0>264 (rgb_next<0>)
-     FDCE:D                    0.268          rgb_reg_0
+     FDCE:C->Q             4   0.514   0.651  vga_sync_unit/h_count_reg_6_1 (vga_sync_unit/h_count_reg_6_1)
+     LUT4:I0->O            1   0.612   0.360  text_unit/logo_on_and0000_SW0 (N38)
+     LUT4:I3->O           18   0.612   0.911  text_unit/logo_on_and0000 (text_on<2>)
+     LUT4:I3->O            1   0.612   0.360  text_unit/font_word_not0000<1>25 (text_unit/font_word_not0000<1>25)
+     LUT4:I3->O            2   0.612   0.380  text_unit/font_word_not0000<1>52 (text_unit/font_word_not0000<1>)
+     MUXF5:S->O            1   0.641   0.000  text_unit/Mmux_font_bit_3_f5 (text_unit/Mmux_font_bit_3_f5)
+     MUXF6:I1->O           7   0.451   0.602  text_unit/Mmux_font_bit_2_f6 (text_rgb<0>)
+     MUXF5:S->O            1   0.641   0.360  graph_unit/graph_on29_SW6 (N213)
+     LUT4:I3->O            2   0.612   0.383  rgb_next<1>9 (rgb_next<1>9)
+     LUT4:I3->O            1   0.612   0.000  rgb_next<1>201_SW111 (rgb_next<1>201_SW11)
+     MUXF5:I1->O           1   0.278   0.360  rgb_next<1>201_SW11_f5 (N119)
+     LUT4:I3->O            1   0.612   0.000  rgb_next<1>249 (rgb_next<1>)
+     FDCE:D                    0.268          rgb_reg_1
     ----------------------------------------
-    Total                     10.837ns (7.251ns logic, 3.586ns route)
-                                       (66.9% logic, 33.1% route)
+    Total                     11.443ns (7.077ns logic, 4.366ns route)
+                                       (61.8% logic, 38.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock'
   Total number of paths / destination ports: 93 / 24
 -------------------------------------------------------------------------
-Offset:              5.521ns (Levels of Logic = 13)
+Offset:              5.507ns (Levels of Logic = 13)
   Source:            btn<1> (PAD)
   Destination:       graph_unit/bar_y_reg_9 (FF)
   Destination Clock: clock rising 2.0X
@@ -738,7 +775,7 @@ Offset:              5.521ns (Levels of Logic = 13)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            15   1.106   1.016  btn_1_IBUF (btn_1_IBUF)
+     IBUF:I->O            14   1.106   1.002  btn_1_IBUF (btn_1_IBUF)
      LUT2:I0->O            1   0.612   0.357  graph_unit/bar_y_reg_mux00012 (graph_unit/bar_y_reg_mux0001)
      MUXCY:CI->O           1   0.052   0.000  graph_unit/Maddsub_bar_y_reg_addsub0000_cy<0> (graph_unit/Maddsub_bar_y_reg_addsub0000_cy<0>)
      MUXCY:CI->O           1   0.052   0.000  graph_unit/Maddsub_bar_y_reg_addsub0000_cy<1> (graph_unit/Maddsub_bar_y_reg_addsub0000_cy<1>)
@@ -753,8 +790,8 @@ Offset:              5.521ns (Levels of Logic = 13)
      LUT3:I2->O            1   0.612   0.000  graph_unit/bar_y_reg_mux0000<0>1 (graph_unit/bar_y_reg_mux0000<0>)
      FDCE:D                    0.268          graph_unit/bar_y_reg_9
     ----------------------------------------
-    Total                      5.521ns (3.761ns logic, 1.760ns route)
-                                       (68.1% logic, 31.9% route)
+    Total                      5.507ns (3.761ns logic, 1.746ns route)
+                                       (68.3% logic, 31.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock'
@@ -778,14 +815,14 @@ Offset:              4.182ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.83 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.38 secs
  
 --> 
 
-Total memory usage is 4553544 kilobytes
+Total memory usage is 4553580 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   38 (   0 filtered)
-Number of infos    :    5 (   0 filtered)
+Number of warnings :   39 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
 

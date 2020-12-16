@@ -36,453 +36,461 @@ INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and
 Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 40 ns HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 55591 paths analyzed, 339 endpoints analyzed, 0 failing endpoints
+ 81590 paths analyzed, 359 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is  12.459ns.
+ Minimum period is  13.067ns.
 --------------------------------------------------------------------------------
 
-Paths for end point rgb_reg_0 (SLICE_X26Y22.F2), 5075 paths
+Paths for end point rgb_reg_2 (SLICE_X25Y23.F1), 3935 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     27.541ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               graph_unit/bar_y_reg_3 (FF)
-  Destination:          rgb_reg_0 (FF)
+Slack (setup path):     26.933ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_9_1 (FF)
+  Destination:          rgb_reg_2 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      12.441ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.018ns (0.025 - 0.043)
+  Data Path Delay:      13.056ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.011ns (0.029 - 0.040)
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: graph_unit/bar_y_reg_3 to rgb_reg_0
+  Maximum Data Path: vga_sync_unit/v_count_reg_9_1 to rgb_reg_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y35.XQ      Tcko                  0.515   graph_unit/bar_y_reg<3>
-                                                       graph_unit/bar_y_reg_3
-    SLICE_X20Y34.G2      net (fanout=9)        1.848   graph_unit/bar_y_reg<3>
-    SLICE_X20Y34.Y       Tilo                  0.660   graph_unit/bar_y_reg_not00017
-                                                       graph_unit/Madd_bar_y_b_addsub0000_xor<9>121
-    SLICE_X23Y34.G3      net (fanout=3)        0.420   graph_unit/N18
-    SLICE_X23Y34.COUT    Topcyg                0.871   graph_unit/bar_y_b<6>
-                                                       graph_unit/Msub_bar_y_b_lut<7>
-                                                       graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.CIN     net (fanout=1)        0.000   graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.Y       Tciny                 0.756   graph_unit/bar_y_b<8>
-                                                       graph_unit/Msub_bar_y_b_cy<8>
-                                                       graph_unit/Msub_bar_y_b_xor<9>
-    SLICE_X27Y40.G2      net (fanout=3)        0.896   graph_unit/bar_y_b<9>
-    SLICE_X27Y40.COUT    Topcyg                0.871   graph_unit/bar_on_cmp_le0003
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_lut<9>
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_cy<9>
-    SLICE_X25Y22.G2      net (fanout=3)        1.446   graph_unit/bar_on_cmp_le0003
-    SLICE_X25Y22.Y       Tilo                  0.612   rgb_next<0>201
-                                                       graph_unit/bar_on_and000039
-    SLICE_X26Y23.F3      net (fanout=5)        0.400   graph_unit/bar_on
-    SLICE_X26Y23.X       Tilo                  0.660   graph_on
-                                                       graph_unit/graph_on1
-    SLICE_X28Y22.G4      net (fanout=3)        0.362   graph_on
-    SLICE_X28Y22.X       Tif5x                 1.000   N132
-                                                       rgb_next<0>237_SW1_F
-                                                       rgb_next<0>237_SW1
-    SLICE_X26Y22.F2      net (fanout=1)        0.348   N132
-    SLICE_X26Y22.CLK     Tfck                  0.776   rgb_reg<0>
-                                                       rgb_next<0>264
-                                                       rgb_reg_0
+    SLICE_X16Y18.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_9_1
+                                                       vga_sync_unit/v_count_reg_9_1
+    SLICE_X17Y18.G3      net (fanout=4)        0.685   vga_sync_unit/v_count_reg_9_1
+    SLICE_X17Y18.Y       Tilo                  0.612   text_unit/rule_on_and00001
+                                                       text_unit/rule_on_and000011
+    SLICE_X3Y9.G4        net (fanout=7)        1.394   text_unit/N10
+    SLICE_X3Y9.Y         Tilo                  0.612   N201
+                                                       text_unit/score_on_and00001
+    SLICE_X12Y15.F1      net (fanout=28)       1.054   text_on<3>
+    SLICE_X12Y15.X       Tilo                  0.660   text_unit/font_word_not0000<1>
+                                                       text_unit/font_word_not0000<1>52
+    SLICE_X3Y13.BX       net (fanout=2)        0.753   text_unit/font_word_not0000<1>
+    SLICE_X3Y13.F5       Tbxf5                 0.510   text_unit/Mmux_font_bit_4_f5
+                                                       text_unit/Mmux_font_bit_4_f5
+    SLICE_X3Y12.FXINB    net (fanout=1)        0.000   text_unit/Mmux_font_bit_4_f5
+    SLICE_X3Y12.Y        Tif6y                 0.451   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_2_f6
+    SLICE_X16Y26.G1      net (fanout=7)        1.571   text_rgb<0>
+    SLICE_X16Y26.Y       Tilo                  0.660   ball_reg_mux0000<0>20
+                                                       graph_unit/graph_on29_SW2
+    SLICE_X18Y26.G2      net (fanout=1)        0.377   N141
+    SLICE_X18Y26.Y       Tilo                  0.660   N115
+                                                       rgb_next<2>7
+    SLICE_X18Y27.BX      net (fanout=2)        0.396   rgb_next<2>7
+    SLICE_X18Y27.X       Tbxx                  0.699   N116
+                                                       rgb_next<2>195_SW1
+    SLICE_X25Y23.F1      net (fanout=1)        0.667   N116
+    SLICE_X25Y23.CLK     Tfck                  0.728   rgb_reg<2>
+                                                       rgb_next<2>243
+                                                       rgb_reg_2
     -------------------------------------------------  ---------------------------
-    Total                                     12.441ns (6.721ns logic, 5.720ns route)
-                                                       (54.0% logic, 46.0% route)
+    Total                                     13.056ns (6.159ns logic, 6.897ns route)
+                                                       (47.2% logic, 52.8% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     27.547ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               graph_unit/bar_y_reg_5 (FF)
-  Destination:          rgb_reg_0 (FF)
+Slack (setup path):     26.933ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_9_1 (FF)
+  Destination:          rgb_reg_2 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      12.435ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.018ns (0.025 - 0.043)
+  Data Path Delay:      13.056ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.011ns (0.029 - 0.040)
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: graph_unit/bar_y_reg_5 to rgb_reg_0
+  Maximum Data Path: vga_sync_unit/v_count_reg_9_1 to rgb_reg_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y34.XQ      Tcko                  0.515   graph_unit/bar_y_reg<5>
-                                                       graph_unit/bar_y_reg_5
-    SLICE_X20Y34.G1      net (fanout=7)        1.842   graph_unit/bar_y_reg<5>
-    SLICE_X20Y34.Y       Tilo                  0.660   graph_unit/bar_y_reg_not00017
-                                                       graph_unit/Madd_bar_y_b_addsub0000_xor<9>121
-    SLICE_X23Y34.G3      net (fanout=3)        0.420   graph_unit/N18
-    SLICE_X23Y34.COUT    Topcyg                0.871   graph_unit/bar_y_b<6>
-                                                       graph_unit/Msub_bar_y_b_lut<7>
-                                                       graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.CIN     net (fanout=1)        0.000   graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.Y       Tciny                 0.756   graph_unit/bar_y_b<8>
-                                                       graph_unit/Msub_bar_y_b_cy<8>
-                                                       graph_unit/Msub_bar_y_b_xor<9>
-    SLICE_X27Y40.G2      net (fanout=3)        0.896   graph_unit/bar_y_b<9>
-    SLICE_X27Y40.COUT    Topcyg                0.871   graph_unit/bar_on_cmp_le0003
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_lut<9>
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_cy<9>
-    SLICE_X25Y22.G2      net (fanout=3)        1.446   graph_unit/bar_on_cmp_le0003
-    SLICE_X25Y22.Y       Tilo                  0.612   rgb_next<0>201
-                                                       graph_unit/bar_on_and000039
-    SLICE_X26Y23.F3      net (fanout=5)        0.400   graph_unit/bar_on
-    SLICE_X26Y23.X       Tilo                  0.660   graph_on
-                                                       graph_unit/graph_on1
-    SLICE_X28Y22.G4      net (fanout=3)        0.362   graph_on
-    SLICE_X28Y22.X       Tif5x                 1.000   N132
-                                                       rgb_next<0>237_SW1_F
-                                                       rgb_next<0>237_SW1
-    SLICE_X26Y22.F2      net (fanout=1)        0.348   N132
-    SLICE_X26Y22.CLK     Tfck                  0.776   rgb_reg<0>
-                                                       rgb_next<0>264
-                                                       rgb_reg_0
+    SLICE_X16Y18.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_9_1
+                                                       vga_sync_unit/v_count_reg_9_1
+    SLICE_X17Y18.G3      net (fanout=4)        0.685   vga_sync_unit/v_count_reg_9_1
+    SLICE_X17Y18.Y       Tilo                  0.612   text_unit/rule_on_and00001
+                                                       text_unit/rule_on_and000011
+    SLICE_X3Y9.G4        net (fanout=7)        1.394   text_unit/N10
+    SLICE_X3Y9.Y         Tilo                  0.612   N201
+                                                       text_unit/score_on_and00001
+    SLICE_X12Y15.F1      net (fanout=28)       1.054   text_on<3>
+    SLICE_X12Y15.X       Tilo                  0.660   text_unit/font_word_not0000<1>
+                                                       text_unit/font_word_not0000<1>52
+    SLICE_X3Y12.BX       net (fanout=2)        0.753   text_unit/font_word_not0000<1>
+    SLICE_X3Y12.F5       Tbxf5                 0.510   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_3_f5
+    SLICE_X3Y12.FXINA    net (fanout=1)        0.000   text_unit/Mmux_font_bit_3_f5
+    SLICE_X3Y12.Y        Tif6y                 0.451   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_2_f6
+    SLICE_X16Y26.G1      net (fanout=7)        1.571   text_rgb<0>
+    SLICE_X16Y26.Y       Tilo                  0.660   ball_reg_mux0000<0>20
+                                                       graph_unit/graph_on29_SW2
+    SLICE_X18Y26.G2      net (fanout=1)        0.377   N141
+    SLICE_X18Y26.Y       Tilo                  0.660   N115
+                                                       rgb_next<2>7
+    SLICE_X18Y27.BX      net (fanout=2)        0.396   rgb_next<2>7
+    SLICE_X18Y27.X       Tbxx                  0.699   N116
+                                                       rgb_next<2>195_SW1
+    SLICE_X25Y23.F1      net (fanout=1)        0.667   N116
+    SLICE_X25Y23.CLK     Tfck                  0.728   rgb_reg<2>
+                                                       rgb_next<2>243
+                                                       rgb_reg_2
     -------------------------------------------------  ---------------------------
-    Total                                     12.435ns (6.721ns logic, 5.714ns route)
-                                                       (54.0% logic, 46.0% route)
+    Total                                     13.056ns (6.159ns logic, 6.897ns route)
+                                                       (47.2% logic, 52.8% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     27.597ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               graph_unit/bar_y_reg_3 (FF)
-  Destination:          rgb_reg_0 (FF)
+Slack (setup path):     26.972ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/h_count_reg_9_1 (FF)
+  Destination:          rgb_reg_2 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      12.385ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.018ns (0.025 - 0.043)
+  Data Path Delay:      13.017ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.011ns (0.029 - 0.040)
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: graph_unit/bar_y_reg_3 to rgb_reg_0
+  Maximum Data Path: vga_sync_unit/h_count_reg_9_1 to rgb_reg_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y35.XQ      Tcko                  0.515   graph_unit/bar_y_reg<3>
-                                                       graph_unit/bar_y_reg_3
-    SLICE_X20Y34.G2      net (fanout=9)        1.848   graph_unit/bar_y_reg<3>
-    SLICE_X20Y34.Y       Tilo                  0.660   graph_unit/bar_y_reg_not00017
-                                                       graph_unit/Madd_bar_y_b_addsub0000_xor<9>121
-    SLICE_X23Y34.G3      net (fanout=3)        0.420   graph_unit/N18
-    SLICE_X23Y34.COUT    Topcyg                0.871   graph_unit/bar_y_b<6>
-                                                       graph_unit/Msub_bar_y_b_lut<7>
-                                                       graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.CIN     net (fanout=1)        0.000   graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.Y       Tciny                 0.756   graph_unit/bar_y_b<8>
-                                                       graph_unit/Msub_bar_y_b_cy<8>
-                                                       graph_unit/Msub_bar_y_b_xor<9>
-    SLICE_X27Y40.G2      net (fanout=3)        0.896   graph_unit/bar_y_b<9>
-    SLICE_X27Y40.COUT    Topcyg                0.871   graph_unit/bar_on_cmp_le0003
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_lut<9>
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_cy<9>
-    SLICE_X25Y22.G2      net (fanout=3)        1.446   graph_unit/bar_on_cmp_le0003
-    SLICE_X25Y22.Y       Tilo                  0.612   rgb_next<0>201
-                                                       graph_unit/bar_on_and000039
-    SLICE_X26Y23.F3      net (fanout=5)        0.400   graph_unit/bar_on
-    SLICE_X26Y23.X       Tilo                  0.660   graph_on
-                                                       graph_unit/graph_on1
-    SLICE_X28Y22.F4      net (fanout=3)        0.306   graph_on
-    SLICE_X28Y22.X       Tif5x                 1.000   N132
-                                                       rgb_next<0>237_SW1_G
-                                                       rgb_next<0>237_SW1
-    SLICE_X26Y22.F2      net (fanout=1)        0.348   N132
-    SLICE_X26Y22.CLK     Tfck                  0.776   rgb_reg<0>
-                                                       rgb_next<0>264
-                                                       rgb_reg_0
+    SLICE_X13Y18.YQ      Tcko                  0.511   vga_sync_unit/h_count_reg_9_1
+                                                       vga_sync_unit/h_count_reg_9_1
+    SLICE_X17Y18.G2      net (fanout=4)        0.702   vga_sync_unit/h_count_reg_9_1
+    SLICE_X17Y18.Y       Tilo                  0.612   text_unit/rule_on_and00001
+                                                       text_unit/rule_on_and000011
+    SLICE_X3Y9.G4        net (fanout=7)        1.394   text_unit/N10
+    SLICE_X3Y9.Y         Tilo                  0.612   N201
+                                                       text_unit/score_on_and00001
+    SLICE_X12Y15.F1      net (fanout=28)       1.054   text_on<3>
+    SLICE_X12Y15.X       Tilo                  0.660   text_unit/font_word_not0000<1>
+                                                       text_unit/font_word_not0000<1>52
+    SLICE_X3Y12.BX       net (fanout=2)        0.753   text_unit/font_word_not0000<1>
+    SLICE_X3Y12.F5       Tbxf5                 0.510   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_3_f5
+    SLICE_X3Y12.FXINA    net (fanout=1)        0.000   text_unit/Mmux_font_bit_3_f5
+    SLICE_X3Y12.Y        Tif6y                 0.451   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_2_f6
+    SLICE_X16Y26.G1      net (fanout=7)        1.571   text_rgb<0>
+    SLICE_X16Y26.Y       Tilo                  0.660   ball_reg_mux0000<0>20
+                                                       graph_unit/graph_on29_SW2
+    SLICE_X18Y26.G2      net (fanout=1)        0.377   N141
+    SLICE_X18Y26.Y       Tilo                  0.660   N115
+                                                       rgb_next<2>7
+    SLICE_X18Y27.BX      net (fanout=2)        0.396   rgb_next<2>7
+    SLICE_X18Y27.X       Tbxx                  0.699   N116
+                                                       rgb_next<2>195_SW1
+    SLICE_X25Y23.F1      net (fanout=1)        0.667   N116
+    SLICE_X25Y23.CLK     Tfck                  0.728   rgb_reg<2>
+                                                       rgb_next<2>243
+                                                       rgb_reg_2
     -------------------------------------------------  ---------------------------
-    Total                                     12.385ns (6.721ns logic, 5.664ns route)
-                                                       (54.3% logic, 45.7% route)
+    Total                                     13.017ns (6.103ns logic, 6.914ns route)
+                                                       (46.9% logic, 53.1% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point rgb_reg_0 (SLICE_X26Y22.F1), 871 paths
+Paths for end point rgb_reg_2 (SLICE_X25Y23.F2), 2822 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     28.003ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_1 (FF)
-  Destination:          rgb_reg_0 (FF)
+Slack (setup path):     27.134ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_9_1 (FF)
+  Destination:          rgb_reg_2 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      11.984ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.013ns (0.025 - 0.038)
+  Data Path Delay:      12.855ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.011ns (0.029 - 0.040)
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: vga_sync_unit/v_count_reg_1 to rgb_reg_0
+  Maximum Data Path: vga_sync_unit/v_count_reg_9_1 to rgb_reg_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y13.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg<1>
-                                                       vga_sync_unit/v_count_reg_1
-    SLICE_X11Y1.F1       net (fanout=36)       2.095   vga_sync_unit/v_count_reg<1>
-    SLICE_X11Y1.X        Tilo                  0.612   N86
-                                                       graph_unit/Mmux_Player1_rom_bit19113_SW0
-    SLICE_X12Y0.F1       net (fanout=1)        0.640   N86
-    SLICE_X12Y0.X        Tilo                  0.660   N84
-                                                       graph_unit/Mmux_Player1_rom_bit19138_SW0
-    SLICE_X24Y1.F1       net (fanout=1)        0.757   N84
-    SLICE_X24Y1.X        Tilo                  0.660   graph_unit/Mmux_Player1_rom_bit19138
-                                                       graph_unit/Mmux_Player1_rom_bit19138
-    SLICE_X24Y0.F2       net (fanout=1)        0.063   graph_unit/Mmux_Player1_rom_bit19138
-    SLICE_X24Y0.X        Tif5x                 1.000   graph_unit/Player1_rom_bit<1>
-                                                       graph_unit/Mmux_Player1_rom_bit19329_G
-                                                       graph_unit/Mmux_Player1_rom_bit19329
-    SLICE_X20Y11.G4      net (fanout=4)        0.893   graph_unit/Player1_rom_bit<1>
-    SLICE_X20Y11.Y       Tilo                  0.660   text_unit/char_addr_s_cmp_eq0001
-                                                       rgb_next<0>151
-    SLICE_X21Y10.F2      net (fanout=1)        0.088   rgb_next<0>151
-    SLICE_X21Y10.X       Tilo                  0.612   N147
-                                                       rgb_next<0>201_SW0
-    SLICE_X25Y22.F2      net (fanout=1)        0.649   N147
-    SLICE_X25Y22.X       Tilo                  0.612   rgb_next<0>201
-                                                       rgb_next<0>201
-    SLICE_X26Y22.F1      net (fanout=1)        0.640   rgb_next<0>201
-    SLICE_X26Y22.CLK     Tfck                  0.776   rgb_reg<0>
-                                                       rgb_next<0>264
-                                                       rgb_reg_0
+    SLICE_X16Y18.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_9_1
+                                                       vga_sync_unit/v_count_reg_9_1
+    SLICE_X17Y18.G3      net (fanout=4)        0.685   vga_sync_unit/v_count_reg_9_1
+    SLICE_X17Y18.Y       Tilo                  0.612   text_unit/rule_on_and00001
+                                                       text_unit/rule_on_and000011
+    SLICE_X3Y9.G4        net (fanout=7)        1.394   text_unit/N10
+    SLICE_X3Y9.Y         Tilo                  0.612   N201
+                                                       text_unit/score_on_and00001
+    SLICE_X12Y15.F1      net (fanout=28)       1.054   text_on<3>
+    SLICE_X12Y15.X       Tilo                  0.660   text_unit/font_word_not0000<1>
+                                                       text_unit/font_word_not0000<1>52
+    SLICE_X3Y13.BX       net (fanout=2)        0.753   text_unit/font_word_not0000<1>
+    SLICE_X3Y13.F5       Tbxf5                 0.510   text_unit/Mmux_font_bit_4_f5
+                                                       text_unit/Mmux_font_bit_4_f5
+    SLICE_X3Y12.FXINB    net (fanout=1)        0.000   text_unit/Mmux_font_bit_4_f5
+    SLICE_X3Y12.Y        Tif6y                 0.451   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_2_f6
+    SLICE_X16Y26.G1      net (fanout=7)        1.571   text_rgb<0>
+    SLICE_X16Y26.Y       Tilo                  0.660   ball_reg_mux0000<0>20
+                                                       graph_unit/graph_on29_SW2
+    SLICE_X18Y26.G2      net (fanout=1)        0.377   N141
+    SLICE_X18Y26.Y       Tilo                  0.660   N115
+                                                       rgb_next<2>7
+    SLICE_X18Y26.F4      net (fanout=2)        0.033   rgb_next<2>7
+    SLICE_X18Y26.X       Tilo                  0.660   N115
+                                                       rgb_next<2>195_SW0
+    SLICE_X25Y23.F2      net (fanout=1)        0.868   N115
+    SLICE_X25Y23.CLK     Tfck                  0.728   rgb_reg<2>
+                                                       rgb_next<2>243
+                                                       rgb_reg_2
     -------------------------------------------------  ---------------------------
-    Total                                     11.984ns (6.159ns logic, 5.825ns route)
-                                                       (51.4% logic, 48.6% route)
+    Total                                     12.855ns (6.120ns logic, 6.735ns route)
+                                                       (47.6% logic, 52.4% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     28.004ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_1 (FF)
-  Destination:          rgb_reg_0 (FF)
+Slack (setup path):     27.134ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_9_1 (FF)
+  Destination:          rgb_reg_2 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      11.983ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.013ns (0.025 - 0.038)
+  Data Path Delay:      12.855ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.011ns (0.029 - 0.040)
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: vga_sync_unit/v_count_reg_1 to rgb_reg_0
+  Maximum Data Path: vga_sync_unit/v_count_reg_9_1 to rgb_reg_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y13.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg<1>
-                                                       vga_sync_unit/v_count_reg_1
-    SLICE_X11Y1.F1       net (fanout=36)       2.095   vga_sync_unit/v_count_reg<1>
-    SLICE_X11Y1.X        Tilo                  0.612   N86
-                                                       graph_unit/Mmux_Player1_rom_bit19113_SW0
-    SLICE_X12Y0.F1       net (fanout=1)        0.640   N86
-    SLICE_X12Y0.X        Tilo                  0.660   N84
-                                                       graph_unit/Mmux_Player1_rom_bit19138_SW0
-    SLICE_X24Y1.F1       net (fanout=1)        0.757   N84
-    SLICE_X24Y1.X        Tilo                  0.660   graph_unit/Mmux_Player1_rom_bit19138
-                                                       graph_unit/Mmux_Player1_rom_bit19138
-    SLICE_X24Y0.F2       net (fanout=1)        0.063   graph_unit/Mmux_Player1_rom_bit19138
-    SLICE_X24Y0.X        Tif5x                 1.000   graph_unit/Player1_rom_bit<1>
-                                                       graph_unit/Mmux_Player1_rom_bit19329_G
-                                                       graph_unit/Mmux_Player1_rom_bit19329
-    SLICE_X20Y10.BX      net (fanout=4)        0.921   graph_unit/Player1_rom_bit<1>
-    SLICE_X20Y10.X       Tbxx                  0.699   N82
-                                                       rgb_next<0>187_SW0
-    SLICE_X21Y10.F4      net (fanout=1)        0.020   N82
-    SLICE_X21Y10.X       Tilo                  0.612   N147
-                                                       rgb_next<0>201_SW0
-    SLICE_X25Y22.F2      net (fanout=1)        0.649   N147
-    SLICE_X25Y22.X       Tilo                  0.612   rgb_next<0>201
-                                                       rgb_next<0>201
-    SLICE_X26Y22.F1      net (fanout=1)        0.640   rgb_next<0>201
-    SLICE_X26Y22.CLK     Tfck                  0.776   rgb_reg<0>
-                                                       rgb_next<0>264
-                                                       rgb_reg_0
+    SLICE_X16Y18.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_9_1
+                                                       vga_sync_unit/v_count_reg_9_1
+    SLICE_X17Y18.G3      net (fanout=4)        0.685   vga_sync_unit/v_count_reg_9_1
+    SLICE_X17Y18.Y       Tilo                  0.612   text_unit/rule_on_and00001
+                                                       text_unit/rule_on_and000011
+    SLICE_X3Y9.G4        net (fanout=7)        1.394   text_unit/N10
+    SLICE_X3Y9.Y         Tilo                  0.612   N201
+                                                       text_unit/score_on_and00001
+    SLICE_X12Y15.F1      net (fanout=28)       1.054   text_on<3>
+    SLICE_X12Y15.X       Tilo                  0.660   text_unit/font_word_not0000<1>
+                                                       text_unit/font_word_not0000<1>52
+    SLICE_X3Y12.BX       net (fanout=2)        0.753   text_unit/font_word_not0000<1>
+    SLICE_X3Y12.F5       Tbxf5                 0.510   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_3_f5
+    SLICE_X3Y12.FXINA    net (fanout=1)        0.000   text_unit/Mmux_font_bit_3_f5
+    SLICE_X3Y12.Y        Tif6y                 0.451   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_2_f6
+    SLICE_X16Y26.G1      net (fanout=7)        1.571   text_rgb<0>
+    SLICE_X16Y26.Y       Tilo                  0.660   ball_reg_mux0000<0>20
+                                                       graph_unit/graph_on29_SW2
+    SLICE_X18Y26.G2      net (fanout=1)        0.377   N141
+    SLICE_X18Y26.Y       Tilo                  0.660   N115
+                                                       rgb_next<2>7
+    SLICE_X18Y26.F4      net (fanout=2)        0.033   rgb_next<2>7
+    SLICE_X18Y26.X       Tilo                  0.660   N115
+                                                       rgb_next<2>195_SW0
+    SLICE_X25Y23.F2      net (fanout=1)        0.868   N115
+    SLICE_X25Y23.CLK     Tfck                  0.728   rgb_reg<2>
+                                                       rgb_next<2>243
+                                                       rgb_reg_2
     -------------------------------------------------  ---------------------------
-    Total                                     11.983ns (6.198ns logic, 5.785ns route)
-                                                       (51.7% logic, 48.3% route)
+    Total                                     12.855ns (6.120ns logic, 6.735ns route)
+                                                       (47.6% logic, 52.4% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     28.024ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_1 (FF)
-  Destination:          rgb_reg_0 (FF)
+Slack (setup path):     27.173ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/h_count_reg_9_1 (FF)
+  Destination:          rgb_reg_2 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      11.963ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.013ns (0.025 - 0.038)
+  Data Path Delay:      12.816ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.011ns (0.029 - 0.040)
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: vga_sync_unit/v_count_reg_1 to rgb_reg_0
+  Maximum Data Path: vga_sync_unit/h_count_reg_9_1 to rgb_reg_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y13.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg<1>
-                                                       vga_sync_unit/v_count_reg_1
-    SLICE_X11Y1.F1       net (fanout=36)       2.095   vga_sync_unit/v_count_reg<1>
-    SLICE_X11Y1.X        Tilo                  0.612   N86
-                                                       graph_unit/Mmux_Player1_rom_bit19113_SW0
-    SLICE_X12Y0.F1       net (fanout=1)        0.640   N86
-    SLICE_X12Y0.X        Tilo                  0.660   N84
-                                                       graph_unit/Mmux_Player1_rom_bit19138_SW0
-    SLICE_X24Y1.F1       net (fanout=1)        0.757   N84
-    SLICE_X24Y1.X        Tilo                  0.660   graph_unit/Mmux_Player1_rom_bit19138
-                                                       graph_unit/Mmux_Player1_rom_bit19138
-    SLICE_X24Y0.F2       net (fanout=1)        0.063   graph_unit/Mmux_Player1_rom_bit19138
-    SLICE_X24Y0.X        Tif5x                 1.000   graph_unit/Player1_rom_bit<1>
-                                                       graph_unit/Mmux_Player1_rom_bit19329_G
-                                                       graph_unit/Mmux_Player1_rom_bit19329
-    SLICE_X21Y10.G1      net (fanout=4)        0.988   graph_unit/Player1_rom_bit<1>
-    SLICE_X21Y10.Y       Tilo                  0.612   N147
-                                                       rgb_next<0>132
-    SLICE_X21Y10.F3      net (fanout=1)        0.020   rgb_next<0>132/O
-    SLICE_X21Y10.X       Tilo                  0.612   N147
-                                                       rgb_next<0>201_SW0
-    SLICE_X25Y22.F2      net (fanout=1)        0.649   N147
-    SLICE_X25Y22.X       Tilo                  0.612   rgb_next<0>201
-                                                       rgb_next<0>201
-    SLICE_X26Y22.F1      net (fanout=1)        0.640   rgb_next<0>201
-    SLICE_X26Y22.CLK     Tfck                  0.776   rgb_reg<0>
-                                                       rgb_next<0>264
-                                                       rgb_reg_0
+    SLICE_X13Y18.YQ      Tcko                  0.511   vga_sync_unit/h_count_reg_9_1
+                                                       vga_sync_unit/h_count_reg_9_1
+    SLICE_X17Y18.G2      net (fanout=4)        0.702   vga_sync_unit/h_count_reg_9_1
+    SLICE_X17Y18.Y       Tilo                  0.612   text_unit/rule_on_and00001
+                                                       text_unit/rule_on_and000011
+    SLICE_X3Y9.G4        net (fanout=7)        1.394   text_unit/N10
+    SLICE_X3Y9.Y         Tilo                  0.612   N201
+                                                       text_unit/score_on_and00001
+    SLICE_X12Y15.F1      net (fanout=28)       1.054   text_on<3>
+    SLICE_X12Y15.X       Tilo                  0.660   text_unit/font_word_not0000<1>
+                                                       text_unit/font_word_not0000<1>52
+    SLICE_X3Y12.BX       net (fanout=2)        0.753   text_unit/font_word_not0000<1>
+    SLICE_X3Y12.F5       Tbxf5                 0.510   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_3_f5
+    SLICE_X3Y12.FXINA    net (fanout=1)        0.000   text_unit/Mmux_font_bit_3_f5
+    SLICE_X3Y12.Y        Tif6y                 0.451   text_rgb<0>
+                                                       text_unit/Mmux_font_bit_2_f6
+    SLICE_X16Y26.G1      net (fanout=7)        1.571   text_rgb<0>
+    SLICE_X16Y26.Y       Tilo                  0.660   ball_reg_mux0000<0>20
+                                                       graph_unit/graph_on29_SW2
+    SLICE_X18Y26.G2      net (fanout=1)        0.377   N141
+    SLICE_X18Y26.Y       Tilo                  0.660   N115
+                                                       rgb_next<2>7
+    SLICE_X18Y26.F4      net (fanout=2)        0.033   rgb_next<2>7
+    SLICE_X18Y26.X       Tilo                  0.660   N115
+                                                       rgb_next<2>195_SW0
+    SLICE_X25Y23.F2      net (fanout=1)        0.868   N115
+    SLICE_X25Y23.CLK     Tfck                  0.728   rgb_reg<2>
+                                                       rgb_next<2>243
+                                                       rgb_reg_2
     -------------------------------------------------  ---------------------------
-    Total                                     11.963ns (6.111ns logic, 5.852ns route)
-                                                       (51.1% logic, 48.9% route)
+    Total                                     12.816ns (6.064ns logic, 6.752ns route)
+                                                       (47.3% logic, 52.7% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point rgb_reg_1 (SLICE_X29Y23.F4), 1364 paths
+Paths for end point rgb_reg_1 (SLICE_X23Y24.F1), 3125 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     28.208ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               graph_unit/bar_y_reg_3 (FF)
+Slack (setup path):     27.434ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_5_1 (FF)
   Destination:          rgb_reg_1 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      11.772ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.020ns (0.023 - 0.043)
+  Data Path Delay:      12.562ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.004ns (0.033 - 0.037)
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: graph_unit/bar_y_reg_3 to rgb_reg_1
+  Maximum Data Path: vga_sync_unit/v_count_reg_5_1 to rgb_reg_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y35.XQ      Tcko                  0.515   graph_unit/bar_y_reg<3>
-                                                       graph_unit/bar_y_reg_3
-    SLICE_X20Y34.G2      net (fanout=9)        1.848   graph_unit/bar_y_reg<3>
-    SLICE_X20Y34.Y       Tilo                  0.660   graph_unit/bar_y_reg_not00017
-                                                       graph_unit/Madd_bar_y_b_addsub0000_xor<9>121
-    SLICE_X23Y34.G3      net (fanout=3)        0.420   graph_unit/N18
-    SLICE_X23Y34.COUT    Topcyg                0.871   graph_unit/bar_y_b<6>
-                                                       graph_unit/Msub_bar_y_b_lut<7>
-                                                       graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.CIN     net (fanout=1)        0.000   graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.Y       Tciny                 0.756   graph_unit/bar_y_b<8>
-                                                       graph_unit/Msub_bar_y_b_cy<8>
-                                                       graph_unit/Msub_bar_y_b_xor<9>
-    SLICE_X27Y40.G2      net (fanout=3)        0.896   graph_unit/bar_y_b<9>
-    SLICE_X27Y40.COUT    Topcyg                0.871   graph_unit/bar_on_cmp_le0003
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_lut<9>
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_cy<9>
-    SLICE_X25Y22.G2      net (fanout=3)        1.446   graph_unit/bar_on_cmp_le0003
-    SLICE_X25Y22.Y       Tilo                  0.612   rgb_next<0>201
-                                                       graph_unit/bar_on_and000039
-    SLICE_X26Y23.F3      net (fanout=5)        0.400   graph_unit/bar_on
-    SLICE_X26Y23.X       Tilo                  0.660   graph_on
-                                                       graph_unit/graph_on1
-    SLICE_X29Y23.G1      net (fanout=3)        0.457   graph_on
-    SLICE_X29Y23.Y       Tilo                  0.612   rgb_reg<1>
-                                                       rgb_next<1>9
-    SLICE_X29Y23.F4      net (fanout=1)        0.020   rgb_next<1>9/O
-    SLICE_X29Y23.CLK     Tfck                  0.728   rgb_reg<1>
-                                                       rgb_next<1>107
+    SLICE_X21Y19.YQ      Tcko                  0.511   vga_sync_unit/v_count_reg_5_1
+                                                       vga_sync_unit/v_count_reg_5_1
+    SLICE_X28Y23.F1      net (fanout=8)        2.277   vga_sync_unit/v_count_reg_5_1
+    SLICE_X28Y23.X       Tilo                  0.660   N67
+                                                       graph_unit/Mrom_not0001_rom000017_SW0
+    SLICE_X31Y25.G1      net (fanout=4)        0.502   N67
+    SLICE_X31Y25.Y       Tilo                  0.612   graph_unit/Mmux_Player1_rom_bit1971
+                                                       graph_unit/Mrom_not0000_rom000021
+    SLICE_X31Y28.F1      net (fanout=6)        0.722   graph_unit/Mrom_not0000_rom00002
+    SLICE_X31Y28.F5      Tif5                  0.759   graph_unit/Mmux_Player2_rom_bit_6_f61
+                                                       graph_unit/Mmux_Player2_rom_bit_8
+                                                       graph_unit/Mmux_Player2_rom_bit_7_f5_0
+    SLICE_X31Y28.FXINA   net (fanout=1)        0.000   graph_unit/Mmux_Player2_rom_bit_7_f51
+    SLICE_X31Y28.Y       Tif6y                 0.451   graph_unit/Mmux_Player2_rom_bit_6_f61
+                                                       graph_unit/Mmux_Player2_rom_bit_6_f6_0
+    SLICE_X24Y24.G4      net (fanout=1)        0.602   graph_unit/Mmux_Player2_rom_bit_6_f61
+    SLICE_X24Y24.Y       Tilo                  0.660   N291
+                                                       graph_unit/_not0002<3>11
+    SLICE_X26Y22.F1      net (fanout=3)        0.427   graph_unit/Player2_rom_bit<2>
+    SLICE_X26Y22.X       Tilo                  0.660   graph_unit/rgb_and0002
+                                                       graph_unit/rgb_and00021
+    SLICE_X26Y24.G1      net (fanout=3)        0.402   graph_unit/rgb_and0002
+    SLICE_X26Y24.Y       Tilo                  0.660   rgb_next<1>145
+                                                       rgb_next<1>96_SW1
+    SLICE_X26Y24.F1      net (fanout=1)        0.381   rgb_next<1>96_SW1/O
+    SLICE_X26Y24.X       Tilo                  0.660   rgb_next<1>145
+                                                       rgb_next<1>145
+    SLICE_X23Y24.F1      net (fanout=1)        0.888   rgb_next<1>145
+    SLICE_X23Y24.CLK     Tfck                  0.728   rgb_reg<1>
+                                                       rgb_next<1>249
                                                        rgb_reg_1
     -------------------------------------------------  ---------------------------
-    Total                                     11.772ns (6.285ns logic, 5.487ns route)
+    Total                                     12.562ns (6.361ns logic, 6.201ns route)
+                                                       (50.6% logic, 49.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     27.651ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_5_1 (FF)
+  Destination:          rgb_reg_1 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      12.345ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.004ns (0.033 - 0.037)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_sync_unit/v_count_reg_5_1 to rgb_reg_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y19.YQ      Tcko                  0.511   vga_sync_unit/v_count_reg_5_1
+                                                       vga_sync_unit/v_count_reg_5_1
+    SLICE_X28Y23.F1      net (fanout=8)        2.277   vga_sync_unit/v_count_reg_5_1
+    SLICE_X28Y23.X       Tilo                  0.660   N67
+                                                       graph_unit/Mrom_not0001_rom000017_SW0
+    SLICE_X31Y25.G1      net (fanout=4)        0.502   N67
+    SLICE_X31Y25.Y       Tilo                  0.612   graph_unit/Mmux_Player1_rom_bit1971
+                                                       graph_unit/Mrom_not0000_rom000021
+    SLICE_X31Y28.F1      net (fanout=6)        0.722   graph_unit/Mrom_not0000_rom00002
+    SLICE_X31Y28.F5      Tif5                  0.759   graph_unit/Mmux_Player2_rom_bit_6_f61
+                                                       graph_unit/Mmux_Player2_rom_bit_8
+                                                       graph_unit/Mmux_Player2_rom_bit_7_f5_0
+    SLICE_X31Y28.FXINA   net (fanout=1)        0.000   graph_unit/Mmux_Player2_rom_bit_7_f51
+    SLICE_X31Y28.Y       Tif6y                 0.451   graph_unit/Mmux_Player2_rom_bit_6_f61
+                                                       graph_unit/Mmux_Player2_rom_bit_6_f6_0
+    SLICE_X24Y24.G4      net (fanout=1)        0.602   graph_unit/Mmux_Player2_rom_bit_6_f61
+    SLICE_X24Y24.Y       Tilo                  0.660   N291
+                                                       graph_unit/_not0002<3>11
+    SLICE_X26Y22.F1      net (fanout=3)        0.427   graph_unit/Player2_rom_bit<2>
+    SLICE_X26Y22.X       Tilo                  0.660   graph_unit/rgb_and0002
+                                                       graph_unit/rgb_and00021
+    SLICE_X27Y25.G4      net (fanout=3)        0.316   graph_unit/rgb_and0002
+    SLICE_X27Y25.X       Tif5x                 0.890   N189
+                                                       rgb_next<1>96_SW0_F
+                                                       rgb_next<1>96_SW0
+    SLICE_X26Y24.F4      net (fanout=1)        0.020   N189
+    SLICE_X26Y24.X       Tilo                  0.660   rgb_next<1>145
+                                                       rgb_next<1>145
+    SLICE_X23Y24.F1      net (fanout=1)        0.888   rgb_next<1>145
+    SLICE_X23Y24.CLK     Tfck                  0.728   rgb_reg<1>
+                                                       rgb_next<1>249
+                                                       rgb_reg_1
+    -------------------------------------------------  ---------------------------
+    Total                                     12.345ns (6.591ns logic, 5.754ns route)
                                                        (53.4% logic, 46.6% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     28.214ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               graph_unit/bar_y_reg_5 (FF)
+Slack (setup path):     28.081ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_5_1 (FF)
   Destination:          rgb_reg_1 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      11.766ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.020ns (0.023 - 0.043)
+  Data Path Delay:      11.915ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.004ns (0.033 - 0.037)
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: graph_unit/bar_y_reg_5 to rgb_reg_1
+  Maximum Data Path: vga_sync_unit/v_count_reg_5_1 to rgb_reg_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y34.XQ      Tcko                  0.515   graph_unit/bar_y_reg<5>
-                                                       graph_unit/bar_y_reg_5
-    SLICE_X20Y34.G1      net (fanout=7)        1.842   graph_unit/bar_y_reg<5>
-    SLICE_X20Y34.Y       Tilo                  0.660   graph_unit/bar_y_reg_not00017
-                                                       graph_unit/Madd_bar_y_b_addsub0000_xor<9>121
-    SLICE_X23Y34.G3      net (fanout=3)        0.420   graph_unit/N18
-    SLICE_X23Y34.COUT    Topcyg                0.871   graph_unit/bar_y_b<6>
-                                                       graph_unit/Msub_bar_y_b_lut<7>
-                                                       graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.CIN     net (fanout=1)        0.000   graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.Y       Tciny                 0.756   graph_unit/bar_y_b<8>
-                                                       graph_unit/Msub_bar_y_b_cy<8>
-                                                       graph_unit/Msub_bar_y_b_xor<9>
-    SLICE_X27Y40.G2      net (fanout=3)        0.896   graph_unit/bar_y_b<9>
-    SLICE_X27Y40.COUT    Topcyg                0.871   graph_unit/bar_on_cmp_le0003
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_lut<9>
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_cy<9>
-    SLICE_X25Y22.G2      net (fanout=3)        1.446   graph_unit/bar_on_cmp_le0003
-    SLICE_X25Y22.Y       Tilo                  0.612   rgb_next<0>201
-                                                       graph_unit/bar_on_and000039
-    SLICE_X26Y23.F3      net (fanout=5)        0.400   graph_unit/bar_on
-    SLICE_X26Y23.X       Tilo                  0.660   graph_on
-                                                       graph_unit/graph_on1
-    SLICE_X29Y23.G1      net (fanout=3)        0.457   graph_on
-    SLICE_X29Y23.Y       Tilo                  0.612   rgb_reg<1>
-                                                       rgb_next<1>9
-    SLICE_X29Y23.F4      net (fanout=1)        0.020   rgb_next<1>9/O
-    SLICE_X29Y23.CLK     Tfck                  0.728   rgb_reg<1>
-                                                       rgb_next<1>107
+    SLICE_X21Y19.YQ      Tcko                  0.511   vga_sync_unit/v_count_reg_5_1
+                                                       vga_sync_unit/v_count_reg_5_1
+    SLICE_X31Y23.G1      net (fanout=8)        2.326   vga_sync_unit/v_count_reg_5_1
+    SLICE_X31Y23.Y       Tilo                  0.612   graph_unit/Mrom_not0000_rom000016
+                                                       graph_unit/Mrom_not0000_rom00001621
+    SLICE_X31Y23.F4      net (fanout=3)        0.060   graph_unit/N13
+    SLICE_X31Y23.X       Tilo                  0.612   graph_unit/Mrom_not0000_rom000016
+                                                       graph_unit/Mrom_not0000_rom0000161
+    SLICE_X31Y28.G4      net (fanout=4)        0.516   graph_unit/Mrom_not0000_rom000016
+    SLICE_X31Y28.F5      Tif5                  0.759   graph_unit/Mmux_Player2_rom_bit_6_f61
+                                                       graph_unit/Mmux_Player2_rom_bit_92
+                                                       graph_unit/Mmux_Player2_rom_bit_7_f5_0
+    SLICE_X31Y28.FXINA   net (fanout=1)        0.000   graph_unit/Mmux_Player2_rom_bit_7_f51
+    SLICE_X31Y28.Y       Tif6y                 0.451   graph_unit/Mmux_Player2_rom_bit_6_f61
+                                                       graph_unit/Mmux_Player2_rom_bit_6_f6_0
+    SLICE_X24Y24.G4      net (fanout=1)        0.602   graph_unit/Mmux_Player2_rom_bit_6_f61
+    SLICE_X24Y24.Y       Tilo                  0.660   N291
+                                                       graph_unit/_not0002<3>11
+    SLICE_X26Y22.F1      net (fanout=3)        0.427   graph_unit/Player2_rom_bit<2>
+    SLICE_X26Y22.X       Tilo                  0.660   graph_unit/rgb_and0002
+                                                       graph_unit/rgb_and00021
+    SLICE_X26Y24.G1      net (fanout=3)        0.402   graph_unit/rgb_and0002
+    SLICE_X26Y24.Y       Tilo                  0.660   rgb_next<1>145
+                                                       rgb_next<1>96_SW1
+    SLICE_X26Y24.F1      net (fanout=1)        0.381   rgb_next<1>96_SW1/O
+    SLICE_X26Y24.X       Tilo                  0.660   rgb_next<1>145
+                                                       rgb_next<1>145
+    SLICE_X23Y24.F1      net (fanout=1)        0.888   rgb_next<1>145
+    SLICE_X23Y24.CLK     Tfck                  0.728   rgb_reg<1>
+                                                       rgb_next<1>249
                                                        rgb_reg_1
     -------------------------------------------------  ---------------------------
-    Total                                     11.766ns (6.285ns logic, 5.481ns route)
-                                                       (53.4% logic, 46.6% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     28.306ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               graph_unit/bar_y_reg_3 (FF)
-  Destination:          rgb_reg_1 (FF)
-  Requirement:          40.000ns
-  Data Path Delay:      11.674ns (Levels of Logic = 8)
-  Clock Path Skew:      -0.020ns (0.023 - 0.043)
-  Source Clock:         clk rising at 0.000ns
-  Destination Clock:    clk rising at 40.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: graph_unit/bar_y_reg_3 to rgb_reg_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X12Y35.XQ      Tcko                  0.515   graph_unit/bar_y_reg<3>
-                                                       graph_unit/bar_y_reg_3
-    SLICE_X20Y34.G2      net (fanout=9)        1.848   graph_unit/bar_y_reg<3>
-    SLICE_X20Y34.Y       Tilo                  0.660   graph_unit/bar_y_reg_not00017
-                                                       graph_unit/Madd_bar_y_b_addsub0000_xor<9>121
-    SLICE_X23Y34.G3      net (fanout=3)        0.420   graph_unit/N18
-    SLICE_X23Y34.COUT    Topcyg                0.871   graph_unit/bar_y_b<6>
-                                                       graph_unit/Msub_bar_y_b_lut<7>
-                                                       graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.CIN     net (fanout=1)        0.000   graph_unit/Msub_bar_y_b_cy<7>
-    SLICE_X23Y35.Y       Tciny                 0.756   graph_unit/bar_y_b<8>
-                                                       graph_unit/Msub_bar_y_b_cy<8>
-                                                       graph_unit/Msub_bar_y_b_xor<9>
-    SLICE_X27Y40.G2      net (fanout=3)        0.896   graph_unit/bar_y_b<9>
-    SLICE_X27Y40.COUT    Topcyg                0.773   graph_unit/bar_on_cmp_le0003
-                                                       graph_unit/Mcompar_bar_on_cmp_le0003_cy<9>
-    SLICE_X25Y22.G2      net (fanout=3)        1.446   graph_unit/bar_on_cmp_le0003
-    SLICE_X25Y22.Y       Tilo                  0.612   rgb_next<0>201
-                                                       graph_unit/bar_on_and000039
-    SLICE_X26Y23.F3      net (fanout=5)        0.400   graph_unit/bar_on
-    SLICE_X26Y23.X       Tilo                  0.660   graph_on
-                                                       graph_unit/graph_on1
-    SLICE_X29Y23.G1      net (fanout=3)        0.457   graph_on
-    SLICE_X29Y23.Y       Tilo                  0.612   rgb_reg<1>
-                                                       rgb_next<1>9
-    SLICE_X29Y23.F4      net (fanout=1)        0.020   rgb_next<1>9/O
-    SLICE_X29Y23.CLK     Tfck                  0.728   rgb_reg<1>
-                                                       rgb_next<1>107
-                                                       rgb_reg_1
-    -------------------------------------------------  ---------------------------
-    Total                                     11.674ns (6.187ns logic, 5.487ns route)
+    Total                                     11.915ns (6.313ns logic, 5.602ns route)
                                                        (53.0% logic, 47.0% route)
 
 --------------------------------------------------------------------------------
@@ -490,84 +498,84 @@ Slack (setup path):     28.306ns (requirement - (data path - clock path skew + u
 Hold Paths: TS_clk = PERIOD TIMEGRP "clk" 40 ns HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point vga_sync_unit/mod2_reg (SLICE_X14Y19.BY), 1 path
+Paths for end point vga_sync_unit/h_count_reg_9 (SLICE_X12Y17.CE), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      1.066ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      1.023ns (requirement - (clock path skew + uncertainty - data path))
   Source:               vga_sync_unit/mod2_reg (FF)
-  Destination:          vga_sync_unit/mod2_reg (FF)
+  Destination:          vga_sync_unit/h_count_reg_9 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      1.066ns (Levels of Logic = 0)
+  Data Path Delay:      1.023ns (Levels of Logic = 0)
   Clock Path Skew:      0.000ns
   Source Clock:         clk rising at 40.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path: vga_sync_unit/mod2_reg to vga_sync_unit/mod2_reg
+  Minimum Data Path: vga_sync_unit/mod2_reg to vga_sync_unit/h_count_reg_9
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X14Y19.YQ      Tcko                  0.454   vga_sync_unit/mod2_reg
+    SLICE_X12Y16.YQ      Tcko                  0.454   vga_sync_unit/mod2_reg
                                                        vga_sync_unit/mod2_reg
-    SLICE_X14Y19.BY      net (fanout=18)       0.480   vga_sync_unit/mod2_reg
-    SLICE_X14Y19.CLK     Tckdi       (-Th)    -0.132   vga_sync_unit/mod2_reg
-                                                       vga_sync_unit/mod2_reg
+    SLICE_X12Y17.CE      net (fanout=20)       0.498   vga_sync_unit/mod2_reg
+    SLICE_X12Y17.CLK     Tckce       (-Th)    -0.071   vga_sync_unit/h_count_reg<9>
+                                                       vga_sync_unit/h_count_reg_9
     -------------------------------------------------  ---------------------------
-    Total                                      1.066ns (0.586ns logic, 0.480ns route)
-                                                       (55.0% logic, 45.0% route)
+    Total                                      1.023ns (0.525ns logic, 0.498ns route)
+                                                       (51.3% logic, 48.7% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point vga_sync_unit/h_count_reg_3 (SLICE_X15Y20.CE), 1 path
+Paths for end point vga_sync_unit/h_count_reg_8 (SLICE_X12Y17.CE), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      1.102ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      1.023ns (requirement - (clock path skew + uncertainty - data path))
   Source:               vga_sync_unit/mod2_reg (FF)
-  Destination:          vga_sync_unit/h_count_reg_3 (FF)
+  Destination:          vga_sync_unit/h_count_reg_8 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      1.102ns (Levels of Logic = 0)
+  Data Path Delay:      1.023ns (Levels of Logic = 0)
   Clock Path Skew:      0.000ns
   Source Clock:         clk rising at 40.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path: vga_sync_unit/mod2_reg to vga_sync_unit/h_count_reg_3
+  Minimum Data Path: vga_sync_unit/mod2_reg to vga_sync_unit/h_count_reg_8
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X14Y19.YQ      Tcko                  0.454   vga_sync_unit/mod2_reg
+    SLICE_X12Y16.YQ      Tcko                  0.454   vga_sync_unit/mod2_reg
                                                        vga_sync_unit/mod2_reg
-    SLICE_X15Y20.CE      net (fanout=18)       0.577   vga_sync_unit/mod2_reg
-    SLICE_X15Y20.CLK     Tckce       (-Th)    -0.071   vga_sync_unit/h_count_reg<3>
-                                                       vga_sync_unit/h_count_reg_3
+    SLICE_X12Y17.CE      net (fanout=20)       0.498   vga_sync_unit/mod2_reg
+    SLICE_X12Y17.CLK     Tckce       (-Th)    -0.071   vga_sync_unit/h_count_reg<9>
+                                                       vga_sync_unit/h_count_reg_8
     -------------------------------------------------  ---------------------------
-    Total                                      1.102ns (0.525ns logic, 0.577ns route)
-                                                       (47.6% logic, 52.4% route)
+    Total                                      1.023ns (0.525ns logic, 0.498ns route)
+                                                       (51.3% logic, 48.7% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point vga_sync_unit/h_count_reg_2 (SLICE_X15Y20.CE), 1 path
+Paths for end point vga_sync_unit/h_count_reg_8_1 (SLICE_X13Y19.CE), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      1.102ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      1.024ns (requirement - (clock path skew + uncertainty - data path))
   Source:               vga_sync_unit/mod2_reg (FF)
-  Destination:          vga_sync_unit/h_count_reg_2 (FF)
+  Destination:          vga_sync_unit/h_count_reg_8_1 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      1.102ns (Levels of Logic = 0)
-  Clock Path Skew:      0.000ns
+  Data Path Delay:      1.026ns (Levels of Logic = 0)
+  Clock Path Skew:      0.002ns (0.005 - 0.003)
   Source Clock:         clk rising at 40.000ns
   Destination Clock:    clk rising at 40.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path: vga_sync_unit/mod2_reg to vga_sync_unit/h_count_reg_2
+  Minimum Data Path: vga_sync_unit/mod2_reg to vga_sync_unit/h_count_reg_8_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X14Y19.YQ      Tcko                  0.454   vga_sync_unit/mod2_reg
+    SLICE_X12Y16.YQ      Tcko                  0.454   vga_sync_unit/mod2_reg
                                                        vga_sync_unit/mod2_reg
-    SLICE_X15Y20.CE      net (fanout=18)       0.577   vga_sync_unit/mod2_reg
-    SLICE_X15Y20.CLK     Tckce       (-Th)    -0.071   vga_sync_unit/h_count_reg<3>
-                                                       vga_sync_unit/h_count_reg_2
+    SLICE_X13Y19.CE      net (fanout=20)       0.501   vga_sync_unit/mod2_reg
+    SLICE_X13Y19.CLK     Tckce       (-Th)    -0.071   vga_sync_unit/h_count_reg_8_1
+                                                       vga_sync_unit/h_count_reg_8_1
     -------------------------------------------------  ---------------------------
-    Total                                      1.102ns (0.525ns logic, 0.577ns route)
-                                                       (47.6% logic, 52.4% route)
+    Total                                      1.026ns (0.525ns logic, 0.501ns route)
+                                                       (51.2% logic, 48.8% route)
 
 --------------------------------------------------------------------------------
 
@@ -577,27 +585,27 @@ Slack: 37.224ns (period - (min low pulse limit / (low pulse / period)))
   Period: 40.000ns
   Low pulse: 20.000ns
   Low pulse limit: 1.388ns (Trpw)
-  Physical resource: ball_reg<0>/SR
-  Logical resource: ball_reg_0/SR
-  Location pin: SLICE_X24Y26.SR
+  Physical resource: state_reg_FSM_FFd1/SR
+  Logical resource: state_reg_FSM_FFd1/SR
+  Location pin: SLICE_X12Y29.SR
   Clock network: reset_IBUF
 --------------------------------------------------------------------------------
 Slack: 37.224ns (period - (min high pulse limit / (high pulse / period)))
   Period: 40.000ns
   High pulse: 20.000ns
   High pulse limit: 1.388ns (Trpw)
-  Physical resource: ball_reg<0>/SR
-  Logical resource: ball_reg_0/SR
-  Location pin: SLICE_X24Y26.SR
+  Physical resource: state_reg_FSM_FFd1/SR
+  Logical resource: state_reg_FSM_FFd1/SR
+  Location pin: SLICE_X12Y29.SR
   Clock network: reset_IBUF
 --------------------------------------------------------------------------------
 Slack: 37.224ns (period - (min low pulse limit / (low pulse / period)))
   Period: 40.000ns
   Low pulse: 20.000ns
   Low pulse limit: 1.388ns (Trpw)
-  Physical resource: rgb_reg<0>/SR
-  Logical resource: rgb_reg_0/SR
-  Location pin: SLICE_X26Y22.SR
+  Physical resource: ball_reg<0>/SR
+  Logical resource: ball_reg_0/SR
+  Location pin: SLICE_X16Y27.SR
   Clock network: reset_IBUF
 --------------------------------------------------------------------------------
 
@@ -614,7 +622,7 @@ Clock to Setup on destination clock clock
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clock          |   12.459|         |         |         |
+clock          |   13.067|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -623,16 +631,16 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 55591 paths, 0 nets, and 2115 connections
+Constraints cover 81590 paths, 0 nets, and 2977 connections
 
 Design statistics:
-   Minimum period:  12.459ns{1}   (Maximum frequency:  80.263MHz)
+   Minimum period:  13.067ns{1}   (Maximum frequency:  76.529MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Tue Dec 15 09:57:55 2020 
+Analysis completed Wed Dec 16 21:19:39 2020 
 --------------------------------------------------------------------------------
 
 Trace Settings:

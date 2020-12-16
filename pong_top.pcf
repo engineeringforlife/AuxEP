@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.58f on Tue Dec 15 09:57:45 2020
+// Written by: Map P.58f on Wed Dec 16 21:19:29 2020
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -56,14 +56,20 @@ TIMEGRP clk = BEL "ball_reg_0" BEL "ball_reg_1" BEL "rgb_reg_0" BEL
         "graph_unit/ball_x_reg_6" BEL "graph_unit/ball_x_reg_5" BEL
         "graph_unit/ball_x_reg_4" BEL "graph_unit/ball_x_reg_3" BEL
         "graph_unit/ball_x_reg_2" BEL "graph_unit/ball_x_reg_1" BEL
-        "graph_unit/ball_x_reg_0" BEL "vga_sync_unit/h_count_reg_6_1" BEL
-        "vga_sync_unit/v_count_reg_1_1" BEL "vga_sync_unit/v_count_reg_3_1"
+        "graph_unit/ball_x_reg_0" BEL "vga_sync_unit/v_count_reg_9_1" BEL
+        "vga_sync_unit/h_count_reg_1_1" BEL "vga_sync_unit/h_count_reg_6_1"
+        BEL "vga_sync_unit/h_count_reg_7_1" BEL
+        "vga_sync_unit/v_count_reg_4_1" BEL "vga_sync_unit/v_count_reg_3_1"
         BEL "vga_sync_unit/v_count_reg_2_1" BEL
-        "vga_sync_unit/h_count_reg_7_1" BEL "vga_sync_unit/h_count_reg_8_1"
-        BEL "vga_sync_unit/h_count_reg_1_1" BEL
-        "vga_sync_unit/h_count_reg_4_1" BEL "vga_sync_unit/h_count_reg_3_1"
-        BEL "vga_sync_unit/h_count_reg_2_1" BEL
-        "vga_sync_unit/v_count_reg_4_1" BEL "vga_sync_unit/v_count_reg_5_1"
+        "vga_sync_unit/v_count_reg_7_1" BEL "vga_sync_unit/v_count_reg_6_1"
+        BEL "vga_sync_unit/v_count_reg_8_1" BEL
+        "vga_sync_unit/h_count_reg_2_1" BEL "vga_sync_unit/v_count_reg_1_1"
+        BEL "vga_sync_unit/v_count_reg_0_1" BEL
+        "vga_sync_unit/h_count_reg_5_1" BEL "vga_sync_unit/h_count_reg_8_1"
+        BEL "vga_sync_unit/h_count_reg_9_1" BEL
+        "vga_sync_unit/h_count_reg_3_1" BEL "vga_sync_unit/h_count_reg_4_1"
+        BEL "vga_sync_unit/v_count_reg_5_1" BEL
+        "vga_sync_unit/v_count_reg_1_2" BEL "vga_sync_unit/v_count_reg_2_2"
         BEL "text_unit/font_unit/Mrom_data_rom0000.A";
 TS_clk = PERIOD TIMEGRP "clk" 40 ns HIGH 50%;
 SCHEMATIC END;

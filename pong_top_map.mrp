@@ -9,23 +9,23 @@ Target Device  : xc3s100e
 Target Package : cp132
 Target Speed   : -5
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Tue Dec 15 09:57:44 2020
+Mapped Date    : Wed Dec 16 21:19:28 2020
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    0
+Number of warnings:    1
 Logic Utilization:
-  Number of Slice Flip Flops:            93 out of   1,920    4%
-  Number of 4 input LUTs:               575 out of   1,920   29%
+  Number of Slice Flip Flops:           102 out of   1,920    5%
+  Number of 4 input LUTs:               783 out of   1,920   40%
 Logic Distribution:
-  Number of occupied Slices:            323 out of     960   33%
-    Number of Slices containing only related logic:     323 out of     323 100%
-    Number of Slices containing unrelated logic:          0 out of     323   0%
+  Number of occupied Slices:            436 out of     960   45%
+    Number of Slices containing only related logic:     436 out of     436 100%
+    Number of Slices containing unrelated logic:          0 out of     436   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         599 out of   1,920   31%
-    Number used as logic:               575
-    Number used as a route-thru:         24
+  Total Number of 4 input LUTs:         810 out of   1,920   42%
+    Number used as logic:               783
+    Number used as a route-thru:         27
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
@@ -35,7 +35,7 @@ Logic Distribution:
   Number of BUFGMUXs:                     2 out of      24    8%
   Number of DCMs:                         1 out of       2   50%
 
-Average Fanout of Non-Clock Nets:                3.64
+Average Fanout of Non-Clock Nets:                3.86
 
 Peak Memory Usage:  4406 MB
 Total REAL time to MAP completion:  1 secs 
@@ -80,6 +80,9 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:Pack:266 - The function generator vga_sync_unit/video_on_and000032
+   failed to merge with F5 multiplexer rgb_next<2>195_SW1.  There is a conflict
+   for the FXMUX.  The design will exhibit suboptimal timing.
 
 Section 3 - Informational
 -------------------------
