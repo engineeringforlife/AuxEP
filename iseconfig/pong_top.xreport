@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2020-12-17T01:44:53</DateModified>
+  <DateModified>2020-12-17T17:18:28</DateModified>
   <ModuleName>pong_top</ModuleName>
-  <SummaryTimeStamp>2020-12-17T01:35:42</SummaryTimeStamp>
+  <SummaryTimeStamp>2020-12-17T17:15:25</SummaryTimeStamp>
   <SavedFilePath>D:/EletronicaProgravavel/pong_testes/iseconfig/pong_top.xreport</SavedFilePath>
   <ImplementationReportsDirectory>D:/EletronicaProgravavel/pong_testes\</ImplementationReportsDirectory>
   <DateInitialized>2020-12-04T12:23:22</DateInitialized>

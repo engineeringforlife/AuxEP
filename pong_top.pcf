@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.58f on Thu Dec 17 02:45:28 2020
+// Written by: Map P.58f on Thu Dec 17 18:21:24 2020
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -56,11 +56,21 @@ TIMEGRP ClockManager_unit_CLK2X_BUF = BEL "ball_reg_0" BEL "ball_reg_1" BEL
         "graph_unit/player1_y_reg_5" BEL "graph_unit/player1_y_reg_4" BEL
         "graph_unit/player1_y_reg_3" BEL "graph_unit/player1_y_reg_2" BEL
         "graph_unit/player1_y_reg_1" BEL "graph_unit/player1_y_reg_0" BEL
+        "graph_unit/player2_y_reg_9" BEL "graph_unit/player2_y_reg_8" BEL
+        "graph_unit/player2_y_reg_7" BEL "graph_unit/player2_y_reg_6" BEL
+        "graph_unit/player2_y_reg_5" BEL "graph_unit/player2_y_reg_4" BEL
+        "graph_unit/player2_y_reg_3" BEL "graph_unit/player2_y_reg_2" BEL
+        "graph_unit/player2_y_reg_1" BEL "graph_unit/player2_y_reg_0" BEL
         "graph_unit/player1_x_reg_9" BEL "graph_unit/player1_x_reg_8" BEL
         "graph_unit/player1_x_reg_7" BEL "graph_unit/player1_x_reg_6" BEL
         "graph_unit/player1_x_reg_5" BEL "graph_unit/player1_x_reg_4" BEL
         "graph_unit/player1_x_reg_3" BEL "graph_unit/player1_x_reg_2" BEL
         "graph_unit/player1_x_reg_1" BEL "graph_unit/player1_x_reg_0" BEL
+        "graph_unit/player2_x_reg_9" BEL "graph_unit/player2_x_reg_8" BEL
+        "graph_unit/player2_x_reg_7" BEL "graph_unit/player2_x_reg_6" BEL
+        "graph_unit/player2_x_reg_5" BEL "graph_unit/player2_x_reg_4" BEL
+        "graph_unit/player2_x_reg_3" BEL "graph_unit/player2_x_reg_2" BEL
+        "graph_unit/player2_x_reg_1" BEL "graph_unit/player2_x_reg_0" BEL
         "graph_unit/ball_y_reg_9" BEL "graph_unit/ball_y_reg_8" BEL
         "graph_unit/ball_y_reg_7" BEL "graph_unit/ball_y_reg_6" BEL
         "graph_unit/ball_y_reg_5" BEL "graph_unit/ball_y_reg_4" BEL
@@ -97,9 +107,9 @@ TIMEGRP ClockManager_unit_CLK2X_BUF = BEL "ball_reg_0" BEL "ball_reg_1" BEL
         "kb_code_unit/ps2_rx_unit/state_reg_FSM_FFd1" BEL
         "kb_code_unit/ps2_rx_unit/state_reg_FSM_FFd2" BEL
         "kb_code_unit/state_reg_0" BEL "vga_sync_unit/v_count_reg_3_1" BEL
-        "vga_sync_unit/v_count_reg_0_1" BEL "vga_sync_unit/v_count_reg_1_1"
-        BEL "graph_unit/player1_y_reg_0_1" BEL
-        "text_unit/font_unit/Mrom_data_rom0000.A" BEL
+        "vga_sync_unit/v_count_reg_2_1" BEL "vga_sync_unit/v_count_reg_0_1"
+        BEL "vga_sync_unit/v_count_reg_1_1" BEL "graph_unit/player2_y_reg_0_1"
+        BEL "text_unit/font_unit/Mrom_data_rom0000.A" BEL
         "ClockManager_unit/CLK2X_BUFG_INST.GCLKMUX" BEL
         "ClockManager_unit/CLK2X_BUFG_INST";
 PIN ClockManager_unit/DCM_SP_INST_pins<3> = BEL
