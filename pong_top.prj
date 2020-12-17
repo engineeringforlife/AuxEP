@@ -1,4 +1,6 @@
+vhdl work "../Projecto_BOX/EletronicaProgramavel/two_players/ps2_rx.vhd"
 vhdl work "../pong_game_basys2/pong_game_basys2/list_ch13_01_font_rom.vhd"
+vhdl work "../Projecto_BOX/EletronicaProgramavel/two_players/kb_code.vhd"
 vhdl work "../pong_game_basys2/pong_game_basys2/list_ch13_09_pong_timer.vhd"
 vhdl work "../pong_game_basys2/pong_game_basys2/list_ch13_08_pong_counter.vhd"
 vhdl work "../pong_game_basys2/pong_game_basys2/list_ch13_07_pong_graph.vhd"
