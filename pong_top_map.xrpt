@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Map" timeStamp="Thu Dec 17 18:21:24 2020">
+  <application stringID="Map" timeStamp="Fri Dec 18 11:35:20 2020">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -74,14 +74,14 @@
         <item stringID="MAP_TOTAL_CPU_TIME" value="1 secs "/>
       </section>
       <section stringID="MAP_SLICE_REPORTING">
-        <item AVAILABLE="1920" dataType="int" label="Number of Slice Registers" stringID="MAP_SLICE_REGISTERS" value="156">
-          <item dataType="int" label="Number of Slice Flip Flops" stringID="MAP_NUM_SLICE_FF" value="152"/>
+        <item AVAILABLE="1920" dataType="int" label="Number of Slice Registers" stringID="MAP_SLICE_REGISTERS" value="158">
+          <item dataType="int" label="Number of Slice Flip Flops" stringID="MAP_NUM_SLICE_FF" value="154"/>
           <item dataType="int" stringID="MAP_NUM_SLICE_LATCH" value="4"/>
         </item>
-        <item AVAILABLE="1920" dataType="int" label="Number of 4 input LUTs" stringID="MAP_NUM_4_INPUT_LUT" value="1379">
+        <item AVAILABLE="1920" dataType="int" label="Number of 4 input LUTs" stringID="MAP_NUM_4_INPUT_LUT" value="1353">
           <item dataType="int" label="Number of route-thrus" stringID="MAP_NUM_LUT_RT" value="52"/>
         </item>
-        <item AVAILABLE="960" dataType="int" label="Number of occupied Slices" stringID="MAP_OCCUPIED_SLICES" value="717">
+        <item AVAILABLE="960" dataType="int" label="Number of occupied Slices" stringID="MAP_OCCUPIED_SLICES" value="706">
           <item dataType="int" label="Number of Slices containing unrelated logic" stringID="MAP_NUM_SLICE_UNRELATED" value="0"/>
         </item>
       </section>

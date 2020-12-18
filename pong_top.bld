@@ -43,7 +43,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   1
 
-Total memory usage is 4403904 kilobytes
+Total memory usage is 4403832 kilobytes
 
 Writing NGD file "pong_top.ngd" ...
 Total REAL time to NGDBUILD completion:  2 sec
