@@ -3,13 +3,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: pong_top.prj
@@ -104,27 +104,36 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "D:/EletronicaProgravavel/Projecto_BOX/EletronicaProgramavel/two_players/ps2_rx.vhd" in Library work.
-Architecture arch of Entity ps2_rx is up to date.
-Compiling vhdl file "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_01_font_rom.vhd" in Library work.
-Architecture arch of Entity font_rom is up to date.
-Compiling vhdl file "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/ClockManager.vhd" in Library work.
-Architecture behavioral of Entity clockmanager is up to date.
-Compiling vhdl file "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch12_01_vga_sync.vhd" in Library work.
-Architecture arch of Entity vga_sync is up to date.
-Compiling vhdl file "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_06_pong_text.vhd" in Library work.
-Architecture arch of Entity pong_text is up to date.
-Compiling vhdl file "D:/EletronicaProgravavel/Projecto_BOX/EletronicaProgramavel/two_players/kb_code.vhd" in Library work.
-Architecture arch of Entity kb_code is up to date.
-Compiling vhdl file "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_07_pong_graph.vhd" in Library work.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/ps2_rx.vhd" in Library work.
+Entity <ps2_rx> compiled.
+Entity <ps2_rx> (Architecture <arch>) compiled.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/list_ch13_01_font_rom.vhd" in Library work.
+Entity <font_rom> compiled.
+Entity <font_rom> (Architecture <arch>) compiled.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/ClockManager.vhd" in Library work.
+Entity <clockmanager> compiled.
+Entity <clockmanager> (Architecture <BEHAVIORAL>) compiled.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/list_ch12_01_vga_sync.vhd" in Library work.
+Entity <vga_sync> compiled.
+Entity <vga_sync> (Architecture <arch>) compiled.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/list_ch13_06_pong_text.vhd" in Library work.
+Entity <pong_text> compiled.
+Entity <pong_text> (Architecture <arch>) compiled.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/kb_code.vhd" in Library work.
+Entity <kb_code> compiled.
+Entity <kb_code> (Architecture <arch>) compiled.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/list_ch13_07_pong_graph.vhd" in Library work.
 Entity <pong_graph> compiled.
 Entity <pong_graph> (Architecture <arch>) compiled.
-Compiling vhdl file "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_09_pong_timer.vhd" in Library work.
-Architecture arch of Entity timer is up to date.
-Compiling vhdl file "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_08_pong_counter.vhd" in Library work.
-Architecture arch of Entity m100_counter is up to date.
-Compiling vhdl file "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_10_pong_top.vhd" in Library work.
-Architecture arch of Entity pong_top is up to date.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/list_ch13_09_pong_timer.vhd" in Library work.
+Entity <timer> compiled.
+Entity <timer> (Architecture <arch>) compiled.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/list_ch13_08_pong_counter.vhd" in Library work.
+Entity <m100_counter> compiled.
+Entity <m100_counter> (Architecture <arch>) compiled.
+Compiling vhdl file "D:/EletronicaProgravavel/thematch/list_ch13_10_pong_top.vhd" in Library work.
+Entity <pong_top> compiled.
+Entity <pong_top> (Architecture <arch>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -194,7 +203,7 @@ Analyzing Entity <ps2_rx> in library <work> (Architecture <arch>).
 Entity <ps2_rx> analyzed. Unit <ps2_rx> generated.
 
 Analyzing Entity <pong_graph> in library <work> (Architecture <arch>).
-WARNING:Xst:819 - "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_07_pong_graph.vhd" line 785: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:819 - "D:/EletronicaProgravavel/thematch/list_ch13_07_pong_graph.vhd" line 785: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <Player1_rom_bit>, <Player2_rom_bit>, <Glove_P1L_rom_bit>, <Glove_PlR_rom_bit>, <Glove_P2L_rom_bit>, <Glove_P2R_rom_bit>
 Entity <pong_graph> analyzed. Unit <pong_graph> generated.
 
@@ -212,7 +221,7 @@ Entity <m100_counter> analyzed. Unit <m100_counter> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <vga_sync>.
-    Related source file is "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch12_01_vga_sync.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/list_ch12_01_vga_sync.vhd".
     Found 10-bit up counter for signal <h_count_reg>.
     Found 10-bit comparator greatequal for signal <h_sync_next$cmp_ge0000> created at line 90.
     Found 10-bit comparator lessequal for signal <h_sync_next$cmp_le0000> created at line 90.
@@ -232,7 +241,7 @@ Unit <vga_sync> synthesized.
 
 
 Synthesizing Unit <pong_graph>.
-    Related source file is "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_07_pong_graph.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/list_ch13_07_pong_graph.vhd".
 WARNING:Xst:647 - Input <btn<1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1780 - Signal <rd_player1_on> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <glove_y_t> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -412,7 +421,7 @@ Unit <pong_graph> synthesized.
 
 
 Synthesizing Unit <timer>.
-    Related source file is "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_09_pong_timer.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/list_ch13_09_pong_timer.vhd".
     Found 7-bit down counter for signal <timer_reg>.
     Summary:
 	inferred   1 Counter(s).
@@ -420,7 +429,7 @@ Unit <timer> synthesized.
 
 
 Synthesizing Unit <m100_counter>.
-    Related source file is "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_08_pong_counter.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/list_ch13_08_pong_counter.vhd".
     Found 4-bit register for signal <dig0_reg>.
     Found 4-bit adder for signal <dig0_reg$addsub0000> created at line 45.
     Found 4-bit register for signal <dig1_reg>.
@@ -432,7 +441,7 @@ Unit <m100_counter> synthesized.
 
 
 Synthesizing Unit <font_rom>.
-    Related source file is "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_01_font_rom.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/list_ch13_01_font_rom.vhd".
 WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 2048x8-bit ROM for signal <data$rom0000> created at line 2215.
     Found 11-bit register for signal <addr_reg>.
@@ -443,7 +452,7 @@ Unit <font_rom> synthesized.
 
 
 Synthesizing Unit <ps2_rx>.
-    Related source file is "D:/EletronicaProgravavel/Projecto_BOX/EletronicaProgramavel/two_players/ps2_rx.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/ps2_rx.vhd".
 WARNING:Xst:646 - Signal <b_reg<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found finite state machine <FSM_0> for signal <state_reg>.
     -----------------------------------------------------------------------
@@ -472,12 +481,12 @@ Unit <ps2_rx> synthesized.
 
 
 Synthesizing Unit <clockmanager>.
-    Related source file is "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/ClockManager.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/ClockManager.vhd".
 Unit <clockmanager> synthesized.
 
 
 Synthesizing Unit <pong_text>.
-    Related source file is "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_06_pong_text.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/list_ch13_06_pong_text.vhd".
     Found 64x7-bit ROM for signal <char_addr_r$rom0000> created at line 229.
     Found 16x7-bit ROM for signal <char_addr_o>.
     Found 1-bit 8-to-1 multiplexer for signal <font_bit>.
@@ -494,7 +503,7 @@ Unit <pong_text> synthesized.
 
 
 Synthesizing Unit <kb_code>.
-    Related source file is "D:/EletronicaProgravavel/Projecto_BOX/EletronicaProgramavel/two_players/kb_code.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/kb_code.vhd".
 WARNING:Xst:737 - Found 4-bit latch for signal <key_code>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Found 1-bit register for signal <state_reg<0>>.
     Summary:
@@ -503,7 +512,7 @@ Unit <kb_code> synthesized.
 
 
 Synthesizing Unit <pong_top>.
-    Related source file is "D:/EletronicaProgravavel/pong_game_basys2/pong_game_basys2/list_ch13_10_pong_top.vhd".
+    Related source file is "D:/EletronicaProgravavel/thematch/list_ch13_10_pong_top.vhd".
     Found finite state machine <FSM_1> for signal <state_reg>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
@@ -949,8 +958,8 @@ Offset:              4.182ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 16.00 secs
-Total CPU time to Xst completion: 16.18 secs
+Total REAL time to Xst completion: 18.00 secs
+Total CPU time to Xst completion: 17.08 secs
  
 --> 
 

@@ -5,13 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="MapLib" num="562" delta="old" >No environment variables are currently set.
+<msg type="info" file="MapLib" num="562" delta="new" >No environment variables are currently set.
 </msg>
 
-<msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">graph_unit/Mmux_Glove_P2L_rom_bit_10</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">graph_unit/Mmux_Glove_P2L_rom_bit_9_f5_0</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
+<msg type="warning" file="Pack" num="266" delta="new" >The function generator <arg fmt="%s" index="1">graph_unit/Mmux_Glove_P2L_rom_bit_10</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">graph_unit/Mmux_Glove_P2L_rom_bit_9_f5_0</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
 </msg>
 
-<msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">graph_unit/Mmux_Glove_PlR_rom_bit_10</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">graph_unit/Glove_P1L_rom_col&lt;3&gt;_9_f51</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
+<msg type="warning" file="Pack" num="266" delta="new" >The function generator <arg fmt="%s" index="1">graph_unit/Mmux_Glove_PlR_rom_bit_10</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">graph_unit/Glove_P1L_rom_col&lt;3&gt;_9_f51</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
 </msg>
 
 </messages>

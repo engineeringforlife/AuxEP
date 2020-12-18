@@ -1,7 +1,7 @@
 Release 14.5 par P.58f (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-F0RMQPM::  Fri Dec 18 11:35:22 2020
+DESKTOP-F0RMQPM::  Fri Dec 18 12:04:26 2020
 
 par -w -intstyle ise -ol high -t 1 pong_top_map.ncd pong_top.ncd pong_top.pcf 
 
@@ -100,13 +100,13 @@ Phase 10.5  Local Placement Optimization
 Phase 10.5  Local Placement Optimization (Checksum:48d25938) REAL time: 3 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:5fb426fd) REAL time: 4 secs 
+Phase 11.18  Placement Optimization (Checksum:5fb426fd) REAL time: 5 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:5fb426fd) REAL time: 4 secs 
+Phase 12.5  Local Placement Optimization (Checksum:5fb426fd) REAL time: 5 secs 
 
-Total REAL time to Placer completion: 4 secs 
-Total CPU  time to Placer completion: 4 secs 
+Total REAL time to Placer completion: 5 secs 
+Total CPU  time to Placer completion: 5 secs 
 Writing design to file pong_top.ncd
 
 
@@ -126,22 +126,22 @@ Phase  5  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     R
 
 Updating file: pong_top.ncd with current fully routed design.
 
-Phase  6  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 19 secs 
+Phase  6  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 20 secs 
 
-Phase  7  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 44 secs 
+Phase  7  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 45 secs 
 
-Phase  8  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 
+Phase  8  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 1 secs 
 
-Phase  9  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 23 secs 
+Phase  9  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 24 secs 
 
-Phase 10  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 23 secs 
+Phase 10  : 0 unrouted; (Setup:45409, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 24 secs 
 
-Phase 11  : 0 unrouted; (Setup:45380, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 23 secs 
+Phase 11  : 0 unrouted; (Setup:45380, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 24 secs 
 WARNING:Route:455 - CLK Net:kb_code_unit/ps2_rx_unit/state_reg_FSM_FFd1 may have excessive skew because 
       0 CLK pins and 7 NON_CLK pins failed to route using a CLK template.
 
-Total REAL time to Router completion: 1 mins 23 secs 
-Total CPU time to Router completion: 1 mins 23 secs 
+Total REAL time to Router completion: 1 mins 24 secs 
+Total CPU time to Router completion: 1 mins 24 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -232,8 +232,8 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 1 mins 23 secs 
-Total CPU time to PAR completion: 1 mins 23 secs 
+Total REAL time to PAR completion: 1 mins 24 secs 
+Total CPU time to PAR completion: 1 mins 24 secs 
 
 Peak Memory Usage:  4412 MB
 

@@ -4,6 +4,7 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 C:\Xilinx\14.5\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 5
 -n 3 -fastpaths -xml pong_top.twx pong_top.ncd -o pong_top.twr pong_top.pcf
+-ucf DigBasys2.ucf
 
 Design file:              pong_top.ncd
 Physical constraint file: pong_top.pcf
@@ -751,7 +752,7 @@ Design statistics:
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Fri Dec 18 11:36:49 2020 
+Analysis completed Fri Dec 18 12:05:54 2020 
 --------------------------------------------------------------------------------
 
 Trace Settings:
