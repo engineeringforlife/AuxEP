@@ -15,6 +15,22 @@ entity pong_graph is
 end pong_graph;
 
 architecture arch of pong_graph is
+
+	--Estados associados à luva esquerda do player 1
+	type P1Lstatetypes is (idle_P1L, punch_P1L, defense_P1L);
+	--Estados associados à luva direita do player 1
+	type P1Rstatetypes is (idle_P1R, punch_P1R, defense_P1R);
+	--Estados associados à luva esquerda do player 1
+	type P2Lstatetypes is (idle_P2L, punch_P2L, defense_P2L);
+	--Estados associados à luva esquerda do player 1
+	type P2Rstatetypes is (idle_P2R, punch_P2R, defense_P2R);
+	
+   signal Glove_P1L_state_reg, Glove_P1L_state_next: P1Lstatetypes;
+   signal Glove_P1R_state_reg, Glove_P1R_state_next: P1Rstatetypes;
+	signal Glove_P2L_state_reg, Glove_P2L_state_next: P2Lstatetypes;
+	signal Glove_P2R_state_reg, Glove_P2R_state_next: P2Rstatetypes;
+	
+
    signal pix_x, pix_y: unsigned(9 downto 0);
    constant MAX_X: integer:=640;
    constant MAX_Y: integer:=480;
@@ -115,10 +131,6 @@ architecture arch of pong_graph is
 	--velocidade negativa
    constant BALL_V_N: unsigned(9 downto 0):=unsigned(to_signed(-2,10));
 	
-	---------------------------------------------------------------------------
-	---------------------------------------------------------------------------
-
-
 
 	----------------------------------------------------------------
 	--PLAYERS
@@ -140,15 +152,18 @@ architecture arch of pong_graph is
 	
 	
 	--cordenadas dos cantos da luva direita do player 1
-   signal glove_PlR_x_l, glove_PlR_x_r: unsigned(9 downto 0);
-   signal glove_PlR_y_t, glove_PlR_y_b: unsigned(9 downto 0);
+   signal glove_plR_x_l, glove_plR_x_r: unsigned(9 downto 0);
+   signal glove_plR_y_t, glove_plR_y_b: unsigned(9 downto 0);
 	--Cordenadas do canto da luva esquerda do player 1
-   signal glove_P1R_x_reg, glove_P1R_x_next: unsigned(9 downto 0);
-   signal glove_P1R_y_reg, glove_P1R_y_next: unsigned(9 downto 0);
-	
-	
-	
-	
+   signal glove_p1R_x_reg, glove_p1R_x_next: unsigned(9 downto 0);
+   signal glove_p1R_y_reg, glove_p1R_y_next: unsigned(9 downto 0);
+--	signal glove_p1L_x_reg, glove_p1L_x_next: unsigned(9 downto 0);
+--   signal glove_p1L_y_reg, glove_p1L_y_next: unsigned(9 downto 0);
+--	signal player2_x_reg, player2_x_next: unsigned(9 downto 0);
+--   signal player2_y_reg, player2_y_next: unsigned(9 downto 0);
+--	signal glove_p2L_x_reg, glove_p2L_x_next: unsigned(9 downto 0);
+--   signal glove_p2L_y_reg, glove_p2L_y_next: unsigned(9 downto 0);
+--	
 	-----------------------------------------------------------------
 	--cordenadas dos cantos do player 2
    signal player2_x_l, player2_x_r: unsigned(9 downto 0);
@@ -167,11 +182,11 @@ architecture arch of pong_graph is
 	
 	
 	--cordenadas dos cantos da luva direita do player 1
-   signal glove_P2R_x_l, glove_P2R_x_r: unsigned(9 downto 0);
-   signal glove_P2R_y_t, glove_P2R_y_b: unsigned(9 downto 0);
+   signal glove_p2R_x_l, glove_p2R_x_r: unsigned(9 downto 0);
+   signal glove_p2R_y_t, glove_p2R_y_b: unsigned(9 downto 0);
 	--Cordenadas do canto da luva esquerda do player 1
-   signal glove_P2R_x_reg, glove_P2R_x_next: unsigned(9 downto 0);
-   signal glove_P2R_y_reg, glove_P2R_y_next: unsigned(9 downto 0);
+   signal glove_p2R_x_reg, glove_p2R_x_next: unsigned(9 downto 0);
+   signal glove_p2R_y_reg, glove_p2R_y_next: unsigned(9 downto 0);
 	
 	
 	
@@ -181,12 +196,9 @@ architecture arch of pong_graph is
 	type rom_player_tipe is array (0 to 31, 0 to 15) of std_logic_vector(2 downto 0);
 	
 	-----------------------------------------------------------
-	--LUVAS
+	--LUVASenso que não está em uso
 	-----------------------------------------------------------
-	
-	--Poderá ser necessario criar cordenadas para cada luva
-	--As posições devem ser relativas a cada jogador
-	
+		
 	--cordenadas dos cantos da luva
    signal glove_x_l, glove_x_r: unsigned(9 downto 0);
    signal glove_y_t, glove_y_b: unsigned(9 downto 0);
@@ -399,7 +411,6 @@ begin
    end process;
 	
 	
-	
 	   process (clk,reset)
    begin
       if reset='1' then
@@ -415,25 +426,54 @@ begin
       end if;
    end process;
 	
-
 	
 	
+	process (clk,reset)
+   begin
+      if reset='1' then
+         glove_p1R_x_reg <= "0000100000";
+			glove_p1R_y_reg <= "0000110000";
+			glove_p1L_x_reg <= "0000100000";
+			glove_p1L_y_reg <= "0000000000";
+			glove_p2R_x_reg <= "0000010000";
+			glove_p2R_y_reg <= "0000000000";
+			glove_p2L_x_reg <= "0000010000";
+			glove_p2L_y_reg <= "0000110000";
+      elsif (clk'event and clk='1') then
+         glove_p1R_x_reg <= glove_p1R_x_next;
+		 	glove_p1R_y_reg <= glove_p1R_y_next;
+         glove_p1L_x_reg <= glove_p1L_x_next;
+			glove_p1L_y_reg <= glove_p1L_y_next;
+			glove_p2R_x_reg <= glove_p2R_x_next;
+			glove_p2R_y_reg <= glove_p2R_y_next;
+			glove_p2L_x_reg <= glove_p2L_x_next;
+			glove_p2L_y_reg <= glove_p2L_y_next;
+      end if;
+   end process;
 	
 	
+	--processos associados aos estados do soco da luva esquerda do player 1
+	process (clk, reset)
+   begin
+      if reset='1' then
+         Glove_P1L_state_reg <= idle_P1L;
+			Glove_P1R_state_reg <= idle_P1R;
+			Glove_P2L_state_reg <= idle_P2L;
+			Glove_P2R_state_reg <= idle_P2R;
+      elsif (clk'event and clk='1') then
+         Glove_P1L_state_reg <= Glove_P1L_state_next;
+			Glove_P1R_state_reg <= Glove_P1R_state_next;
+			Glove_P2L_state_reg <= Glove_P2L_state_next;
+			Glove_P2R_state_reg <= Glove_P2R_state_next;
+      end if;
+   end process;
 	
    pix_x <= unsigned(pixel_x);
    pix_y <= unsigned(pixel_y);
    refr_tick <= '1' when (pix_y=481) and (pix_x=0) else
                 '0';
 					 
----------------------------------------------
----------------------------------------------
-   -- wall
-	-- codigo a alterado para configurar as balizas
---   wall_on <=
---      '1' when (WALL_X_L<=pix_x) and (pix_x<=WALL_X_R) else
---      '0';
---   wall_rgb <= "001"; -- blue
+
 -----------------------------------------------------------------------
 --Definição das balizas. Concluído..
 ----------------------------------------------------------------
@@ -466,8 +506,7 @@ begin
       if gra_still='1' then  --initial position of paddle
          bar_y_next <= to_unsigned((MAX_Y-BAR_Y_SIZE)/2,10);
       elsif refr_tick='1' then
-         --if btn(1)='1' and bar_y_b<(MAX_Y-1-BAR_V) then
-			if key_code="1000" and bar_y_b<(MAX_Y-1-BAR_V) then
+         if btn(1)='1' and bar_y_b<(MAX_Y-1-BAR_V) then
             bar_y_next <= bar_y_reg + BAR_V; -- move down
          elsif btn(0)='1' and bar_y_t > BAR_V then
             bar_y_next <= bar_y_reg - BAR_V; -- move up
@@ -483,9 +522,6 @@ begin
    ball_y_t <= ball_y_reg;
    ball_x_r <= ball_x_l + BALL_SIZE - 1;
    ball_y_b <= ball_y_t + BALL_SIZE - 1;
-	
-	
-	
 	
    sq_ball_on <=
 	
@@ -506,23 +542,12 @@ begin
 					else
       '0';
 		
-		
-		----------------------------------------------------------------------
-		
-		-- square player 1
-		--poderá não ser necessário
---   player1_x_l <= player1_x_reg;
---   player1_y_t <= player1_y_reg;
 
---	constant canto_player1_x		:	integer:= 100;
---	constant canto_player1_y		:	integer:= 100;
---	to_unsigned((MAX_Y-BAR_Y_SIZE)/2,10);
 
 ------------------------------------------------------------------------------
 --Posição do player1
 ------------------------------------------------------------------------------
 
---coloca o player na posição 100 100
 	player1_x_l <= player1_x_reg;
    player1_y_t <= player1_y_reg;
    player1_x_r <= player1_x_l + PLAYER_SIZE_X - 1;
@@ -535,46 +560,43 @@ begin
 			 else
       '0';
 		
-	process(player1_x_reg,player1_x_r,player1_x_l,player1_y_reg,player1_y_b,player1_y_t,refr_tick,key_code)
+	process(player1_x_reg,player1_x_r,player1_x_l,player1_y_reg,player1_y_b,player1_y_t,refr_tick,key_code,glove_p1L_y_next)
    begin
       player1_x_next <= player1_x_reg; -- no move
 		player1_y_next <= player1_y_reg;
-      
-	--	if refr_tick='1' then
+
          if key_code="0100" then
+			--	if(player1_y_b < player2_y_t) and () then
             player1_y_next <= player1_y_reg + 32; -- move down
-				--player1_y_next <= player1_y_reg + BAR_V; -- move down
+			--	end if;
          elsif key_code="0011" then
+			--	if(player1_y_t < player2_y_b) then
             player1_y_next <= player1_y_reg - 32; -- move up
-				--player1_y_next <= player1_y_reg - BAR_V; -- move up
+			--	end if;
 			elsif key_code="0010" then
+			--	if((player1_x_r < player2_x_l) and ((player1_y_b < player2_y_t) or (player1_y_t > player2_y_b))) then
+				if(player1_x_r + 64 <= player2_x_l) then
             player1_x_next <= player1_x_reg + 32; 
-				--player1_x_next <= player1_x_reg + BAR_V; 
+				end if;
 			elsif key_code="0001" then 
+			--	if(player1_x_l < player2_x_r) then
             player1_x_next <= player1_x_reg - 32; 	
-				--player1_x_next <= player1_x_reg + BAR_V; 
+			--	end if;
          end if;
-   --   end if;
    end process;
-	
-		
-	--player round
-	--Para alterar o tamanho deslocamos os bits pra a esquerda
+
    Player1_rom_addr <= pix_y(5 downto 1) - player1_y_t(5 downto 1);
    Player1_rom_col <= pix_x(4 downto 1) - player1_x_l(4 downto 1);
-	--ao alterar o "not" lemos os dados ao contrario
 	Player1_rom_bit<= PLAYER_1_ROM(to_integer(not Player1_rom_addr), to_integer( Player1_rom_col));
-	
+
 ----------------------------------------------------------
 --Posição do player 2
 ----------------------------------------------------------
 
---coloca o player na posição 100 100
 	player2_x_l <= player2_x_reg;
    player2_y_t <= player2_y_reg;
    player2_x_r <= player2_x_l + PLAYER_SIZE_X - 1;
    player2_y_b <= player2_y_t + PLAYER_SIZE_Y - 1;
-	
 	
    sq_player2_on <=
 		'1' when	((player2_x_l<=pix_x) and (pix_x<=player2_x_r) and
@@ -582,132 +604,231 @@ begin
 					
 			 else
       '0';
-		
-		
-			process(player2_x_reg, player2_x_r, player2_x_l, player2_y_reg, player2_y_b, player2_y_t, refr_tick, key_code)
+
+	process(player2_x_reg, player2_x_r, player2_x_l, player2_y_reg, player2_y_b, 
+	player2_y_t, refr_tick, key_code, glove_p1L_x_r, glove_p1L_y_t, glove_p2R_y_t, glove_p2R_y_b)
    begin
       player2_x_next <= player2_x_reg; -- no move
 		player2_y_next <= player2_y_reg;
       
---		if refr_tick='1' then
          if key_code="1000" then
-            -- player2_y_next <= player2_y_reg + BAR_V; -- move down
 				player2_y_next <= player2_y_reg + 32; -- move down
          elsif key_code="0111" then
-				--player2_y_next <= player2_y_reg - BAR_V; -- move up
 				player2_y_next <= player2_y_reg - 32; -- move up
 			elsif key_code="1001" then
-            --player2_x_next <= player2_x_reg + BAR_V; 
 				player2_x_next <= player2_x_reg + 32; 
 			elsif key_code="1010" then 
-            --player2_x_next <= player2_x_reg - BAR_V; 	
-				player2_x_next <= player2_x_reg - 32; 	
+				if(player2_x_l >= player1_x_r + 64) then
+					player2_x_next <= player2_x_reg - 32;
+				end if;
          end if;
---      end if;
+			
+			--caso leve um soco recua
+			if(glove_p1L_x_r >= player2_x_l) then
+				if (glove_p1L_y_t > player2_y_t) then
+					if (glove_p1L_y_t < player2_y_b) then
+						player2_x_next <= player2_y_reg + 32;
+					end if;
+				end if;
+			end if;
    end process;
 		
-	--player round
-	--Para alterar o tamanho deslocamos os bits pra a esquerda
    Player2_rom_addr <= pix_y(5 downto 1) - player2_y_t(5 downto 1);
    Player2_rom_col <= pix_x(4 downto 1) - player2_x_l(4 downto 1);
-	--ao alterar o "not" lemos os dados ao contrario
 	Player2_rom_bit<= PLAYER_2_ROM(to_integer(not Player2_rom_addr), to_integer(not Player2_rom_col));
 	
 	
 	
 ----------------------------------------------------------
---Posição da luva
+--Posição da luva  esquerda do player 1
 ----------------------------------------------------------
-	
-	--luva esquerda do player 1
-	--A ideia é que a posição da luva seja sempre relativa ao player
-   glove_p1L_x_l <= player1_x_l + 32;
-   glove_p1L_y_t <= player1_y_t;
+
+		glove_p1L_x_l <= player1_x_l + glove_p1L_x_reg;
+	--valor inicial = 0
+	glove_p1L_y_t <= player1_y_t + glove_p1L_y_reg;
    glove_p1L_x_r <= glove_p1L_x_l + GLOVE_SIZE_X - 1;
    glove_p1L_y_b <= glove_p1L_y_t + GLOVE_SIZE_X - 1;
 	
-	
    glove_L_P1L_on <=
-						--Luva esquerda p1
 		'1' when	((glove_p1L_x_l<=pix_x) and (pix_x<=glove_p1L_x_r) and
                (glove_p1L_y_t<=pix_y) and (pix_y<=glove_p1L_y_b))
---						--Luva direita p1
---					((G_R_P1X<=pix_x) and (pix_x<=G_R_P1X_S) and
---               (G_R_P1Y<=pix_y) and (pix_y<=G_R_P1Y_S))  or
---					   --Luva esquerda p2
---					((G_L_P2X<=pix_x) and (pix_x<=G_L_P2X_S) and
---               (G_L_P2Y<=pix_y) and (pix_y<=G_L_P2Y_S)) or
---					   --Luva direita p2
---					((G_L_P2X+32<=pix_x) and (pix_x<=G_L_P2X_S+32) and
---               (G_L_P2Y+32<=pix_y) and (pix_y<=G_L_P2Y_S+32))
-					
+				
 			 else
       '0';
+
+--Glove_P1R_state_reg
+	process (Glove_P1L_state_reg, glove_p1L_x_reg, glove_p1L_y_reg, key_code, Glove_P1L_state_next, glove_p1L_x_r, player2_x_l, player2_x_reg)
+	begin
+		Glove_P1L_state_next <= Glove_P1L_state_reg;
+		glove_p1L_x_next <= glove_p1L_x_reg;
+		glove_p1L_y_next <= glove_p1L_y_reg;
 		
-	--player round
-	--Para alterar o tamanho deslocamos os bits pra a esquerda
+		--player2_x_next <= player2_x_reg; -- no move
+		
+		
+		case Glove_P1L_state_reg is
+			when idle_P1L =>
+				if key_code="0101" then -- tecla correspondente à luva esquerda
+   			glove_p1L_x_next <= glove_p1L_x_reg + 32;
+					if(glove_p1L_x_r > player2_x_l)then
+				--	player2_x_next <= player2_x_reg + 32; 
+					end if;
+				Glove_P1L_state_next<=punch_P1L;
+				--alterar o código correspondente à luva
+				elsif key_code="1101" then
+				glove_p1L_y_next <= glove_p1L_y_reg + 16; 
+				Glove_P1L_state_next<=defense_P1L;
+				end if;
+			when punch_P1L =>
+				if key_code="0101" then -- aterar para a tecla corresponde te à luva esquerda
+				glove_p1L_x_next <= glove_p1L_x_reg - 32;
+				Glove_P1L_state_next<=idle_P1L;
+				elsif key_code="1101" then
+				glove_p1L_y_next <= glove_p1L_y_reg + 16; 
+				glove_p1L_x_next <= glove_p1L_x_reg - 32;
+				Glove_P1L_state_next <= defense_P1L;
+				end if;
+					
+			when defense_P1L =>
+				if key_code="1101" then
+				glove_p1L_y_next <= glove_p1L_y_reg - 16; 
+				Glove_P1L_state_next<=idle_P1L;
+				elsif key_code="0101" then
+				glove_p1L_y_next <= glove_p1L_y_reg - 16; 
+				glove_p1L_x_next <= glove_p1L_x_reg + 32;
+				Glove_P1L_state_next<=punch_P1L;
+				end if;
+			end case;
+	end process;
+
    Glove_P1L_rom_addr <= pix_y(3 downto 0) - player1_y_t(3 downto 0);
    Glove_P1L_rom_col <= pix_x(3 downto 0) - player1_x_l(3 downto 0);
-	--ao alterar o "not" lemos os dados ao contrario
 	Glove_P1L_rom_bit<= GLOVE_ROM(to_integer(not Glove_P1L_rom_addr), to_integer(Glove_P1L_rom_col));
 	
 	
-	--Luva direita do player 1
-	
-   glove_PlR_x_l <= player1_x_l + 32;
-   glove_PlR_y_t <= player1_y_t + 48;
-   glove_PlR_x_r <= glove_PlR_x_l + GLOVE_SIZE_X - 1;
-   glove_PlR_y_b <= glove_PlR_y_t + GLOVE_SIZE_X - 1;
-	
+----------------------------------------------------------
+--Posição da luva  direita do player 1
+----------------------------------------------------------
 
+   glove_plR_x_l <= player1_x_l + glove_p1R_x_reg;
+   glove_plR_y_t <= player1_y_t + glove_p1R_Y_reg;
+   glove_plR_x_r <= glove_plR_x_l + GLOVE_SIZE_X - 1;
+   glove_plR_y_b <= glove_plR_y_t + GLOVE_SIZE_X - 1;
+	
    glove_L_PlR_on <=
-		'1' when	((glove_PlR_x_l<=pix_x) and (pix_x<=glove_PlR_x_r) and
-               (glove_PlR_y_t<=pix_y) and (pix_y<=glove_PlR_y_b))			
+		'1' when	((glove_plR_x_l<=pix_x) and (pix_x<=glove_plR_x_r) and
+               (glove_plR_y_t<=pix_y) and (pix_y<=glove_plR_y_b))			
 			 else
       '0';
 		
-	
+	--Glove_P1R_state_reg
+	process (Glove_P1R_state_reg, glove_p1R_x_reg, key_code, Glove_P1R_state_next)
+	begin
+		Glove_P1R_state_next <= Glove_P1R_state_reg;
+		glove_p1R_x_next <= glove_p1R_x_reg;
+		glove_p1R_y_next <= glove_p1R_y_reg;
+		
+		case Glove_P1R_state_reg is
+			when idle_P1R =>
+				if key_code="0110" then -- tecla correspondente à luva esquerda
+				glove_p1R_x_next <= glove_p1R_x_reg + 32;
+				Glove_P1R_state_next<=punch_P1R;
+				elsif key_code="1101" then
+				glove_p1R_y_next <= glove_p1R_y_reg - 16; 
+				Glove_P1R_state_next<=defense_P1R;
+				end if;
+			when punch_P1R =>
+				if key_code="0110" then -- aterar para a tecla corresponde te à luva esquerda
+				glove_p1R_x_next <= glove_p1R_x_reg - 32;
+				Glove_P1R_state_next<=idle_P1R;
+				elsif key_code="1101" then
+				glove_p1R_y_next <= glove_p1R_y_reg - 16; 
+				glove_p1R_x_next <= glove_p1R_x_reg - 32;
+				Glove_P1R_state_next <= defense_P1R;
+				end if;			
+			when defense_P1R =>
+				if key_code="1101" then
+				glove_p1R_y_next <= glove_p1R_y_reg + 16; 
+				Glove_P1R_state_next<=idle_P1R;
+				elsif key_code="0110" then
+				glove_p1R_y_next <= glove_p1R_y_reg + 16; 
+				glove_p1R_x_next <= glove_p1R_x_reg + 32;
+				Glove_P1R_state_next<=punch_P1R;
+				end if;
+			end case;
+	end process;
+		
    Glove_PlR_rom_addr <= pix_y(3 downto 0) - player1_y_t(3 downto 0);
    Glove_PlR_rom_col <= pix_x(3 downto 0) - player1_x_l(3 downto 0);
-	--ao alterar o "not" lemos os dados ao contrario
 	Glove_PlR_rom_bit<= GLOVE_ROM(to_integer(Glove_PlR_rom_addr), to_integer(Glove_PlR_rom_col));
 	
---   Player1_rom_data <= PLAYER_1_ROM(to_integer(Player1_rom_addr));
---   Player1_rom_bit <= Player1_rom_data(to_integer(not Player1_rom_col));
---	
---   rd_ball_on <=
---      '1' when (sq_player1_on='1') and (Player1_rom_bit='1') else
---      '0';
---	--se for com mais cores já não é preciso definir a cor
---   ball_rgb <= "100";   -- red
+----------------------------------------------------------
+--Posição da luva  esquerda do player 2
+----------------------------------------------------------
 
 
-	--luva esquerda do player 2
---   glove_p2R_x_l <= glove_p2R_x_next;
---   glove_p2R_y_t <= glove_p2R_x_reg;
-
-   glove_p2L_x_l <= player2_x_l - 16;
-   glove_p2L_y_t <= player2_y_t + 48;
+   glove_p2L_x_l <= player2_x_l - glove_p2L_x_reg;
+   glove_p2L_y_t <= player2_y_t + glove_p2L_y_reg;
    glove_p2L_x_r <= glove_p2L_x_l + GLOVE_SIZE_X - 1;
    glove_p2L_y_b <= glove_p2L_y_t + GLOVE_SIZE_X - 1;
 	
-
    glove_L_P2_on <=
 		'1' when	((glove_p2L_x_l<=pix_x) and (pix_x<=glove_p2L_x_r) and
                (glove_p2L_y_t<=pix_y) and (pix_y<=glove_p2L_y_b))			
 			 else
       '0';
 		
-	--player round
-	--Para alterar o tamanho deslocamos os bits pra a esquerda
+		
+	--Glove_P1R_state_reg
+	process (Glove_P2L_state_reg, glove_p2L_x_reg, key_code, Glove_P2L_state_next)
+	begin
+		Glove_P2L_state_next <= Glove_P2L_state_reg;
+		glove_p2L_x_next <= glove_p2L_x_reg;
+		glove_p2L_y_next <= glove_p2L_y_reg;
+		
+		
+		case Glove_P2L_state_reg is
+			when idle_P2L =>
+				if key_code="1011" then -- tecla correspondente à luva esquerda
+				glove_p2L_x_next <= glove_p2L_x_reg + 32;
+				Glove_P2L_state_next<=punch_P2L;
+				elsif key_code="1101" then
+				glove_p2L_y_next <= glove_p2L_y_reg - 16; 
+				Glove_P2L_state_next<=defense_P2L;
+				end if;
+			when punch_P2L =>
+				if key_code="1011" then -- aterar para a tecla corresponde te à luva esquerda
+				glove_p2L_x_next <= glove_p2L_x_reg - 32;
+				Glove_P2L_state_next<=idle_P2L;
+				elsif key_code="1101" then
+				glove_p2L_y_next <= glove_p2L_y_reg - 16; 
+				glove_p2L_x_next <= glove_p2L_x_reg - 32;
+				Glove_P2L_state_next <= defense_P2L;
+				end if;			
+			when defense_P2L =>
+				if key_code="1101" then
+				glove_p2L_y_next <= glove_p2L_y_reg + 16; 
+				Glove_P2L_state_next<=idle_P2L;
+				elsif key_code="0110" then
+				glove_p2L_y_next <= glove_p2L_y_reg + 16; 
+				glove_p2L_x_next <= glove_p2L_x_reg + 32;
+				Glove_P2L_state_next<=punch_P2L;
+				end if;
+			end case;
+	end process;
+		
    Glove_P2L_rom_addr <= pix_y(3 downto 0) - player2_y_t(3 downto 0);
    Glove_P2L_rom_col <= pix_x(3 downto 0) - player2_x_l(3 downto 0);
-	--ao alterar o "not" lemos os dados ao contrario
 	Glove_P2L_rom_bit<= GLOVE_ROM(to_integer(Glove_P2L_rom_addr), to_integer(not Glove_P2L_rom_col));		
 	
 	
-	--luva direita do player 2
-   glove_p2R_x_l <= player2_x_l - 16;
+----------------------------------------------------------
+--Posição da luva  direita do player 2
+----------------------------------------------------------
+
+
+
+   glove_p2R_x_l <= player2_x_l - glove_p2R_x_reg;
    glove_p2R_y_t <= player2_y_t;
    glove_p2R_x_r <= glove_p2R_x_l + GLOVE_SIZE_X - 1;
    glove_p2R_y_b <= glove_p2R_y_t + GLOVE_SIZE_X - 1;
@@ -718,27 +839,68 @@ begin
 			 else
       '0';
 		
-	--player round
-	--Para alterar o tamanho deslocamos os bits pra a esquerda
+		
+		--Glove_P2R_state_reg
+	process (Glove_P2R_state_reg, glove_p2R_x_reg, key_code, Glove_P2R_state_next)
+	begin
+		Glove_P2R_state_next <= Glove_P2R_state_reg;
+		glove_p2R_x_next <= glove_p2R_x_reg;
+		glove_p2R_y_next <= glove_p2R_y_reg;
+		
+		case Glove_P2R_state_reg is
+			when idle_P2R =>
+				if key_code="1100" then -- tecla correspondente à luva esquerda
+				glove_p2R_x_next <= glove_p2R_x_reg + 32;
+				Glove_P2R_state_next<=punch_P2R;
+				elsif key_code="1101" then
+				glove_p2R_y_next <= glove_p2R_y_reg - 16; 
+				Glove_P2R_state_next<=defense_P2R;
+				end if;
+			when punch_P2R =>
+				if key_code="1100" then -- aterar para a tecla corresponde te à luva esquerda
+				glove_p2R_x_next <= glove_p2R_x_reg - 32;
+				Glove_P2R_state_next<=idle_P2R;
+				elsif key_code="1101" then
+				glove_p2R_y_next <= glove_p2R_y_reg - 16; 
+				glove_p2R_x_next <= glove_p2R_x_reg - 32;
+				Glove_P2R_state_next <= defense_P2R;
+				end if;
+			when defense_P2R =>
+				if key_code="1101" then
+				glove_p2R_y_next <= glove_p2R_y_reg + 16; 
+				Glove_P2R_state_next<=idle_P2R;
+				elsif key_code="0110" then
+				glove_p2R_y_next <= glove_p2R_y_reg + 16; 
+				glove_p2R_x_next <= glove_p2R_x_reg + 32;
+				Glove_P2R_state_next<=punch_P2R;
+				end if;
+			end case;
+	end process;
+		
    Glove_P2R_rom_addr <= pix_y(3 downto 0) - player2_y_t(3 downto 0);
    Glove_P2R_rom_col <= pix_x(3 downto 0) - player2_x_l(3 downto 0);
-	--ao alterar o "not" lemos os dados ao contrario
 	Glove_P2R_rom_bit<= GLOVE_ROM(to_integer(not Glove_P2R_rom_addr), to_integer(not Glove_P2R_rom_col));	
 	
-	--------------------------------------------------------------------------------
-		
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	------------------------------------
    -- round ball
-	--Para alterar o tamanho deslocamos os bits pra a esquerda
-	--como é que se garante que o rom adres e colum adress começa em 0?
+	------------------------------------
    rom_addr <= pix_y(2 downto 0) - ball_y_t(2 downto 0);
    rom_col <= pix_x(2 downto 0) - ball_x_l(2 downto 0);
-	--ao alterar o not lemos os dados ao contrario
    rom_data <= BALL_ROM(to_integer(rom_addr));
    rom_bit <= rom_data(to_integer(not rom_col));
    rd_ball_on <=
       '1' when (sq_ball_on='1') and (rom_bit='1') else
       '0';
-	--se for com mais cores já não é preciso definir a cor
    ball_rgb <= "100";   -- red
 	
 	

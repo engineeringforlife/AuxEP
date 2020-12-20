@@ -1,7 +1,7 @@
 Release 14.5 - par P.58f (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Fri Dec 18 12:05:51 2020
+Sun Dec 20 19:52:42 2020
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -88,7 +88,7 @@ Pinout by Pin Number:
 |G14       |outgreen<2>|IOB      |IO_L07P_1/A4/RHCLK6      |OUTPUT   |LVCMOS25*  |1             |8         |FAST     |NONE**     |         |       |LOCATED   |NO         |NONE            |
 |H1        |           |DIFFS    |IO_L06N_3/LHCLK5         |UNUSED   |           |3             |          |         |           |         |       |          |           |                |
 |H2        |           |DIFFM    |IO_L07P_3/LHCLK6         |UNUSED   |           |3             |          |         |           |         |       |          |           |                |
-|H3        |led        |IOB      |IO_L07N_3/LHCLK7         |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |       |UNLOCATED |NO         |NONE            |
+|H3        |           |DIFFS    |IO_L07N_3/LHCLK7         |UNUSED   |           |3             |          |         |           |         |       |          |           |                |
 |H12       |rgb<0>     |IOB      |IO_L06N_1/A5/RHCLK5      |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |       |UNLOCATED |NO         |NONE            |
 |H13       |outblue<0> |IOB      |IO_L06P_1/A6/RHCLK4/IRDY1|OUTPUT   |LVCMOS25*  |1             |8         |FAST     |NONE**     |         |       |LOCATED   |NO         |NONE            |
 |H14       |           |         |GND                      |         |           |              |          |         |           |         |       |          |           |                |
@@ -135,7 +135,7 @@ Pinout by Pin Number:
 |N9        |           |         |NC                       |         |           |              |          |         |           |         |       |          |           |                |
 |N10       |           |         |NC                       |         |           |              |          |         |           |         |       |          |           |                |
 |N11       |           |DIFFM    |IO_L10P_2/VS2/A19        |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
-|N12       |           |DIFFS    |IO_L11N_2/CCLK           |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
+|N12       |led        |IOB      |IO_L11N_2/CCLK           |OUTPUT   |LVCMOS25*  |2             |12        |SLOW     |NONE**     |         |       |UNLOCATED |NO         |NONE            |
 |N13       |           |DIFFM    |IO_L01P_1/A16            |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
 |N14       |           |DIFFS    |IO_L01N_1/A15            |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
 |P1        |           |DIFFM    |IO_L02P_2/DOUT/BUSY      |UNUSED   |           |2             |          |         |           |         |       |          |           |                |

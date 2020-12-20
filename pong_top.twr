@@ -76,521 +76,540 @@ Timing constraint: TS_ClockManager_unit_CLK2X_BUF = PERIOD TIMEGRP
 "ClockManager_unit_CLK2X_BUF"         TS_clock / 2 HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 144249 paths analyzed, 526 endpoints analyzed, 35 failing endpoints
- 35 timing errors detected. (35 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is  14.077ns.
+ 349019 paths analyzed, 797 endpoints analyzed, 56 failing endpoints
+ 56 timing errors detected. (56 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  14.182ns.
 --------------------------------------------------------------------------------
 
-Paths for end point rgb_reg_2 (SLICE_X23Y30.G4), 14333 paths
+Paths for end point rgb_reg_1 (SLICE_X19Y29.F3), 45181 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     -4.077ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_0_1 (FF)
-  Destination:          rgb_reg_2 (FF)
+Slack (setup path):     -4.182ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               graph_unit/player1_y_reg_2 (FF)
+  Destination:          rgb_reg_1 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      14.073ns (Levels of Logic = 11)
-  Clock Path Skew:      -0.004ns (0.032 - 0.036)
+  Data Path Delay:      14.182ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: vga_sync_unit/v_count_reg_0_1 to rgb_reg_2
+  Maximum Data Path: graph_unit/player1_y_reg_2 to rgb_reg_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y12.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_0_1
-                                                       vga_sync_unit/v_count_reg_0_1
-    SLICE_X26Y2.F2       net (fanout=13)       1.286   vga_sync_unit/v_count_reg_0_1
-    SLICE_X26Y2.X        Tilo                  0.660   graph_unit/Mcompar_glove_L_PlR_on_cmp_le0002_lut<0>
-                                                       graph_unit/Mcompar_glove_L_PlR_on_cmp_le0002_lut<0>
-    SLICE_X25Y4.G1       net (fanout=21)       0.680   graph_unit/Mcompar_glove_L_PlR_on_cmp_le0002_lut<0>
-    SLICE_X25Y4.Y        Tilo                  0.612   graph_unit/Glove_P1L_rom_bit_mux0011<0>
-                                                       graph_unit/Mrom_Glove_PlR_rom_addr_rom00001111
-    SLICE_X25Y6.G3       net (fanout=6)        0.299   graph_unit/Mrom_Glove_PlR_rom_addr_rom000011
-    SLICE_X25Y6.Y        Tilo                  0.612   N418
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10_SW0
-    SLICE_X16Y9.G1       net (fanout=1)        1.064   N416
-    SLICE_X16Y9.Y        Tilo                  0.660   graph_unit/Mmux_Glove_PlR_rom_bit_9_f5
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10
-    SLICE_X19Y9.F4       net (fanout=2)        0.283   graph_unit/Glove_P1L_rom_col<3>_104
-    SLICE_X19Y9.X        Tif5x                 0.890   graph_unit/Glove_P1L_rom_col<3>_9_f52
-                                                       graph_unit/Glove_P1L_rom_col<3>_104_rt
-                                                       graph_unit/Glove_P1L_rom_col<3>_9_f51
-    SLICE_X18Y8.G4       net (fanout=1)        0.075   graph_unit/Glove_P1L_rom_col<3>_9_f52
-    SLICE_X18Y8.X        Tif5x                 1.000   graph_unit/Glove_PlR_rom_bit<1>
-                                                       graph_unit/Glove_P1L_rom_col<3>1136_F
-                                                       graph_unit/Glove_P1L_rom_col<3>1136
-    SLICE_X20Y20.F1      net (fanout=3)        0.727   graph_unit/Glove_PlR_rom_bit<1>
-    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/rgb_and0004
-                                                       graph_unit/rgb_and00041
-    SLICE_X23Y24.F2      net (fanout=3)        0.843   graph_unit/rgb_and0004
-    SLICE_X23Y24.X       Tilo                  0.612   rgb_next<2>51
-                                                       rgb_next<2>51
-    SLICE_X22Y30.G3      net (fanout=1)        0.454   rgb_next<2>51
-    SLICE_X22Y30.Y       Tilo                  0.660   rgb_next<2>142
-                                                       rgb_next<2>93
-    SLICE_X22Y30.F4      net (fanout=1)        0.020   rgb_next<2>93/O
-    SLICE_X22Y30.X       Tilo                  0.660   rgb_next<2>142
-                                                       rgb_next<2>142
-    SLICE_X23Y30.G4      net (fanout=1)        0.021   rgb_next<2>142
-    SLICE_X23Y30.CLK     Tgck                  0.728   rgb_reg<2>
-                                                       rgb_next<2>242
-                                                       rgb_reg_2
+    SLICE_X28Y16.XQ      Tcko                  0.515   graph_unit/player1_y_reg<2>
+                                                       graph_unit/player1_y_reg_2
+    SLICE_X31Y10.G1      net (fanout=11)       1.148   graph_unit/player1_y_reg<2>
+    SLICE_X31Y10.COUT    Topcyg                0.871   graph_unit/glove_p1L_y_t<1>
+                                                       graph_unit/player1_y_reg<2>_rt
+                                                       graph_unit/Madd_glove_p1L_y_t_cy<2>
+    SLICE_X31Y11.CIN     net (fanout=1)        0.000   graph_unit/Madd_glove_p1L_y_t_cy<2>
+    SLICE_X31Y11.Y       Tciny                 0.756   graph_unit/glove_p1L_y_t<3>
+                                                       graph_unit/Madd_glove_p1L_y_t_cy<3>
+                                                       graph_unit/Madd_glove_p1L_y_t_xor<4>
+    SLICE_X29Y2.F3       net (fanout=9)        0.730   graph_unit/Madd_glove_p1L_y_b_addsub0000_cy<4>
+    SLICE_X29Y2.COUT     Topcyf                1.011   graph_unit/glove_p1L_y_b<4>
+                                                       graph_unit/Madd_glove_p1L_y_b_addsub0000_cy<4>_rt
+                                                       graph_unit/Msub_glove_p1L_y_b_cy<4>
+                                                       graph_unit/Msub_glove_p1L_y_b_cy<5>
+    SLICE_X29Y3.CIN      net (fanout=1)        0.000   graph_unit/Msub_glove_p1L_y_b_cy<5>
+    SLICE_X29Y3.Y        Tciny                 0.756   graph_unit/glove_p1L_y_b<6>
+                                                       graph_unit/Msub_glove_p1L_y_b_cy<6>
+                                                       graph_unit/Msub_glove_p1L_y_b_xor<7>
+    SLICE_X29Y8.G2       net (fanout=1)        0.746   graph_unit/glove_p1L_y_b<7>
+    SLICE_X29Y8.COUT     Topcyg                0.871   graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<7>
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_lut<7>
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<7>
+    SLICE_X29Y9.CIN      net (fanout=1)        0.000   graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<7>
+    SLICE_X29Y9.COUT     Tbyp                  0.103   graph_unit/glove_L_P1L_on_cmp_le0003
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<8>
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<9>
+    SLICE_X16Y21.G4      net (fanout=2)        1.383   graph_unit/glove_L_P1L_on_cmp_le0003
+    SLICE_X16Y21.Y       Tilo                  0.660   rgb_next<2>10
+                                                       graph_unit/glove_L_P1L_on_and00001
+    SLICE_X18Y16.F2      net (fanout=4)        0.562   graph_unit/glove_L_P1L_on
+    SLICE_X18Y16.X       Tilo                  0.660   N432
+                                                       graph_unit/graph_on23_SW0
+    SLICE_X16Y28.G1      net (fanout=1)        0.679   N432
+    SLICE_X16Y28.Y       Tilo                  0.660   N383
+                                                       rgb_next<1>177
+    SLICE_X18Y29.G4      net (fanout=1)        0.323   rgb_next<1>177
+    SLICE_X18Y29.X       Tif5x                 1.000   N408
+                                                       rgb_next<1>201_SW1_F
+                                                       rgb_next<1>201_SW1
+    SLICE_X19Y29.F3      net (fanout=1)        0.020   N408
+    SLICE_X19Y29.CLK     Tfck                  0.728   rgb_reg<1>
+                                                       rgb_next<1>249
+                                                       rgb_reg_1
     -------------------------------------------------  ---------------------------
-    Total                                     14.073ns (8.321ns logic, 5.752ns route)
-                                                       (59.1% logic, 40.9% route)
+    Total                                     14.182ns (8.591ns logic, 5.591ns route)
+                                                       (60.6% logic, 39.4% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -4.009ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_0_1 (FF)
-  Destination:          rgb_reg_2 (FF)
+Slack (setup path):     -4.125ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               graph_unit/player1_y_reg_2 (FF)
+  Destination:          rgb_reg_1 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      14.005ns (Levels of Logic = 11)
-  Clock Path Skew:      -0.004ns (0.032 - 0.036)
+  Data Path Delay:      14.125ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: vga_sync_unit/v_count_reg_0_1 to rgb_reg_2
+  Maximum Data Path: graph_unit/player1_y_reg_2 to rgb_reg_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y12.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_0_1
-                                                       vga_sync_unit/v_count_reg_0_1
-    SLICE_X24Y6.G1       net (fanout=13)       1.357   vga_sync_unit/v_count_reg_0_1
-    SLICE_X24Y6.Y        Tilo                  0.660   graph_unit/Msub_Glove_PlR_rom_addr_xor<3>11
-                                                       graph_unit/Msub_Glove_PlR_rom_addr_cy<1>11
-    SLICE_X25Y4.G2       net (fanout=19)       0.541   graph_unit/Msub_Glove_PlR_rom_addr_cy<1>
-    SLICE_X25Y4.Y        Tilo                  0.612   graph_unit/Glove_P1L_rom_bit_mux0011<0>
-                                                       graph_unit/Mrom_Glove_PlR_rom_addr_rom00001111
-    SLICE_X25Y6.G3       net (fanout=6)        0.299   graph_unit/Mrom_Glove_PlR_rom_addr_rom000011
-    SLICE_X25Y6.Y        Tilo                  0.612   N418
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10_SW0
-    SLICE_X16Y9.G1       net (fanout=1)        1.064   N416
-    SLICE_X16Y9.Y        Tilo                  0.660   graph_unit/Mmux_Glove_PlR_rom_bit_9_f5
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10
-    SLICE_X19Y9.F4       net (fanout=2)        0.283   graph_unit/Glove_P1L_rom_col<3>_104
-    SLICE_X19Y9.X        Tif5x                 0.890   graph_unit/Glove_P1L_rom_col<3>_9_f52
-                                                       graph_unit/Glove_P1L_rom_col<3>_104_rt
-                                                       graph_unit/Glove_P1L_rom_col<3>_9_f51
-    SLICE_X18Y8.G4       net (fanout=1)        0.075   graph_unit/Glove_P1L_rom_col<3>_9_f52
-    SLICE_X18Y8.X        Tif5x                 1.000   graph_unit/Glove_PlR_rom_bit<1>
-                                                       graph_unit/Glove_P1L_rom_col<3>1136_F
-                                                       graph_unit/Glove_P1L_rom_col<3>1136
-    SLICE_X20Y20.F1      net (fanout=3)        0.727   graph_unit/Glove_PlR_rom_bit<1>
-    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/rgb_and0004
-                                                       graph_unit/rgb_and00041
-    SLICE_X23Y24.F2      net (fanout=3)        0.843   graph_unit/rgb_and0004
-    SLICE_X23Y24.X       Tilo                  0.612   rgb_next<2>51
-                                                       rgb_next<2>51
-    SLICE_X22Y30.G3      net (fanout=1)        0.454   rgb_next<2>51
-    SLICE_X22Y30.Y       Tilo                  0.660   rgb_next<2>142
-                                                       rgb_next<2>93
-    SLICE_X22Y30.F4      net (fanout=1)        0.020   rgb_next<2>93/O
-    SLICE_X22Y30.X       Tilo                  0.660   rgb_next<2>142
-                                                       rgb_next<2>142
-    SLICE_X23Y30.G4      net (fanout=1)        0.021   rgb_next<2>142
-    SLICE_X23Y30.CLK     Tgck                  0.728   rgb_reg<2>
-                                                       rgb_next<2>242
-                                                       rgb_reg_2
+    SLICE_X28Y16.XQ      Tcko                  0.515   graph_unit/player1_y_reg<2>
+                                                       graph_unit/player1_y_reg_2
+    SLICE_X31Y10.G1      net (fanout=11)       1.148   graph_unit/player1_y_reg<2>
+    SLICE_X31Y10.COUT    Topcyg                0.871   graph_unit/glove_p1L_y_t<1>
+                                                       graph_unit/player1_y_reg<2>_rt
+                                                       graph_unit/Madd_glove_p1L_y_t_cy<2>
+    SLICE_X31Y11.CIN     net (fanout=1)        0.000   graph_unit/Madd_glove_p1L_y_t_cy<2>
+    SLICE_X31Y11.Y       Tciny                 0.756   graph_unit/glove_p1L_y_t<3>
+                                                       graph_unit/Madd_glove_p1L_y_t_cy<3>
+                                                       graph_unit/Madd_glove_p1L_y_t_xor<4>
+    SLICE_X29Y2.G2       net (fanout=9)        0.813   graph_unit/Madd_glove_p1L_y_b_addsub0000_cy<4>
+    SLICE_X29Y2.COUT     Topcyg                0.871   graph_unit/glove_p1L_y_b<4>
+                                                       graph_unit/Msub_glove_p1L_y_b_lut<5>
+                                                       graph_unit/Msub_glove_p1L_y_b_cy<5>
+    SLICE_X29Y3.CIN      net (fanout=1)        0.000   graph_unit/Msub_glove_p1L_y_b_cy<5>
+    SLICE_X29Y3.Y        Tciny                 0.756   graph_unit/glove_p1L_y_b<6>
+                                                       graph_unit/Msub_glove_p1L_y_b_cy<6>
+                                                       graph_unit/Msub_glove_p1L_y_b_xor<7>
+    SLICE_X29Y8.G2       net (fanout=1)        0.746   graph_unit/glove_p1L_y_b<7>
+    SLICE_X29Y8.COUT     Topcyg                0.871   graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<7>
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_lut<7>
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<7>
+    SLICE_X29Y9.CIN      net (fanout=1)        0.000   graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<7>
+    SLICE_X29Y9.COUT     Tbyp                  0.103   graph_unit/glove_L_P1L_on_cmp_le0003
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<8>
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0003_cy<9>
+    SLICE_X16Y21.G4      net (fanout=2)        1.383   graph_unit/glove_L_P1L_on_cmp_le0003
+    SLICE_X16Y21.Y       Tilo                  0.660   rgb_next<2>10
+                                                       graph_unit/glove_L_P1L_on_and00001
+    SLICE_X18Y16.F2      net (fanout=4)        0.562   graph_unit/glove_L_P1L_on
+    SLICE_X18Y16.X       Tilo                  0.660   N432
+                                                       graph_unit/graph_on23_SW0
+    SLICE_X16Y28.G1      net (fanout=1)        0.679   N432
+    SLICE_X16Y28.Y       Tilo                  0.660   N383
+                                                       rgb_next<1>177
+    SLICE_X18Y29.G4      net (fanout=1)        0.323   rgb_next<1>177
+    SLICE_X18Y29.X       Tif5x                 1.000   N408
+                                                       rgb_next<1>201_SW1_F
+                                                       rgb_next<1>201_SW1
+    SLICE_X19Y29.F3      net (fanout=1)        0.020   N408
+    SLICE_X19Y29.CLK     Tfck                  0.728   rgb_reg<1>
+                                                       rgb_next<1>249
+                                                       rgb_reg_1
     -------------------------------------------------  ---------------------------
-    Total                                     14.005ns (8.321ns logic, 5.684ns route)
-                                                       (59.4% logic, 40.6% route)
+    Total                                     14.125ns (8.451ns logic, 5.674ns route)
+                                                       (59.8% logic, 40.2% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.952ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_0_1 (FF)
-  Destination:          rgb_reg_2 (FF)
+Slack (setup path):     -4.104ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               graph_unit/player1_x_reg_1 (FF)
+  Destination:          rgb_reg_1 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      13.948ns (Levels of Logic = 11)
-  Clock Path Skew:      -0.004ns (0.032 - 0.036)
+  Data Path Delay:      14.102ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.002ns (0.036 - 0.038)
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: vga_sync_unit/v_count_reg_0_1 to rgb_reg_2
+  Maximum Data Path: graph_unit/player1_x_reg_1 to rgb_reg_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y12.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_0_1
-                                                       vga_sync_unit/v_count_reg_0_1
-    SLICE_X24Y6.G1       net (fanout=13)       1.357   vga_sync_unit/v_count_reg_0_1
-    SLICE_X24Y6.Y        Tilo                  0.660   graph_unit/Msub_Glove_PlR_rom_addr_xor<3>11
-                                                       graph_unit/Msub_Glove_PlR_rom_addr_cy<1>11
-    SLICE_X24Y9.G3       net (fanout=19)       0.369   graph_unit/Msub_Glove_PlR_rom_addr_cy<1>
-    SLICE_X24Y9.Y        Tilo                  0.660   graph_unit/Mrom_not0003_rom00004
-                                                       graph_unit/Msub_Glove_PlR_rom_addr_xor<2>11_1
-    SLICE_X25Y6.G2       net (fanout=11)       0.366   graph_unit/Msub_Glove_PlR_rom_addr_xor<2>11
-    SLICE_X25Y6.Y        Tilo                  0.612   N418
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10_SW0
-    SLICE_X16Y9.G1       net (fanout=1)        1.064   N416
-    SLICE_X16Y9.Y        Tilo                  0.660   graph_unit/Mmux_Glove_PlR_rom_bit_9_f5
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10
-    SLICE_X19Y9.F4       net (fanout=2)        0.283   graph_unit/Glove_P1L_rom_col<3>_104
-    SLICE_X19Y9.X        Tif5x                 0.890   graph_unit/Glove_P1L_rom_col<3>_9_f52
-                                                       graph_unit/Glove_P1L_rom_col<3>_104_rt
-                                                       graph_unit/Glove_P1L_rom_col<3>_9_f51
-    SLICE_X18Y8.G4       net (fanout=1)        0.075   graph_unit/Glove_P1L_rom_col<3>_9_f52
-    SLICE_X18Y8.X        Tif5x                 1.000   graph_unit/Glove_PlR_rom_bit<1>
-                                                       graph_unit/Glove_P1L_rom_col<3>1136_F
-                                                       graph_unit/Glove_P1L_rom_col<3>1136
-    SLICE_X20Y20.F1      net (fanout=3)        0.727   graph_unit/Glove_PlR_rom_bit<1>
-    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/rgb_and0004
-                                                       graph_unit/rgb_and00041
-    SLICE_X23Y24.F2      net (fanout=3)        0.843   graph_unit/rgb_and0004
-    SLICE_X23Y24.X       Tilo                  0.612   rgb_next<2>51
-                                                       rgb_next<2>51
-    SLICE_X22Y30.G3      net (fanout=1)        0.454   rgb_next<2>51
-    SLICE_X22Y30.Y       Tilo                  0.660   rgb_next<2>142
-                                                       rgb_next<2>93
-    SLICE_X22Y30.F4      net (fanout=1)        0.020   rgb_next<2>93/O
-    SLICE_X22Y30.X       Tilo                  0.660   rgb_next<2>142
-                                                       rgb_next<2>142
-    SLICE_X23Y30.G4      net (fanout=1)        0.021   rgb_next<2>142
-    SLICE_X23Y30.CLK     Tgck                  0.728   rgb_reg<2>
-                                                       rgb_next<2>242
-                                                       rgb_reg_2
+    SLICE_X24Y2.XQ       Tcko                  0.515   graph_unit/player1_x_reg<1>
+                                                       graph_unit/player1_x_reg_1
+    SLICE_X13Y0.F2       net (fanout=11)       0.616   graph_unit/player1_x_reg<1>
+    SLICE_X13Y0.COUT     Topcyf                1.011   graph_unit/glove_p1L_x_l<1>
+                                                       graph_unit/player1_x_reg<1>_rt
+                                                       graph_unit/Madd_glove_p1L_x_l_cy<1>
+                                                       graph_unit/Madd_glove_p1L_x_l_cy<2>
+    SLICE_X13Y1.CIN      net (fanout=1)        0.000   graph_unit/Madd_glove_p1L_x_l_cy<2>
+    SLICE_X13Y1.Y        Tciny                 0.756   graph_unit/glove_p1L_x_l<3>
+                                                       graph_unit/Madd_glove_p1L_x_l_cy<3>
+                                                       graph_unit/Madd_glove_p1L_x_l_xor<4>
+    SLICE_X12Y3.G4       net (fanout=7)        0.405   graph_unit/Madd_glove_p1L_x_r_addsub0000_cy<4>
+    SLICE_X12Y3.Y        Tilo                  0.660   N498
+                                                       graph_unit/glove_p1L_x_r_addsub0000<8>11_SW0
+    SLICE_X0Y6.F3        net (fanout=1)        0.583   N468
+    SLICE_X0Y6.Y         Topy                  1.506   graph_unit/glove_p1L_x_r<8>
+                                                       graph_unit/Msub_glove_p1L_x_r_lut<8>
+                                                       graph_unit/Msub_glove_p1L_x_r_cy<8>
+                                                       graph_unit/Msub_glove_p1L_x_r_xor<9>
+    SLICE_X3Y9.G1        net (fanout=2)        0.458   graph_unit/glove_p1L_x_r<9>
+    SLICE_X3Y9.COUT      Topcyg                0.871   graph_unit/glove_L_P1L_on_cmp_le0001
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0001_lut<9>
+                                                       graph_unit/Mcompar_glove_L_P1L_on_cmp_le0001_cy<9>
+    SLICE_X16Y21.G3      net (fanout=2)        1.429   graph_unit/glove_L_P1L_on_cmp_le0001
+    SLICE_X16Y21.Y       Tilo                  0.660   rgb_next<2>10
+                                                       graph_unit/glove_L_P1L_on_and00001
+    SLICE_X18Y16.F2      net (fanout=4)        0.562   graph_unit/glove_L_P1L_on
+    SLICE_X18Y16.X       Tilo                  0.660   N432
+                                                       graph_unit/graph_on23_SW0
+    SLICE_X16Y28.G1      net (fanout=1)        0.679   N432
+    SLICE_X16Y28.Y       Tilo                  0.660   N383
+                                                       rgb_next<1>177
+    SLICE_X18Y29.G4      net (fanout=1)        0.323   rgb_next<1>177
+    SLICE_X18Y29.X       Tif5x                 1.000   N408
+                                                       rgb_next<1>201_SW1_F
+                                                       rgb_next<1>201_SW1
+    SLICE_X19Y29.F3      net (fanout=1)        0.020   N408
+    SLICE_X19Y29.CLK     Tfck                  0.728   rgb_reg<1>
+                                                       rgb_next<1>249
+                                                       rgb_reg_1
     -------------------------------------------------  ---------------------------
-    Total                                     13.948ns (8.369ns logic, 5.579ns route)
-                                                       (60.0% logic, 40.0% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point rgb_reg_0 (SLICE_X23Y21.F4), 14589 paths
---------------------------------------------------------------------------------
-Slack (setup path):     -3.211ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_0_1 (FF)
-  Destination:          rgb_reg_0 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      13.209ns (Levels of Logic = 11)
-  Clock Path Skew:      -0.002ns (0.017 - 0.019)
-  Source Clock:         clk rising at 0.000ns
-  Destination Clock:    clk rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: vga_sync_unit/v_count_reg_0_1 to rgb_reg_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X20Y12.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_0_1
-                                                       vga_sync_unit/v_count_reg_0_1
-    SLICE_X26Y2.F2       net (fanout=13)       1.286   vga_sync_unit/v_count_reg_0_1
-    SLICE_X26Y2.X        Tilo                  0.660   graph_unit/Mcompar_glove_L_PlR_on_cmp_le0002_lut<0>
-                                                       graph_unit/Mcompar_glove_L_PlR_on_cmp_le0002_lut<0>
-    SLICE_X25Y4.G1       net (fanout=21)       0.680   graph_unit/Mcompar_glove_L_PlR_on_cmp_le0002_lut<0>
-    SLICE_X25Y4.Y        Tilo                  0.612   graph_unit/Glove_P1L_rom_bit_mux0011<0>
-                                                       graph_unit/Mrom_Glove_PlR_rom_addr_rom00001111
-    SLICE_X25Y6.G3       net (fanout=6)        0.299   graph_unit/Mrom_Glove_PlR_rom_addr_rom000011
-    SLICE_X25Y6.Y        Tilo                  0.612   N418
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10_SW0
-    SLICE_X16Y9.G1       net (fanout=1)        1.064   N416
-    SLICE_X16Y9.Y        Tilo                  0.660   graph_unit/Mmux_Glove_PlR_rom_bit_9_f5
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10
-    SLICE_X19Y9.F4       net (fanout=2)        0.283   graph_unit/Glove_P1L_rom_col<3>_104
-    SLICE_X19Y9.X        Tif5x                 0.890   graph_unit/Glove_P1L_rom_col<3>_9_f52
-                                                       graph_unit/Glove_P1L_rom_col<3>_104_rt
-                                                       graph_unit/Glove_P1L_rom_col<3>_9_f51
-    SLICE_X18Y8.G4       net (fanout=1)        0.075   graph_unit/Glove_P1L_rom_col<3>_9_f52
-    SLICE_X18Y8.X        Tif5x                 1.000   graph_unit/Glove_PlR_rom_bit<1>
-                                                       graph_unit/Glove_P1L_rom_col<3>1136_F
-                                                       graph_unit/Glove_P1L_rom_col<3>1136
-    SLICE_X20Y20.F1      net (fanout=3)        0.727   graph_unit/Glove_PlR_rom_bit<1>
-    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/rgb_and0004
-                                                       graph_unit/rgb_and00041
-    SLICE_X22Y20.G1      net (fanout=3)        0.413   graph_unit/rgb_and0004
-    SLICE_X22Y20.Y       Tilo                  0.660   N299
-                                                       rgb_next<0>59
-    SLICE_X22Y20.F4      net (fanout=1)        0.020   rgb_next<0>59/O
-    SLICE_X22Y20.X       Tilo                  0.660   N299
-                                                       rgb_next<0>148_SW0
-    SLICE_X23Y21.G4      net (fanout=1)        0.021   N299
-    SLICE_X23Y21.Y       Tilo                  0.612   rgb_reg<0>
-                                                       rgb_next<0>148
-    SLICE_X23Y21.F4      net (fanout=1)        0.020   rgb_next<0>148/O
-    SLICE_X23Y21.CLK     Tfck                  0.728   rgb_reg<0>
-                                                       rgb_next<0>243
-                                                       rgb_reg_0
-    -------------------------------------------------  ---------------------------
-    Total                                     13.209ns (8.321ns logic, 4.888ns route)
-                                                       (63.0% logic, 37.0% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -3.143ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_0_1 (FF)
-  Destination:          rgb_reg_0 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      13.141ns (Levels of Logic = 11)
-  Clock Path Skew:      -0.002ns (0.017 - 0.019)
-  Source Clock:         clk rising at 0.000ns
-  Destination Clock:    clk rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: vga_sync_unit/v_count_reg_0_1 to rgb_reg_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X20Y12.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_0_1
-                                                       vga_sync_unit/v_count_reg_0_1
-    SLICE_X24Y6.G1       net (fanout=13)       1.357   vga_sync_unit/v_count_reg_0_1
-    SLICE_X24Y6.Y        Tilo                  0.660   graph_unit/Msub_Glove_PlR_rom_addr_xor<3>11
-                                                       graph_unit/Msub_Glove_PlR_rom_addr_cy<1>11
-    SLICE_X25Y4.G2       net (fanout=19)       0.541   graph_unit/Msub_Glove_PlR_rom_addr_cy<1>
-    SLICE_X25Y4.Y        Tilo                  0.612   graph_unit/Glove_P1L_rom_bit_mux0011<0>
-                                                       graph_unit/Mrom_Glove_PlR_rom_addr_rom00001111
-    SLICE_X25Y6.G3       net (fanout=6)        0.299   graph_unit/Mrom_Glove_PlR_rom_addr_rom000011
-    SLICE_X25Y6.Y        Tilo                  0.612   N418
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10_SW0
-    SLICE_X16Y9.G1       net (fanout=1)        1.064   N416
-    SLICE_X16Y9.Y        Tilo                  0.660   graph_unit/Mmux_Glove_PlR_rom_bit_9_f5
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10
-    SLICE_X19Y9.F4       net (fanout=2)        0.283   graph_unit/Glove_P1L_rom_col<3>_104
-    SLICE_X19Y9.X        Tif5x                 0.890   graph_unit/Glove_P1L_rom_col<3>_9_f52
-                                                       graph_unit/Glove_P1L_rom_col<3>_104_rt
-                                                       graph_unit/Glove_P1L_rom_col<3>_9_f51
-    SLICE_X18Y8.G4       net (fanout=1)        0.075   graph_unit/Glove_P1L_rom_col<3>_9_f52
-    SLICE_X18Y8.X        Tif5x                 1.000   graph_unit/Glove_PlR_rom_bit<1>
-                                                       graph_unit/Glove_P1L_rom_col<3>1136_F
-                                                       graph_unit/Glove_P1L_rom_col<3>1136
-    SLICE_X20Y20.F1      net (fanout=3)        0.727   graph_unit/Glove_PlR_rom_bit<1>
-    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/rgb_and0004
-                                                       graph_unit/rgb_and00041
-    SLICE_X22Y20.G1      net (fanout=3)        0.413   graph_unit/rgb_and0004
-    SLICE_X22Y20.Y       Tilo                  0.660   N299
-                                                       rgb_next<0>59
-    SLICE_X22Y20.F4      net (fanout=1)        0.020   rgb_next<0>59/O
-    SLICE_X22Y20.X       Tilo                  0.660   N299
-                                                       rgb_next<0>148_SW0
-    SLICE_X23Y21.G4      net (fanout=1)        0.021   N299
-    SLICE_X23Y21.Y       Tilo                  0.612   rgb_reg<0>
-                                                       rgb_next<0>148
-    SLICE_X23Y21.F4      net (fanout=1)        0.020   rgb_next<0>148/O
-    SLICE_X23Y21.CLK     Tfck                  0.728   rgb_reg<0>
-                                                       rgb_next<0>243
-                                                       rgb_reg_0
-    -------------------------------------------------  ---------------------------
-    Total                                     13.141ns (8.321ns logic, 4.820ns route)
-                                                       (63.3% logic, 36.7% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -3.086ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_0_1 (FF)
-  Destination:          rgb_reg_0 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      13.084ns (Levels of Logic = 11)
-  Clock Path Skew:      -0.002ns (0.017 - 0.019)
-  Source Clock:         clk rising at 0.000ns
-  Destination Clock:    clk rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: vga_sync_unit/v_count_reg_0_1 to rgb_reg_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X20Y12.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_0_1
-                                                       vga_sync_unit/v_count_reg_0_1
-    SLICE_X24Y6.G1       net (fanout=13)       1.357   vga_sync_unit/v_count_reg_0_1
-    SLICE_X24Y6.Y        Tilo                  0.660   graph_unit/Msub_Glove_PlR_rom_addr_xor<3>11
-                                                       graph_unit/Msub_Glove_PlR_rom_addr_cy<1>11
-    SLICE_X24Y9.G3       net (fanout=19)       0.369   graph_unit/Msub_Glove_PlR_rom_addr_cy<1>
-    SLICE_X24Y9.Y        Tilo                  0.660   graph_unit/Mrom_not0003_rom00004
-                                                       graph_unit/Msub_Glove_PlR_rom_addr_xor<2>11_1
-    SLICE_X25Y6.G2       net (fanout=11)       0.366   graph_unit/Msub_Glove_PlR_rom_addr_xor<2>11
-    SLICE_X25Y6.Y        Tilo                  0.612   N418
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10_SW0
-    SLICE_X16Y9.G1       net (fanout=1)        1.064   N416
-    SLICE_X16Y9.Y        Tilo                  0.660   graph_unit/Mmux_Glove_PlR_rom_bit_9_f5
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10
-    SLICE_X19Y9.F4       net (fanout=2)        0.283   graph_unit/Glove_P1L_rom_col<3>_104
-    SLICE_X19Y9.X        Tif5x                 0.890   graph_unit/Glove_P1L_rom_col<3>_9_f52
-                                                       graph_unit/Glove_P1L_rom_col<3>_104_rt
-                                                       graph_unit/Glove_P1L_rom_col<3>_9_f51
-    SLICE_X18Y8.G4       net (fanout=1)        0.075   graph_unit/Glove_P1L_rom_col<3>_9_f52
-    SLICE_X18Y8.X        Tif5x                 1.000   graph_unit/Glove_PlR_rom_bit<1>
-                                                       graph_unit/Glove_P1L_rom_col<3>1136_F
-                                                       graph_unit/Glove_P1L_rom_col<3>1136
-    SLICE_X20Y20.F1      net (fanout=3)        0.727   graph_unit/Glove_PlR_rom_bit<1>
-    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/rgb_and0004
-                                                       graph_unit/rgb_and00041
-    SLICE_X22Y20.G1      net (fanout=3)        0.413   graph_unit/rgb_and0004
-    SLICE_X22Y20.Y       Tilo                  0.660   N299
-                                                       rgb_next<0>59
-    SLICE_X22Y20.F4      net (fanout=1)        0.020   rgb_next<0>59/O
-    SLICE_X22Y20.X       Tilo                  0.660   N299
-                                                       rgb_next<0>148_SW0
-    SLICE_X23Y21.G4      net (fanout=1)        0.021   N299
-    SLICE_X23Y21.Y       Tilo                  0.612   rgb_reg<0>
-                                                       rgb_next<0>148
-    SLICE_X23Y21.F4      net (fanout=1)        0.020   rgb_next<0>148/O
-    SLICE_X23Y21.CLK     Tfck                  0.728   rgb_reg<0>
-                                                       rgb_next<0>243
-                                                       rgb_reg_0
-    -------------------------------------------------  ---------------------------
-    Total                                     13.084ns (8.369ns logic, 4.715ns route)
+    Total                                     14.102ns (9.027ns logic, 5.075ns route)
                                                        (64.0% logic, 36.0% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point rgb_reg_1 (SLICE_X18Y26.F4), 21186 paths
+Paths for end point rgb_reg_0 (SLICE_X18Y30.BX), 44373 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.187ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_1_1 (FF)
-  Destination:          rgb_reg_1 (FF)
+Slack (setup path):     -4.009ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               graph_unit/player2_y_reg_3 (FF)
+  Destination:          rgb_reg_0 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      13.187ns (Levels of Logic = 10)
+  Data Path Delay:      14.006ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.003ns (0.021 - 0.024)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: graph_unit/player2_y_reg_3 to rgb_reg_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y25.YQ      Tcko                  0.511   graph_unit/player2_y_reg<2>
+                                                       graph_unit/player2_y_reg_3
+    SLICE_X24Y18.F3      net (fanout=9)        1.082   graph_unit/player2_y_reg<3>
+    SLICE_X24Y18.X       Tilo                  0.660   N428
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_cy<2>11_SW0
+    SLICE_X19Y20.F1      net (fanout=2)        0.651   N428
+    SLICE_X19Y20.X       Tilo                  0.612   graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11_1
+    SLICE_X20Y20.F3      net (fanout=9)        0.321   graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11
+    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+                                                       graph_unit/Mrom_Glove_P2L_rom_addr_rom0000211
+    SLICE_X18Y22.G4      net (fanout=1)        0.357   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+    SLICE_X18Y22.Y       Tilo                  0.660   N423
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.G1      net (fanout=2)        0.648   graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.Y       Tilo                  0.612   graph_unit/Mmux_Glove_P2R_rom_bit_9_f5
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_9_f51
+    SLICE_X16Y24.BX      net (fanout=1)        0.830   graph_unit/Mmux_Glove_P2L_rom_bit_9_f5
+    SLICE_X16Y24.X       Tbxx                  0.699   graph_unit/Glove_P2L_rom_bit<0>
+                                                       graph_unit/_not0004<3>1
+    SLICE_X15Y22.F2      net (fanout=2)        0.395   graph_unit/Glove_P2L_rom_bit<0>
+    SLICE_X15Y22.X       Tilo                  0.612   N413
+                                                       graph_unit/glove_L_P2_on_and00001_SW0
+    SLICE_X19Y24.G2      net (fanout=1)        0.529   N413
+    SLICE_X19Y24.Y       Tilo                  0.612   rgb_next<2>26
+                                                       graph_unit/rgb_and00051
+    SLICE_X20Y30.G3      net (fanout=3)        0.732   graph_unit/rgb_and0005
+    SLICE_X20Y30.Y       Tilo                  0.660   rgb_next<0>147
+                                                       rgb_next<0>59
+    SLICE_X20Y30.F2      net (fanout=1)        0.304   rgb_next<0>59/O
+    SLICE_X20Y30.X       Tilo                  0.660   rgb_next<0>147
+                                                       rgb_next<0>147
+    SLICE_X18Y30.BX      net (fanout=1)        0.384   rgb_next<0>147
+    SLICE_X18Y30.CLK     Tdick                 0.815   rgb_reg<0>
+                                                       rgb_next<0>242
+                                                       rgb_reg_0
+    -------------------------------------------------  ---------------------------
+    Total                                     14.006ns (7.773ns logic, 6.233ns route)
+                                                       (55.5% logic, 44.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -3.876ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_1_1 (FF)
+  Destination:          rgb_reg_0 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      13.876ns (Levels of Logic = 11)
   Clock Path Skew:      0.000ns
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: vga_sync_unit/v_count_reg_1_1 to rgb_reg_1
+  Maximum Data Path: vga_sync_unit/v_count_reg_1_1 to rgb_reg_0
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X26Y12.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_1_1
+    SLICE_X28Y21.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_1_1
                                                        vga_sync_unit/v_count_reg_1_1
-    SLICE_X18Y15.G3      net (fanout=14)       1.252   vga_sync_unit/v_count_reg_1_1
-    SLICE_X18Y15.Y       Tilo                  0.660   N326
+    SLICE_X19Y20.G2      net (fanout=13)       1.126   vga_sync_unit/v_count_reg_1_1
+    SLICE_X19Y20.Y       Tilo                  0.612   graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11
                                                        graph_unit/Msub_Glove_P2L_rom_addr_cy<1>11
-    SLICE_X20Y19.G3      net (fanout=14)       0.627   graph_unit/Msub_Glove_P2L_rom_addr_cy<1>
-    SLICE_X20Y19.Y       Tilo                  0.660   N177
-                                                       graph_unit/Msub_Glove_P2L_rom_addr_xor<2>11_1
-    SLICE_X20Y17.G3      net (fanout=8)        0.268   graph_unit/Msub_Glove_P2L_rom_addr_xor<2>11
-    SLICE_X20Y17.Y       Tilo                  0.660   graph_unit/Glove_P2L_rom_bit_mux0011<0>
-                                                       graph_unit/Mrom_not0005_rom000041
-    SLICE_X30Y14.G1      net (fanout=3)        0.964   graph_unit/Mrom_not0005_rom00004
-    SLICE_X30Y14.X       Tif5x                 1.000   graph_unit/Mmux_Glove_P2R_rom_bit_9_f51
-                                                       graph_unit/Mmux_Glove_P2R_rom_bit_11
-                                                       graph_unit/Mmux_Glove_P2R_rom_bit_9_f5_0
-    SLICE_X30Y13.F4      net (fanout=1)        0.271   graph_unit/Mmux_Glove_P2R_rom_bit_9_f51
-    SLICE_X30Y13.X       Tilo                  0.660   N441
-                                                       graph_unit/_not0004<3>1237_G
-    SLICE_X22Y23.G3      net (fanout=3)        1.043   N441
-    SLICE_X22Y23.X       Tif5x                 1.000   N273
-                                                       rgb_next<1>29_SW0_F
-                                                       rgb_next<1>29_SW0
-    SLICE_X18Y24.G3      net (fanout=1)        0.489   N273
-    SLICE_X18Y24.Y       Tilo                  0.660   rgb_next<1>54
-                                                       rgb_next<1>29
-    SLICE_X18Y24.F4      net (fanout=1)        0.020   rgb_next<1>29/O
-    SLICE_X18Y24.X       Tilo                  0.660   rgb_next<1>54
-                                                       rgb_next<1>54
-    SLICE_X18Y26.G3      net (fanout=1)        0.270   rgb_next<1>54
-    SLICE_X18Y26.Y       Tilo                  0.660   rgb_reg<1>
-                                                       rgb_next<1>145
-    SLICE_X18Y26.F4      net (fanout=1)        0.020   rgb_next<1>145/O
-    SLICE_X18Y26.CLK     Tfck                  0.776   rgb_reg<1>
-                                                       rgb_next<1>248
-                                                       rgb_reg_1
+    SLICE_X18Y20.G2      net (fanout=12)       0.188   graph_unit/Msub_Glove_P2L_rom_addr_cy<1>
+    SLICE_X18Y20.Y       Tilo                  0.660   graph_unit/Glove_P2L_rom_bit_mux0011<0>
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_xor<2>11
+    SLICE_X20Y20.F1      net (fanout=31)       0.554   graph_unit/Glove_P2L_rom_addr<2>
+    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+                                                       graph_unit/Mrom_Glove_P2L_rom_addr_rom0000211
+    SLICE_X18Y22.G4      net (fanout=1)        0.357   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+    SLICE_X18Y22.Y       Tilo                  0.660   N423
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.G1      net (fanout=2)        0.648   graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.Y       Tilo                  0.612   graph_unit/Mmux_Glove_P2R_rom_bit_9_f5
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_9_f51
+    SLICE_X16Y24.BX      net (fanout=1)        0.830   graph_unit/Mmux_Glove_P2L_rom_bit_9_f5
+    SLICE_X16Y24.X       Tbxx                  0.699   graph_unit/Glove_P2L_rom_bit<0>
+                                                       graph_unit/_not0004<3>1
+    SLICE_X15Y22.F2      net (fanout=2)        0.395   graph_unit/Glove_P2L_rom_bit<0>
+    SLICE_X15Y22.X       Tilo                  0.612   N413
+                                                       graph_unit/glove_L_P2_on_and00001_SW0
+    SLICE_X19Y24.G2      net (fanout=1)        0.529   N413
+    SLICE_X19Y24.Y       Tilo                  0.612   rgb_next<2>26
+                                                       graph_unit/rgb_and00051
+    SLICE_X20Y30.G3      net (fanout=3)        0.732   graph_unit/rgb_and0005
+    SLICE_X20Y30.Y       Tilo                  0.660   rgb_next<0>147
+                                                       rgb_next<0>59
+    SLICE_X20Y30.F2      net (fanout=1)        0.304   rgb_next<0>59/O
+    SLICE_X20Y30.X       Tilo                  0.660   rgb_next<0>147
+                                                       rgb_next<0>147
+    SLICE_X18Y30.BX      net (fanout=1)        0.384   rgb_next<0>147
+    SLICE_X18Y30.CLK     Tdick                 0.815   rgb_reg<0>
+                                                       rgb_next<0>242
+                                                       rgb_reg_0
     -------------------------------------------------  ---------------------------
-    Total                                     13.187ns (7.963ns logic, 5.224ns route)
-                                                       (60.4% logic, 39.6% route)
+    Total                                     13.876ns (7.829ns logic, 6.047ns route)
+                                                       (56.4% logic, 43.6% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.081ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               vga_sync_unit/v_count_reg_1_1 (FF)
-  Destination:          rgb_reg_1 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      13.081ns (Levels of Logic = 10)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk rising at 0.000ns
-  Destination Clock:    clk rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: vga_sync_unit/v_count_reg_1_1 to rgb_reg_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X26Y12.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_1_1
-                                                       vga_sync_unit/v_count_reg_1_1
-    SLICE_X18Y15.G3      net (fanout=14)       1.252   vga_sync_unit/v_count_reg_1_1
-    SLICE_X18Y15.Y       Tilo                  0.660   N326
-                                                       graph_unit/Msub_Glove_P2L_rom_addr_cy<1>11
-    SLICE_X20Y19.G3      net (fanout=14)       0.627   graph_unit/Msub_Glove_P2L_rom_addr_cy<1>
-    SLICE_X20Y19.Y       Tilo                  0.660   N177
-                                                       graph_unit/Msub_Glove_P2L_rom_addr_xor<2>11_1
-    SLICE_X20Y17.G3      net (fanout=8)        0.268   graph_unit/Msub_Glove_P2L_rom_addr_xor<2>11
-    SLICE_X20Y17.Y       Tilo                  0.660   graph_unit/Glove_P2L_rom_bit_mux0011<0>
-                                                       graph_unit/Mrom_not0005_rom000041
-    SLICE_X30Y14.G1      net (fanout=3)        0.964   graph_unit/Mrom_not0005_rom00004
-    SLICE_X30Y14.X       Tif5x                 1.000   graph_unit/Mmux_Glove_P2R_rom_bit_9_f51
-                                                       graph_unit/Mmux_Glove_P2R_rom_bit_11
-                                                       graph_unit/Mmux_Glove_P2R_rom_bit_9_f5_0
-    SLICE_X30Y13.F4      net (fanout=1)        0.271   graph_unit/Mmux_Glove_P2R_rom_bit_9_f51
-    SLICE_X30Y13.X       Tilo                  0.660   N441
-                                                       graph_unit/_not0004<3>1237_G
-    SLICE_X20Y23.F3      net (fanout=3)        1.070   N441
-    SLICE_X20Y23.X       Tif5x                 1.000   N274
-                                                       rgb_next<1>29_SW1_G
-                                                       rgb_next<1>29_SW1
-    SLICE_X18Y24.G4      net (fanout=1)        0.356   N274
-    SLICE_X18Y24.Y       Tilo                  0.660   rgb_next<1>54
-                                                       rgb_next<1>29
-    SLICE_X18Y24.F4      net (fanout=1)        0.020   rgb_next<1>29/O
-    SLICE_X18Y24.X       Tilo                  0.660   rgb_next<1>54
-                                                       rgb_next<1>54
-    SLICE_X18Y26.G3      net (fanout=1)        0.270   rgb_next<1>54
-    SLICE_X18Y26.Y       Tilo                  0.660   rgb_reg<1>
-                                                       rgb_next<1>145
-    SLICE_X18Y26.F4      net (fanout=1)        0.020   rgb_next<1>145/O
-    SLICE_X18Y26.CLK     Tfck                  0.776   rgb_reg<1>
-                                                       rgb_next<1>248
-                                                       rgb_reg_1
-    -------------------------------------------------  ---------------------------
-    Total                                     13.081ns (7.963ns logic, 5.118ns route)
-                                                       (60.9% logic, 39.1% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -2.997ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -3.856ns (requirement - (data path - clock path skew + uncertainty))
   Source:               vga_sync_unit/v_count_reg_0_1 (FF)
-  Destination:          rgb_reg_1 (FF)
+  Destination:          rgb_reg_0 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      12.997ns (Levels of Logic = 10)
+  Data Path Delay:      13.856ns (Levels of Logic = 11)
   Clock Path Skew:      0.000ns
   Source Clock:         clk rising at 0.000ns
   Destination Clock:    clk rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: vga_sync_unit/v_count_reg_0_1 to rgb_reg_1
+  Maximum Data Path: vga_sync_unit/v_count_reg_0_1 to rgb_reg_0
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X20Y12.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_0_1
+    SLICE_X24Y19.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_0_1
                                                        vga_sync_unit/v_count_reg_0_1
-    SLICE_X26Y2.F2       net (fanout=13)       1.286   vga_sync_unit/v_count_reg_0_1
-    SLICE_X26Y2.X        Tilo                  0.660   graph_unit/Mcompar_glove_L_PlR_on_cmp_le0002_lut<0>
-                                                       graph_unit/Mcompar_glove_L_PlR_on_cmp_le0002_lut<0>
-    SLICE_X25Y4.G1       net (fanout=21)       0.680   graph_unit/Mcompar_glove_L_PlR_on_cmp_le0002_lut<0>
-    SLICE_X25Y4.Y        Tilo                  0.612   graph_unit/Glove_P1L_rom_bit_mux0011<0>
-                                                       graph_unit/Mrom_Glove_PlR_rom_addr_rom00001111
-    SLICE_X25Y6.G3       net (fanout=6)        0.299   graph_unit/Mrom_Glove_PlR_rom_addr_rom000011
-    SLICE_X25Y6.Y        Tilo                  0.612   N418
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10_SW0
-    SLICE_X16Y9.G1       net (fanout=1)        1.064   N416
-    SLICE_X16Y9.Y        Tilo                  0.660   graph_unit/Mmux_Glove_PlR_rom_bit_9_f5
-                                                       graph_unit/Mmux_Glove_PlR_rom_bit_10
-    SLICE_X19Y9.F4       net (fanout=2)        0.283   graph_unit/Glove_P1L_rom_col<3>_104
-    SLICE_X19Y9.X        Tif5x                 0.890   graph_unit/Glove_P1L_rom_col<3>_9_f52
-                                                       graph_unit/Glove_P1L_rom_col<3>_104_rt
-                                                       graph_unit/Glove_P1L_rom_col<3>_9_f51
-    SLICE_X18Y8.G4       net (fanout=1)        0.075   graph_unit/Glove_P1L_rom_col<3>_9_f52
-    SLICE_X18Y8.X        Tif5x                 1.000   graph_unit/Glove_PlR_rom_bit<1>
-                                                       graph_unit/Glove_P1L_rom_col<3>1136_F
-                                                       graph_unit/Glove_P1L_rom_col<3>1136
-    SLICE_X20Y20.F1      net (fanout=3)        0.727   graph_unit/Glove_PlR_rom_bit<1>
-    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/rgb_and0004
-                                                       graph_unit/rgb_and00041
-    SLICE_X18Y24.F3      net (fanout=3)        0.536   graph_unit/rgb_and0004
-    SLICE_X18Y24.X       Tilo                  0.660   rgb_next<1>54
-                                                       rgb_next<1>54
-    SLICE_X18Y26.G3      net (fanout=1)        0.270   rgb_next<1>54
-    SLICE_X18Y26.Y       Tilo                  0.660   rgb_reg<1>
-                                                       rgb_next<1>145
-    SLICE_X18Y26.F4      net (fanout=1)        0.020   rgb_next<1>145/O
-    SLICE_X18Y26.CLK     Tfck                  0.776   rgb_reg<1>
-                                                       rgb_next<1>248
-                                                       rgb_reg_1
+    SLICE_X19Y20.G1      net (fanout=10)       1.106   vga_sync_unit/v_count_reg_0_1
+    SLICE_X19Y20.Y       Tilo                  0.612   graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_cy<1>11
+    SLICE_X18Y20.G2      net (fanout=12)       0.188   graph_unit/Msub_Glove_P2L_rom_addr_cy<1>
+    SLICE_X18Y20.Y       Tilo                  0.660   graph_unit/Glove_P2L_rom_bit_mux0011<0>
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_xor<2>11
+    SLICE_X20Y20.F1      net (fanout=31)       0.554   graph_unit/Glove_P2L_rom_addr<2>
+    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+                                                       graph_unit/Mrom_Glove_P2L_rom_addr_rom0000211
+    SLICE_X18Y22.G4      net (fanout=1)        0.357   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+    SLICE_X18Y22.Y       Tilo                  0.660   N423
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.G1      net (fanout=2)        0.648   graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.Y       Tilo                  0.612   graph_unit/Mmux_Glove_P2R_rom_bit_9_f5
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_9_f51
+    SLICE_X16Y24.BX      net (fanout=1)        0.830   graph_unit/Mmux_Glove_P2L_rom_bit_9_f5
+    SLICE_X16Y24.X       Tbxx                  0.699   graph_unit/Glove_P2L_rom_bit<0>
+                                                       graph_unit/_not0004<3>1
+    SLICE_X15Y22.F2      net (fanout=2)        0.395   graph_unit/Glove_P2L_rom_bit<0>
+    SLICE_X15Y22.X       Tilo                  0.612   N413
+                                                       graph_unit/glove_L_P2_on_and00001_SW0
+    SLICE_X19Y24.G2      net (fanout=1)        0.529   N413
+    SLICE_X19Y24.Y       Tilo                  0.612   rgb_next<2>26
+                                                       graph_unit/rgb_and00051
+    SLICE_X20Y30.G3      net (fanout=3)        0.732   graph_unit/rgb_and0005
+    SLICE_X20Y30.Y       Tilo                  0.660   rgb_next<0>147
+                                                       rgb_next<0>59
+    SLICE_X20Y30.F2      net (fanout=1)        0.304   rgb_next<0>59/O
+    SLICE_X20Y30.X       Tilo                  0.660   rgb_next<0>147
+                                                       rgb_next<0>147
+    SLICE_X18Y30.BX      net (fanout=1)        0.384   rgb_next<0>147
+    SLICE_X18Y30.CLK     Tdick                 0.815   rgb_reg<0>
+                                                       rgb_next<0>242
+                                                       rgb_reg_0
     -------------------------------------------------  ---------------------------
-    Total                                     12.997ns (7.757ns logic, 5.240ns route)
-                                                       (59.7% logic, 40.3% route)
+    Total                                     13.856ns (7.829ns logic, 6.027ns route)
+                                                       (56.5% logic, 43.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point rgb_reg_2 (SLICE_X20Y24.F4), 37832 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -3.547ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               graph_unit/player2_y_reg_3 (FF)
+  Destination:          rgb_reg_2 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      13.543ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.004ns (0.020 - 0.024)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: graph_unit/player2_y_reg_3 to rgb_reg_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y25.YQ      Tcko                  0.511   graph_unit/player2_y_reg<2>
+                                                       graph_unit/player2_y_reg_3
+    SLICE_X24Y18.F3      net (fanout=9)        1.082   graph_unit/player2_y_reg<3>
+    SLICE_X24Y18.X       Tilo                  0.660   N428
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_cy<2>11_SW0
+    SLICE_X19Y20.F1      net (fanout=2)        0.651   N428
+    SLICE_X19Y20.X       Tilo                  0.612   graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11_1
+    SLICE_X20Y20.F3      net (fanout=9)        0.321   graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11
+    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+                                                       graph_unit/Mrom_Glove_P2L_rom_addr_rom0000211
+    SLICE_X18Y22.G4      net (fanout=1)        0.357   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+    SLICE_X18Y22.Y       Tilo                  0.660   N423
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.G1      net (fanout=2)        0.648   graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.Y       Tilo                  0.612   graph_unit/Mmux_Glove_P2R_rom_bit_9_f5
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_9_f51
+    SLICE_X16Y24.BX      net (fanout=1)        0.830   graph_unit/Mmux_Glove_P2L_rom_bit_9_f5
+    SLICE_X16Y24.X       Tbxx                  0.699   graph_unit/Glove_P2L_rom_bit<0>
+                                                       graph_unit/_not0004<3>1
+    SLICE_X15Y22.F2      net (fanout=2)        0.395   graph_unit/Glove_P2L_rom_bit<0>
+    SLICE_X15Y22.X       Tilo                  0.612   N413
+                                                       graph_unit/glove_L_P2_on_and00001_SW0
+    SLICE_X19Y24.G2      net (fanout=1)        0.529   N413
+    SLICE_X19Y24.Y       Tilo                  0.612   rgb_next<2>26
+                                                       graph_unit/rgb_and00051
+    SLICE_X19Y24.F3      net (fanout=3)        0.033   graph_unit/rgb_and0005
+    SLICE_X19Y24.X       Tilo                  0.612   rgb_next<2>26
+                                                       rgb_next<2>26
+    SLICE_X21Y25.F3      net (fanout=1)        0.304   rgb_next<2>26
+    SLICE_X21Y25.X       Tilo                  0.612   rgb_next<2>51
+                                                       rgb_next<2>51
+    SLICE_X20Y24.G4      net (fanout=1)        0.075   rgb_next<2>51
+    SLICE_X20Y24.Y       Tilo                  0.660   rgb_reg<2>
+                                                       rgb_next<2>142
+    SLICE_X20Y24.F4      net (fanout=1)        0.020   rgb_next<2>142/O
+    SLICE_X20Y24.CLK     Tfck                  0.776   rgb_reg<2>
+                                                       rgb_next<2>243
+                                                       rgb_reg_2
+    -------------------------------------------------  ---------------------------
+    Total                                     13.543ns (8.298ns logic, 5.245ns route)
+                                                       (61.3% logic, 38.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -3.413ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_1_1 (FF)
+  Destination:          rgb_reg_2 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      13.413ns (Levels of Logic = 12)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_sync_unit/v_count_reg_1_1 to rgb_reg_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y21.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_1_1
+                                                       vga_sync_unit/v_count_reg_1_1
+    SLICE_X19Y20.G2      net (fanout=13)       1.126   vga_sync_unit/v_count_reg_1_1
+    SLICE_X19Y20.Y       Tilo                  0.612   graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_cy<1>11
+    SLICE_X18Y20.G2      net (fanout=12)       0.188   graph_unit/Msub_Glove_P2L_rom_addr_cy<1>
+    SLICE_X18Y20.Y       Tilo                  0.660   graph_unit/Glove_P2L_rom_bit_mux0011<0>
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_xor<2>11
+    SLICE_X20Y20.F1      net (fanout=31)       0.554   graph_unit/Glove_P2L_rom_addr<2>
+    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+                                                       graph_unit/Mrom_Glove_P2L_rom_addr_rom0000211
+    SLICE_X18Y22.G4      net (fanout=1)        0.357   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+    SLICE_X18Y22.Y       Tilo                  0.660   N423
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.G1      net (fanout=2)        0.648   graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.Y       Tilo                  0.612   graph_unit/Mmux_Glove_P2R_rom_bit_9_f5
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_9_f51
+    SLICE_X16Y24.BX      net (fanout=1)        0.830   graph_unit/Mmux_Glove_P2L_rom_bit_9_f5
+    SLICE_X16Y24.X       Tbxx                  0.699   graph_unit/Glove_P2L_rom_bit<0>
+                                                       graph_unit/_not0004<3>1
+    SLICE_X15Y22.F2      net (fanout=2)        0.395   graph_unit/Glove_P2L_rom_bit<0>
+    SLICE_X15Y22.X       Tilo                  0.612   N413
+                                                       graph_unit/glove_L_P2_on_and00001_SW0
+    SLICE_X19Y24.G2      net (fanout=1)        0.529   N413
+    SLICE_X19Y24.Y       Tilo                  0.612   rgb_next<2>26
+                                                       graph_unit/rgb_and00051
+    SLICE_X19Y24.F3      net (fanout=3)        0.033   graph_unit/rgb_and0005
+    SLICE_X19Y24.X       Tilo                  0.612   rgb_next<2>26
+                                                       rgb_next<2>26
+    SLICE_X21Y25.F3      net (fanout=1)        0.304   rgb_next<2>26
+    SLICE_X21Y25.X       Tilo                  0.612   rgb_next<2>51
+                                                       rgb_next<2>51
+    SLICE_X20Y24.G4      net (fanout=1)        0.075   rgb_next<2>51
+    SLICE_X20Y24.Y       Tilo                  0.660   rgb_reg<2>
+                                                       rgb_next<2>142
+    SLICE_X20Y24.F4      net (fanout=1)        0.020   rgb_next<2>142/O
+    SLICE_X20Y24.CLK     Tfck                  0.776   rgb_reg<2>
+                                                       rgb_next<2>243
+                                                       rgb_reg_2
+    -------------------------------------------------  ---------------------------
+    Total                                     13.413ns (8.354ns logic, 5.059ns route)
+                                                       (62.3% logic, 37.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -3.393ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_sync_unit/v_count_reg_0_1 (FF)
+  Destination:          rgb_reg_2 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      13.393ns (Levels of Logic = 12)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_sync_unit/v_count_reg_0_1 to rgb_reg_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y19.YQ      Tcko                  0.567   vga_sync_unit/v_count_reg_0_1
+                                                       vga_sync_unit/v_count_reg_0_1
+    SLICE_X19Y20.G1      net (fanout=10)       1.106   vga_sync_unit/v_count_reg_0_1
+    SLICE_X19Y20.Y       Tilo                  0.612   graph_unit/Msub_Glove_P2L_rom_addr_xor<3>11
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_cy<1>11
+    SLICE_X18Y20.G2      net (fanout=12)       0.188   graph_unit/Msub_Glove_P2L_rom_addr_cy<1>
+    SLICE_X18Y20.Y       Tilo                  0.660   graph_unit/Glove_P2L_rom_bit_mux0011<0>
+                                                       graph_unit/Msub_Glove_P2L_rom_addr_xor<2>11
+    SLICE_X20Y20.F1      net (fanout=31)       0.554   graph_unit/Glove_P2L_rom_addr<2>
+    SLICE_X20Y20.X       Tilo                  0.660   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+                                                       graph_unit/Mrom_Glove_P2L_rom_addr_rom0000211
+    SLICE_X18Y22.G4      net (fanout=1)        0.357   graph_unit/Mrom_Glove_P2L_rom_addr_rom000021
+    SLICE_X18Y22.Y       Tilo                  0.660   N423
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.G1      net (fanout=2)        0.648   graph_unit/Mmux_Glove_P2L_rom_bit_10
+    SLICE_X17Y19.Y       Tilo                  0.612   graph_unit/Mmux_Glove_P2R_rom_bit_9_f5
+                                                       graph_unit/Mmux_Glove_P2L_rom_bit_9_f51
+    SLICE_X16Y24.BX      net (fanout=1)        0.830   graph_unit/Mmux_Glove_P2L_rom_bit_9_f5
+    SLICE_X16Y24.X       Tbxx                  0.699   graph_unit/Glove_P2L_rom_bit<0>
+                                                       graph_unit/_not0004<3>1
+    SLICE_X15Y22.F2      net (fanout=2)        0.395   graph_unit/Glove_P2L_rom_bit<0>
+    SLICE_X15Y22.X       Tilo                  0.612   N413
+                                                       graph_unit/glove_L_P2_on_and00001_SW0
+    SLICE_X19Y24.G2      net (fanout=1)        0.529   N413
+    SLICE_X19Y24.Y       Tilo                  0.612   rgb_next<2>26
+                                                       graph_unit/rgb_and00051
+    SLICE_X19Y24.F3      net (fanout=3)        0.033   graph_unit/rgb_and0005
+    SLICE_X19Y24.X       Tilo                  0.612   rgb_next<2>26
+                                                       rgb_next<2>26
+    SLICE_X21Y25.F3      net (fanout=1)        0.304   rgb_next<2>26
+    SLICE_X21Y25.X       Tilo                  0.612   rgb_next<2>51
+                                                       rgb_next<2>51
+    SLICE_X20Y24.G4      net (fanout=1)        0.075   rgb_next<2>51
+    SLICE_X20Y24.Y       Tilo                  0.660   rgb_reg<2>
+                                                       rgb_next<2>142
+    SLICE_X20Y24.F4      net (fanout=1)        0.020   rgb_next<2>142/O
+    SLICE_X20Y24.CLK     Tfck                  0.776   rgb_reg<2>
+                                                       rgb_next<2>243
+                                                       rgb_reg_2
+    -------------------------------------------------  ---------------------------
+    Total                                     13.393ns (8.354ns logic, 5.039ns route)
+                                                       (62.4% logic, 37.6% route)
 
 --------------------------------------------------------------------------------
 
@@ -598,11 +617,65 @@ Hold Paths: TS_ClockManager_unit_CLK2X_BUF = PERIOD TIMEGRP "ClockManager_unit_C
         TS_clock / 2 HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point kb_code_unit/ps2_rx_unit/filter_reg_4 (SLICE_X0Y31.BY), 1 path
+Paths for end point kb_code_unit/ps2_rx_unit/filter_reg_0 (SLICE_X1Y42.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.901ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               kb_code_unit/ps2_rx_unit/filter_reg_1 (FF)
+  Destination:          kb_code_unit/ps2_rx_unit/filter_reg_0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.901ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk rising at 10.000ns
+  Destination Clock:    clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: kb_code_unit/ps2_rx_unit/filter_reg_1 to kb_code_unit/ps2_rx_unit/filter_reg_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X1Y42.XQ       Tcko                  0.411   kb_code_unit/ps2_rx_unit/filter_reg<1>
+                                                       kb_code_unit/ps2_rx_unit/filter_reg_1
+    SLICE_X1Y42.BY       net (fanout=4)        0.373   kb_code_unit/ps2_rx_unit/filter_reg<1>
+    SLICE_X1Y42.CLK      Tckdi       (-Th)    -0.117   kb_code_unit/ps2_rx_unit/filter_reg<1>
+                                                       kb_code_unit/ps2_rx_unit/filter_reg_0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.901ns (0.528ns logic, 0.373ns route)
+                                                       (58.6% logic, 41.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point kb_code_unit/ps2_rx_unit/filter_reg_6 (SLICE_X0Y42.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.910ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               kb_code_unit/ps2_rx_unit/filter_reg_7 (FF)
+  Destination:          kb_code_unit/ps2_rx_unit/filter_reg_6 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.910ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk rising at 10.000ns
+  Destination Clock:    clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: kb_code_unit/ps2_rx_unit/filter_reg_7 to kb_code_unit/ps2_rx_unit/filter_reg_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y42.XQ       Tcko                  0.412   kb_code_unit/ps2_rx_unit/filter_reg<7>
+                                                       kb_code_unit/ps2_rx_unit/filter_reg_7
+    SLICE_X0Y42.BY       net (fanout=4)        0.366   kb_code_unit/ps2_rx_unit/filter_reg<7>
+    SLICE_X0Y42.CLK      Tckdi       (-Th)    -0.132   kb_code_unit/ps2_rx_unit/filter_reg<7>
+                                                       kb_code_unit/ps2_rx_unit/filter_reg_6
+    -------------------------------------------------  ---------------------------
+    Total                                      0.910ns (0.544ns logic, 0.366ns route)
+                                                       (59.8% logic, 40.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point vga_sync_unit/mod2_reg (SLICE_X17Y33.BY), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.917ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               kb_code_unit/ps2_rx_unit/filter_reg_5 (FF)
-  Destination:          kb_code_unit/ps2_rx_unit/filter_reg_4 (FF)
+  Source:               vga_sync_unit/mod2_reg (FF)
+  Destination:          vga_sync_unit/mod2_reg (FF)
   Requirement:          0.000ns
   Data Path Delay:      0.917ns (Levels of Logic = 0)
   Clock Path Skew:      0.000ns
@@ -610,72 +683,18 @@ Slack (hold path):      0.917ns (requirement - (clock path skew + uncertainty - 
   Destination Clock:    clk rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path: kb_code_unit/ps2_rx_unit/filter_reg_5 to kb_code_unit/ps2_rx_unit/filter_reg_4
+  Minimum Data Path: vga_sync_unit/mod2_reg to vga_sync_unit/mod2_reg
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X0Y31.XQ       Tcko                  0.412   kb_code_unit/ps2_rx_unit/filter_reg<5>
-                                                       kb_code_unit/ps2_rx_unit/filter_reg_5
-    SLICE_X0Y31.BY       net (fanout=4)        0.373   kb_code_unit/ps2_rx_unit/filter_reg<5>
-    SLICE_X0Y31.CLK      Tckdi       (-Th)    -0.132   kb_code_unit/ps2_rx_unit/filter_reg<5>
-                                                       kb_code_unit/ps2_rx_unit/filter_reg_4
+    SLICE_X17Y33.YQ      Tcko                  0.409   vga_sync_unit/mod2_reg
+                                                       vga_sync_unit/mod2_reg
+    SLICE_X17Y33.BY      net (fanout=15)       0.391   vga_sync_unit/mod2_reg
+    SLICE_X17Y33.CLK     Tckdi       (-Th)    -0.117   vga_sync_unit/mod2_reg
+                                                       vga_sync_unit/mod2_reg
     -------------------------------------------------  ---------------------------
-    Total                                      0.917ns (0.544ns logic, 0.373ns route)
-                                                       (59.3% logic, 40.7% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point kb_code_unit/ps2_rx_unit/filter_reg_5 (SLICE_X0Y31.BX), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.923ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               kb_code_unit/ps2_rx_unit/filter_reg_6 (FF)
-  Destination:          kb_code_unit/ps2_rx_unit/filter_reg_5 (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.923ns (Levels of Logic = 0)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk rising at 10.000ns
-  Destination Clock:    clk rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path: kb_code_unit/ps2_rx_unit/filter_reg_6 to kb_code_unit/ps2_rx_unit/filter_reg_5
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X0Y30.YQ       Tcko                  0.454   kb_code_unit/ps2_rx_unit/filter_reg<7>
-                                                       kb_code_unit/ps2_rx_unit/filter_reg_6
-    SLICE_X0Y31.BX       net (fanout=4)        0.353   kb_code_unit/ps2_rx_unit/filter_reg<6>
-    SLICE_X0Y31.CLK      Tckdi       (-Th)    -0.116   kb_code_unit/ps2_rx_unit/filter_reg<5>
-                                                       kb_code_unit/ps2_rx_unit/filter_reg_5
-    -------------------------------------------------  ---------------------------
-    Total                                      0.923ns (0.570ns logic, 0.353ns route)
-                                                       (61.8% logic, 38.2% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point kb_code_unit/ps2_rx_unit/filter_reg_1 (SLICE_X1Y26.BX), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.937ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               kb_code_unit/ps2_rx_unit/filter_reg_2 (FF)
-  Destination:          kb_code_unit/ps2_rx_unit/filter_reg_1 (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.937ns (Levels of Logic = 0)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk rising at 10.000ns
-  Destination Clock:    clk rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path: kb_code_unit/ps2_rx_unit/filter_reg_2 to kb_code_unit/ps2_rx_unit/filter_reg_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X1Y27.YQ       Tcko                  0.409   kb_code_unit/ps2_rx_unit/filter_reg<3>
-                                                       kb_code_unit/ps2_rx_unit/filter_reg_2
-    SLICE_X1Y26.BX       net (fanout=4)        0.448   kb_code_unit/ps2_rx_unit/filter_reg<2>
-    SLICE_X1Y26.CLK      Tckdi       (-Th)    -0.080   kb_code_unit/ps2_rx_unit/filter_reg<1>
-                                                       kb_code_unit/ps2_rx_unit/filter_reg_1
-    -------------------------------------------------  ---------------------------
-    Total                                      0.937ns (0.489ns logic, 0.448ns route)
-                                                       (52.2% logic, 47.8% route)
+    Total                                      0.917ns (0.526ns logic, 0.391ns route)
+                                                       (57.4% logic, 42.6% route)
 
 --------------------------------------------------------------------------------
 
@@ -686,27 +705,27 @@ Slack: 7.224ns (period - (min low pulse limit / (low pulse / period)))
   Period: 10.000ns
   Low pulse: 5.000ns
   Low pulse limit: 1.388ns (Trpw)
-  Physical resource: graph_unit/player1_x_reg<0>/SR
-  Logical resource: graph_unit/player1_x_reg_0/SR
-  Location pin: SLICE_X3Y1.SR
+  Physical resource: graph_unit/player1_y_reg<0>/SR
+  Logical resource: graph_unit/player1_y_reg_0/SR
+  Location pin: SLICE_X28Y15.SR
   Clock network: reset_IBUF
 --------------------------------------------------------------------------------
 Slack: 7.224ns (period - (min high pulse limit / (high pulse / period)))
   Period: 10.000ns
   High pulse: 5.000ns
   High pulse limit: 1.388ns (Trpw)
-  Physical resource: graph_unit/player1_x_reg<0>/SR
-  Logical resource: graph_unit/player1_x_reg_0/SR
-  Location pin: SLICE_X3Y1.SR
+  Physical resource: graph_unit/player1_y_reg<0>/SR
+  Logical resource: graph_unit/player1_y_reg_0/SR
+  Location pin: SLICE_X28Y15.SR
   Clock network: reset_IBUF
 --------------------------------------------------------------------------------
 Slack: 7.224ns (period - (min low pulse limit / (low pulse / period)))
   Period: 10.000ns
   Low pulse: 5.000ns
   Low pulse limit: 1.388ns (Trpw)
-  Physical resource: graph_unit/player1_x_reg<0>/SR
-  Logical resource: graph_unit/player1_x_reg_1/SR
-  Location pin: SLICE_X3Y1.SR
+  Physical resource: graph_unit/player1_y_reg<0>/SR
+  Logical resource: graph_unit/player1_y_reg_1/SR
+  Location pin: SLICE_X28Y15.SR
   Clock network: reset_IBUF
 --------------------------------------------------------------------------------
 
@@ -718,8 +737,8 @@ Derived Constraints for TS_clock
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_clock                       |     20.000ns|      6.000ns|     28.154ns|            0|           35|            0|       144249|
-| TS_ClockManager_unit_CLK2X_BUF|     10.000ns|     14.077ns|          N/A|           35|            0|       144249|            0|
+|TS_clock                       |     20.000ns|      6.000ns|     28.364ns|            0|           56|            0|       349019|
+| TS_ClockManager_unit_CLK2X_BUF|     10.000ns|     14.182ns|          N/A|           56|            0|       349019|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 1 constraint not met.
@@ -734,32 +753,32 @@ Clock to Setup on destination clock clock
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clock          |   14.077|         |         |         |
+clock          |   14.182|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
 Timing summary:
 ---------------
 
-Timing errors: 35  Score: 45380  (Setup/Max: 45380, Hold: 0)
+Timing errors: 56  Score: 59297  (Setup/Max: 59297, Hold: 0)
 
-Constraints cover 144249 paths, 0 nets, and 4384 connections
+Constraints cover 349019 paths, 0 nets, and 5344 connections
 
 Design statistics:
-   Minimum period:  14.077ns{1}   (Maximum frequency:  71.038MHz)
+   Minimum period:  14.182ns{1}   (Maximum frequency:  70.512MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Fri Dec 18 12:05:54 2020 
+Analysis completed Sun Dec 20 19:52:45 2020 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 4506 MB
+Peak Memory Usage: 4522 MB
 
 
 

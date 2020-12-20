@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.58f on Fri Dec 18 12:04:24 2020
+// Written by: Map P.58f on Sun Dec 20 19:50:48 2020
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -43,14 +43,56 @@ TIMEGRP ClockManager_unit_CLK2X_BUF = BEL "ball_reg_0" BEL "ball_reg_1" BEL
         "counter_unit/dig1_reg_1" BEL "counter_unit/dig1_reg_0" BEL
         "counter_unit/dig0_reg_3" BEL "counter_unit/dig0_reg_2" BEL
         "counter_unit/dig0_reg_1" BEL "counter_unit/dig0_reg_0" BEL
-        "graph_unit/ball_vy_reg_2" BEL "graph_unit/ball_vy_reg_1" BEL
-        "graph_unit/ball_vy_reg_3" BEL "graph_unit/ball_vx_reg_2" BEL
+        "graph_unit/glove_p1R_x_reg_7" BEL "graph_unit/glove_p1R_x_reg_5" BEL
+        "graph_unit/glove_p1R_x_reg_6" BEL "graph_unit/glove_p1R_x_reg_8" BEL
+        "graph_unit/glove_p1R_x_reg_9" BEL "graph_unit/glove_p2L_x_reg_2" BEL
+        "graph_unit/glove_p2L_x_reg_0" BEL "graph_unit/glove_p2L_x_reg_1" BEL
+        "graph_unit/glove_p2L_x_reg_3" BEL "graph_unit/glove_p2L_x_reg_4" BEL
+        "graph_unit/glove_p2L_x_reg_7" BEL "graph_unit/glove_p2L_x_reg_5" BEL
+        "graph_unit/glove_p2L_x_reg_6" BEL "graph_unit/glove_p2L_x_reg_8" BEL
+        "graph_unit/glove_p2L_x_reg_9" BEL "graph_unit/ball_vy_reg_2" BEL
+        "graph_unit/ball_vy_reg_1" BEL "graph_unit/ball_vy_reg_3" BEL
+        "graph_unit/glove_p1R_y_reg_4" BEL "graph_unit/glove_p1R_y_reg_7" BEL
+        "graph_unit/glove_p1R_y_reg_5" BEL "graph_unit/glove_p1R_y_reg_6" BEL
+        "graph_unit/glove_p1R_y_reg_8" BEL "graph_unit/glove_p1R_y_reg_9" BEL
+        "graph_unit/glove_p1L_x_reg_7" BEL "graph_unit/glove_p1L_x_reg_5" BEL
+        "graph_unit/glove_p1L_x_reg_6" BEL "graph_unit/glove_p1L_x_reg_8" BEL
+        "graph_unit/glove_p1L_x_reg_9" BEL "graph_unit/glove_p2L_y_reg_4" BEL
+        "graph_unit/glove_p2L_y_reg_7" BEL "graph_unit/glove_p2L_y_reg_5" BEL
+        "graph_unit/glove_p2L_y_reg_6" BEL "graph_unit/glove_p2L_y_reg_8" BEL
+        "graph_unit/glove_p2L_y_reg_9" BEL "graph_unit/glove_p2R_x_reg_2" BEL
+        "graph_unit/glove_p2R_x_reg_0" BEL "graph_unit/glove_p2R_x_reg_1" BEL
+        "graph_unit/glove_p2R_x_reg_3" BEL "graph_unit/glove_p2R_x_reg_4" BEL
+        "graph_unit/glove_p2R_x_reg_7" BEL "graph_unit/glove_p2R_x_reg_5" BEL
+        "graph_unit/glove_p2R_x_reg_6" BEL "graph_unit/glove_p2R_x_reg_8" BEL
+        "graph_unit/glove_p2R_x_reg_9" BEL "graph_unit/ball_vx_reg_2" BEL
         "graph_unit/ball_vx_reg_1" BEL "graph_unit/ball_vx_reg_3" BEL
         "graph_unit/bar_y_reg_9" BEL "graph_unit/bar_y_reg_8" BEL
         "graph_unit/bar_y_reg_7" BEL "graph_unit/bar_y_reg_6" BEL
         "graph_unit/bar_y_reg_5" BEL "graph_unit/bar_y_reg_4" BEL
         "graph_unit/bar_y_reg_3" BEL "graph_unit/bar_y_reg_2" BEL
         "graph_unit/bar_y_reg_1" BEL "graph_unit/bar_y_reg_0" BEL
+        "graph_unit/Glove_P1L_state_reg_FSM_FFd2" BEL
+        "graph_unit/Glove_P1L_state_reg_FSM_FFd1" BEL
+        "graph_unit/Glove_P2R_state_reg_FSM_FFd2" BEL
+        "graph_unit/Glove_P2R_state_reg_FSM_FFd1" BEL
+        "graph_unit/Glove_P2L_state_reg_FSM_FFd2" BEL
+        "graph_unit/Glove_P2L_state_reg_FSM_FFd1" BEL
+        "graph_unit/Glove_P1R_state_reg_FSM_FFd2" BEL
+        "graph_unit/Glove_P1R_state_reg_FSM_FFd1" BEL
+        "graph_unit/player1_x_reg_9" BEL "graph_unit/player1_x_reg_8" BEL
+        "graph_unit/player1_x_reg_7" BEL "graph_unit/player1_x_reg_6" BEL
+        "graph_unit/player1_x_reg_5" BEL "graph_unit/player1_x_reg_4" BEL
+        "graph_unit/player1_x_reg_3" BEL "graph_unit/player1_x_reg_2" BEL
+        "graph_unit/player1_x_reg_1" BEL "graph_unit/player1_x_reg_0" BEL
+        "graph_unit/glove_p1L_y_reg_9" BEL "graph_unit/glove_p1L_y_reg_8" BEL
+        "graph_unit/glove_p1L_y_reg_7" BEL "graph_unit/glove_p1L_y_reg_6" BEL
+        "graph_unit/glove_p1L_y_reg_5" BEL "graph_unit/glove_p1L_y_reg_4" BEL
+        "graph_unit/player2_x_reg_9" BEL "graph_unit/player2_x_reg_8" BEL
+        "graph_unit/player2_x_reg_7" BEL "graph_unit/player2_x_reg_6" BEL
+        "graph_unit/player2_x_reg_5" BEL "graph_unit/player2_x_reg_4" BEL
+        "graph_unit/player2_x_reg_3" BEL "graph_unit/player2_x_reg_2" BEL
+        "graph_unit/player2_x_reg_1" BEL "graph_unit/player2_x_reg_0" BEL
         "graph_unit/ball_y_reg_9" BEL "graph_unit/ball_y_reg_8" BEL
         "graph_unit/ball_y_reg_7" BEL "graph_unit/ball_y_reg_6" BEL
         "graph_unit/ball_y_reg_5" BEL "graph_unit/ball_y_reg_4" BEL
@@ -86,12 +128,7 @@ TIMEGRP ClockManager_unit_CLK2X_BUF = BEL "ball_reg_0" BEL "ball_reg_1" BEL
         "kb_code_unit/ps2_rx_unit/b_reg_10" BEL
         "kb_code_unit/ps2_rx_unit/state_reg_FSM_FFd1" BEL
         "kb_code_unit/ps2_rx_unit/state_reg_FSM_FFd2" BEL
-        "kb_code_unit/state_reg_0" BEL "graph_unit/player1_x_reg_9" BEL
-        "graph_unit/player1_x_reg_8" BEL "graph_unit/player1_x_reg_7" BEL
-        "graph_unit/player1_x_reg_6" BEL "graph_unit/player1_x_reg_5" BEL
-        "graph_unit/player1_x_reg_4" BEL "graph_unit/player1_x_reg_3" BEL
-        "graph_unit/player1_x_reg_2" BEL "graph_unit/player1_x_reg_1" BEL
-        "graph_unit/player1_x_reg_0" BEL "graph_unit/player2_y_reg_9" BEL
+        "kb_code_unit/state_reg_0" BEL "graph_unit/player2_y_reg_9" BEL
         "graph_unit/player2_y_reg_8" BEL "graph_unit/player2_y_reg_7" BEL
         "graph_unit/player2_y_reg_6" BEL "graph_unit/player2_y_reg_5" BEL
         "graph_unit/player2_y_reg_4" BEL "graph_unit/player2_y_reg_3" BEL
@@ -101,17 +138,16 @@ TIMEGRP ClockManager_unit_CLK2X_BUF = BEL "ball_reg_0" BEL "ball_reg_1" BEL
         "graph_unit/player1_y_reg_6" BEL "graph_unit/player1_y_reg_5" BEL
         "graph_unit/player1_y_reg_4" BEL "graph_unit/player1_y_reg_3" BEL
         "graph_unit/player1_y_reg_2" BEL "graph_unit/player1_y_reg_1" BEL
-        "graph_unit/player1_y_reg_0" BEL "graph_unit/player2_x_reg_9" BEL
-        "graph_unit/player2_x_reg_8" BEL "graph_unit/player2_x_reg_7" BEL
-        "graph_unit/player2_x_reg_6" BEL "graph_unit/player2_x_reg_5" BEL
-        "graph_unit/player2_x_reg_4" BEL "graph_unit/player2_x_reg_3" BEL
-        "graph_unit/player2_x_reg_2" BEL "graph_unit/player2_x_reg_1" BEL
-        "graph_unit/player2_x_reg_0" BEL "vga_sync_unit/v_count_reg_3_1" BEL
-        "vga_sync_unit/v_count_reg_2_1" BEL "vga_sync_unit/v_count_reg_0_1"
-        BEL "vga_sync_unit/v_count_reg_1_1" BEL "graph_unit/player2_y_reg_0_1"
-        BEL "vga_sync_unit/v_count_reg_1_2" BEL
-        "vga_sync_unit/v_count_reg_0_2" BEL
-        "text_unit/font_unit/Mrom_data_rom0000.A" BEL
+        "graph_unit/player1_y_reg_0" BEL "graph_unit/player2_x_reg_1_1" BEL
+        "vga_sync_unit/v_count_reg_2_1" BEL "vga_sync_unit/v_count_reg_1_1"
+        BEL "vga_sync_unit/h_count_reg_5_1" BEL
+        "vga_sync_unit/h_count_reg_4_1" BEL "vga_sync_unit/h_count_reg_7_1"
+        BEL "vga_sync_unit/h_count_reg_3_1" BEL
+        "vga_sync_unit/v_count_reg_5_1" BEL "vga_sync_unit/v_count_reg_7_1"
+        BEL "vga_sync_unit/v_count_reg_6_1" BEL
+        "vga_sync_unit/v_count_reg_8_1" BEL "graph_unit/player2_x_reg_0_1" BEL
+        "vga_sync_unit/v_count_reg_0_1" BEL "vga_sync_unit/v_count_reg_1_2"
+        BEL "text_unit/font_unit/Mrom_data_rom0000.A" BEL
         "ClockManager_unit/CLK2X_BUFG_INST.GCLKMUX" BEL
         "ClockManager_unit/CLK2X_BUFG_INST";
 PIN ClockManager_unit/DCM_SP_INST_pins<3> = BEL

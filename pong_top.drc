@@ -1,7 +1,7 @@
 Release 14.5 Drc P.58f (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Fri Dec 18 12:06:06 2020
+Sun Dec 20 19:52:48 2020
 
 drc -z pong_top.ncd pong_top.pcf
 
