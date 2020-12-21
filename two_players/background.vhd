@@ -25,8 +25,10 @@ entity background is
         clk, reset: in std_logic;
        -- video_on: in std_logic;
         pixel_x,pixel_y: in std_logic_vector(9 downto 0);
-        graph_rgb: out std_logic_vector(2 downto 0);
-		  score_play_1,score_play_2: in std_logic_vector(3 downto 0));
+        graph_rgb: out std_logic_vector(2 downto 0)
+		--  score_play_1,score_play_2: in std_logic_vector(3 downto 0)
+		--  winner_on: in std_logic
+			);
    
 end background;
 
@@ -120,6 +122,20 @@ architecture arch of background is
     signal char_addr_score: std_logic_vector(6 downto 0);
     signal bit_addr_score: std_logic_vector(2 downto 0);
 	 signal rom3_addr: std_logic_vector(10 downto 0);
+
+--=======================================================
+   -- winner
+--=======================================================
+--	 signal winner_show_on: std_logic;
+--	 signal winner_rgb: std_logic_vector(2 downto 0);
+--	 signal winner_word: std_logic_vector(7 downto 0);
+--	 signal winner_bit: std_logic;
+--	 signal row_addr_winner: std_logic_vector(3 downto 0);
+--  signal char_addr_winner: std_logic_vector(6 downto 0);
+--  signal bit_addr_winner: std_logic_vector(2 downto 0);
+--	 signal rom4_addr: std_logic_vector(10 downto 0);
+--	 signal player_win: std_logic_vector(3 downto 0);
+	
 
 begin
 	
@@ -267,189 +283,83 @@ players_bit <= players_word(to_integer(unsigned(not bit_addr_p)));
 
 	--**************************************************************************
 	-- Score
-	font3_unit: entity work.font_rom
-		port map(clk=>clk, reset=>reset, addr=>rom3_addr, data=>score_word);
-
-
-
-		
-   row_addr_score <= std_logic_vector(pix_y(4 downto 1));
-   bit_addr_score <= std_logic_vector(pix_x(3 downto 1));
-		
-   with pix_x(9 downto 4) select
-     char_addr_score <=	  
-			-- player 1 score:
-					"011" & score_play_1 when "000101", -- y
-		  -- player 2 score:
-					"011" & score_play_2 when "100000", -- y
-					"0100000" when  others; -- space
-
-
-score_on <=
-    '1' when pix_y(9 downto 5)=6 and   -- (9 downto 5) altura    =12 posição
-        5<= pix_x(9 downto 4) and pix_x(9 downto 4)<=32 else
-      '0';		  
-rom3_addr<=char_addr_score & row_addr_score;
-score_bit <= score_word(to_integer(unsigned(not bit_addr_score)));
-
-	process(score_bit)
-		begin
-			score_rgb <= "110";
-			if score_bit='1' then
-				score_rgb <= "000";
-			end if;
-	end process;
+--	font3_unit: entity work.font_rom
+--		port map(clk=>clk, reset=>reset, addr=>rom3_addr, data=>score_word);
+--
+--
+--
+--		
+--   row_addr_score <= std_logic_vector(pix_y(4 downto 1));
+--   bit_addr_score <= std_logic_vector(pix_x(3 downto 1));
+--		
+--   with pix_x(9 downto 4) select
+--     char_addr_score <=	  
+--			-- player 1 score:
+--					"011" & score_play_1 when "000101", -- y
+--		  -- player 2 score:
+--					"011" & score_play_2 when "100000", -- y
+--					"0100000" when  others; -- space
+--
+--
+--score_on <=
+--    '1' when pix_y(9 downto 5)=6 and   -- (9 downto 5) altura    =12 posição
+--        5<= pix_x(9 downto 4) and pix_x(9 downto 4)<=32 else
+--      '0';		  
+--rom3_addr<=char_addr_score & row_addr_score;
+--score_bit <= score_word(to_integer(unsigned(not bit_addr_score)));
+--
+--	process(score_bit)
+--		begin
+--			score_rgb <= "110";
+--			if score_bit='1' then
+--				score_rgb <= "000";
+--			end if;
+--	end process;
 	
---	--***************************************************************************
---signal score_on, logo_on, rule_on, over_on: std_logic;
---   signal rule_rom_addr: unsigned(5 downto 0);
---   type rule_rom_type is array (0 to 63) of
---       std_logic_vector (6 downto 0);
---		 
---   -- rull text ROM definition
---   constant RULE_ROM: rule_rom_type :=
---   (
---      -- row 1
---		"1010111", -- w x57
---		"0000000", --
---      "1010101", -- U
---      "1110000", -- p
---		"0000000", -- 
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---		"0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---		"0011000", -- x18 8
---		"0000000", --
---      "1010101", -- U
---      "1110000", -- p
---		
---		
---		
---		
---      "1000001", -- A x41
---		"0000000", --
---		"1001100", -- L
---		"1100101", -- e
---		"1100110", -- f
---		"1110100", -- t
---	
---	
---		"1000100", -- D x44
---		"0000000", --
---		"1010010", -- R
---		"1101001", -- i 69
---		"1100111", -- g 67
---		"1101000", -- h 
---		"1110100", -- t
---		 
---		"1110011", -- s x73
---		"0000000", --
---		"1000100", -- D x44
---		"1101111", -- o
---		"1010111", -- w x57
---		"1101110", -- n
---		g  47
---		y  59
---		j  4a
---		
---		x1b 4
---		x18 8
---		 x1a 6
---		 19 2
---		 x31 1
---		35 5
---		33 3
---		
---		
---		"0000000", --
---      "1010101", -- U
---      "1110000", -- p
---      "0000000", -- 
---      "0000000", -- 
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---		
---		-- row 2
---      "1010100", -- T
---      "1110010", -- r
---		
---      "1111001", -- y
---      "0100000", -- 
---      "1110000", -- p
---      "1110101", -- u
---      "1110011", -- s
---      "1101000", -- h 
---      "0100000", --
---      "1110100", -- t
---      "1101000", -- h
---      "1100101", -- e
---      "0000000", --
---      "0000000", --
---      "0000000", --
---      "0000000", --
---		
---				-- row 3
+--	--*************************************************************************** 
+--	winner
+--*************************************************************************** 
+	 
+--		 font4_unit: entity work.font_rom
+--				port map(clk=>clk, reset=>reset, addr=>rom4_addr, data=>winner_word);
 --
---      "1101111", -- o
---      "1110100", -- t
---      "1101000", -- h
---      "1100101", -- e
---      "1110010", -- r
---      "0100000", --
---      "1110000", -- p
---      "1101100", -- l
---      "1100001", -- a
---      "1111001", -- y
---      "1100101", -- e
---      "1110010", -- r
---      "0100000", --
---		"0000000", --
---		"0000000", --
---		"0000000", --
+--   row_addr_winner <= std_logic_vector(pix_y(4 downto 1));
+--   bit_addr_winner <= std_logic_vector(pix_x(3 downto 1));
 --		
---				
---				-- row 4
---      "1101111", -- o
---      "1110101", -- u
---      "1110100", -- t
---      "0100000", -- 
---      "1101111", -- o
---      "1100110", -- f
---      "0100000", --
---      "1110100", -- t
---      "1101000", -- h
---      "1100101", -- e
---      "0100000", --
---      "1100110", -- f
---      "1100101", -- e
---      "1101110", -- n
---      "1110011", -- s
---      "1100101"  -- e
---		
+--   with pix_x(9 downto 4) select
+--     char_addr_winner <=	  
+--									"1010000" when "011101", -- P
+--									"1101100" when "011110", -- L
+--									"1100001" when "011111", -- a
+--							      "1111001" when "100000", -- y
+--							      "1100101" when "100001", -- e
+--									"1110010" when "100010", -- r
+--									"0100000" when "100011", -- space
+--									"011" & player_win when "100100", -- 2
+--									"0100000" when "100101", -- space
+--									"1010111" when "100110", -- w x57
+--									"1101001" when "100111", -- i 69
+--									"1101110" when "101000", -- n
+--									"0100000" when  others; -- space
 --
---   );		 
+--
+--	player_win<="0011";
+--
+--	winner_show_on <=
+--    '1' when pix_y(9 downto 5)=6 and   -- (9 downto 5) altura    =12 posição
+--        10<= pix_x(9 downto 4) and pix_x(9 downto 4)<=27 else
+--      '0';		  
+--rom4_addr<=char_addr_score & row_addr_winner;
+--winner_bit <= winner_word(to_integer(unsigned(not bit_addr_winner)));
+--
+--	process(winner_bit)
+--		begin
+--			winner_rgb <= "110";
+--			if winner_bit='1' then
+--				winner_rgb <= "000";
+--			end if;
+--	end process;	 
+--		 
 		 
 
 --****************************************************************************************

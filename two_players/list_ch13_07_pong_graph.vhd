@@ -8,56 +8,36 @@ entity pong_graph is
         key_code: in std_logic_vector(3 downto 0);
         video_on: in std_logic;
         pixel_x,pixel_y: in std_logic_vector(9 downto 0);
-        graph_rgb: out std_logic_vector(2 downto 0)
+        graph_rgb: out std_logic_vector(2 downto 0);
+		  time_start: out std_logic;
+		  timer_up: in std_logic
    );
 end pong_graph;
 
 architecture arch of pong_graph is
+	type state_type is (newgame, play,new_round, over);
+	signal state_reg, state_next: state_type;
    signal pix_x, pix_y: unsigned(9 downto 0);
    constant MAX_X: integer:=640;
    constant MAX_Y: integer:=480;
 	signal background_rgb:std_logic_vector(2 downto 0);
 	signal score_play_1,score_play_2: std_logic_vector(3 downto 0);
-	--signal background_on :std_logic;
+	signal score_play_1_next,score_play_1_reg,score_play_2_next,score_play_2_reg: std_logic_vector(3 downto 0);
+	signal ko1_next, ko1_reg,ko2_next, ko2_reg,round_next,round_reg: unsigned(1 downto 0);
+	signal new_r,ko_reset,score_rst,winner_on: std_logic;
+	--******************************************
+	-- limites para score
+	constant center_x: integer:=320;
+   constant center_y: integer:=240;	
+	constant Ring_in_SIZE: integer:=100;	
+	constant Ring_in_x_L: integer:=center_x-Ring_in_SIZE;
+	constant Ring_in_x_R: integer:=center_x+Ring_in_SIZE;
+	constant Ring_in_y_T: integer:=center_y-Ring_in_SIZE;
+	constant Ring_in_y_B: integer:=center_y+Ring_in_SIZE;	
 
---	---------------------------------------------------
---	-- Cantos dos players(para testes)
---	---------------------------------------------------
---	--Player 1
---	constant canto_pl_X	:	integer:= 128;
---	constant canto_pl_X_S	:	integer:= 128+31;	
---	constant canto_pl_y	:	integer:= 128;
---	constant canto_pl_y_S	:	integer:= 128+63;
---	--Player 2	
---	constant canto_pl2_X	:	integer:= 255;
---	constant canto_pl2_X_S	:	integer:= 255+31;	
---	constant canto_pl2_y	:	integer:= 128;
---	constant canto_pl2_y_S	:	integer:= 128+63;
---	
---	--constantes das luvas
---	constant G_L_P1X: integer:=320;
---	constant G_L_P1X_S: integer:=320+15;
---	constant G_L_P1Y: integer:=128;
---	constant G_L_P1Y_S: integer:=128+15;
---	
---	--constantes das luvas
---	constant G_R_P1X: integer:=320;
---	constant G_R_P1X_S: integer:=320+15;
---	constant G_R_P1Y: integer:=224;
---	constant G_R_P1Y_S: integer:=224+15;
-	
-	------------------------------
-	
---		--constantes das luvas
---	constant G_L_P2X: integer:=384;
---	constant G_L_P2X_S: integer:=384+15;
---	constant G_L_P2Y: integer:=224;
---	constant G_L_P2Y_S: integer:=224+15;
-
-
-	----------------------------------------------------------------
-	--PLAYERS
-	-----------------------------------------------------------
+	--*********************************************************
+	-- PLAYER 1
+	--*********************************************************
 	
 	--cordenadas dos cantos do player 1
    signal player1_x_l, player1_x_r: unsigned(9 downto 0);
@@ -65,6 +45,8 @@ architecture arch of pong_graph is
 	--Cordenadas do canto superior esquerdo do player 1
    signal player1_x_reg, player1_x_next: unsigned(9 downto 0);
    signal player1_y_reg, player1_y_next: unsigned(9 downto 0);
+	signal Player1_x_face,Player1_y_face : unsigned(9 downto 0);
+	
 	
 	--cordenadas dos cantos da luva esquerda do player 1
    signal glove_p1L_x_l, glove_p1L_x_r: unsigned(9 downto 0);
@@ -82,8 +64,10 @@ architecture arch of pong_graph is
    signal glove_P1R_y_reg, glove_P1R_y_next: unsigned(9 downto 0);
 	
 	
+	--*********************************************************
+	-- PLAYER 2
+	--*********************************************************
 	
-	-----------------------------------------------------------------
 	--cordenadas dos cantos do player 2
    signal player2_x_l, player2_x_r: unsigned(9 downto 0);
    signal player2_y_t, player2_y_b: unsigned(9 downto 0);
@@ -91,19 +75,21 @@ architecture arch of pong_graph is
    signal player2_x_reg, player2_x_next: unsigned(9 downto 0);
    signal player2_y_reg, player2_y_next: unsigned(9 downto 0);
 	-----------------------------------------------------------
+	signal Player2_x_face,Player2_y_face : unsigned(9 downto 0);
 	
-	--cordenadas dos cantos da luva esquerda do player 1
+	
+	--cordenadas dos cantos da luva esquerda do player 2
    signal glove_p2L_x_l, glove_p2L_x_r: unsigned(9 downto 0);
    signal glove_p2L_y_t, glove_p2L_y_b: unsigned(9 downto 0);
-	--Cordenadas do canto da luva esquerda do player 1
+	--Cordenadas do canto da luva esquerda do player 2
    signal glove_p2L_x_reg, glove_p2L_x_next: unsigned(9 downto 0);
    signal glove_p2L_y_reg, glove_p2L_y_next: unsigned(9 downto 0);
 	
 	
-	--cordenadas dos cantos da luva direita do player 1
+	--cordenadas dos cantos da luva direita do player 2
    signal glove_P2R_x_l, glove_P2R_x_r: unsigned(9 downto 0);
    signal glove_P2R_y_t, glove_P2R_y_b: unsigned(9 downto 0);
-	--Cordenadas do canto da luva esquerda do player 1
+	--Cordenadas do canto da luva esquerda do player 2
    signal glove_P2R_x_reg, glove_P2R_x_next: unsigned(9 downto 0);
    signal glove_P2R_y_reg, glove_P2R_y_next: unsigned(9 downto 0);
 	
@@ -114,9 +100,9 @@ architecture arch of pong_graph is
 	--A rom serve para os dois players uma vez que o formato das ROM é igual
 	type rom_player_tipe is array (0 to 31, 0 to 15) of std_logic_vector(2 downto 0);
 	
-	-----------------------------------------------------------
+	--*********************************************************
 	--LUVAS
-	-----------------------------------------------------------
+	--*********************************************************
 	
 	--Poderá ser necessario criar cordenadas para cada luva
 	--As posições devem ser relativas a cada jogador
@@ -132,9 +118,9 @@ architecture arch of pong_graph is
 	constant GLOVE_SIZE_Y: integer:=16;
 	type rom_glove_type is array (0 to 15, 0 to 15) of std_logic_vector(2 downto 0);
 	
-	--------------------------------------------------------------
+	--*************************************************************
 	--Definição das ROM
-	--------------------------------------------------------------
+	--*************************************************************
 	
 	constant PLAYER_1_ROM: rom_player_tipe :=
 	
@@ -174,7 +160,6 @@ architecture arch of pong_graph is
 	);
 	
 	--permite enderessar a linha ou a coluna do player1
-	--
    signal Player1_rom_addr: unsigned(4 downto 0);
 	signal Player1_rom_col:unsigned(3 downto 0);
 	--quanto se lê uma linha saem 16 bits
@@ -297,15 +282,17 @@ begin
       port map (clk=>clk, reset=>reset,
 --                video_on=>background_on,
                 pixel_x=>pixel_x, pixel_y=>pixel_y,
-                graph_rgb=>background_rgb,
-					 score_play_1=>score_play_1,
-					 score_play_2=>score_play_2);
+                graph_rgb=>background_rgb
+				--	 score_play_1=>score_play_1,
+				--	 score_play_2=>score_play_2
+				--	 winner_on=>winner_on
+					 );
 
    -- Players registers
 	
-	   process (clk,reset)
+	   process (clk,reset,new_r)
    begin
-      if reset='1' then
+      if reset='1' or new_r ='1' then
          player1_x_reg <= to_unsigned(225,10);
 			player1_y_reg <= to_unsigned(212,10);
          player2_x_reg <= to_unsigned(384,10);
@@ -327,11 +314,17 @@ begin
 --Posição do player1
 ------------------------------------------------------------------------------
 
---coloca o player na posição 100 100
+--coloca o player na posição
 	player1_x_l <= player1_x_reg;
    player1_y_t <= player1_y_reg;
    player1_x_r <= player1_x_l + PLAYER_SIZE_X - 1;
    player1_y_b <= player1_y_t + PLAYER_SIZE_Y - 1;
+	
+	--Player1_x_face<=player1_x_r+48;  -- limite face horizontal do player1
+	Player1_x_face<=player1_x_r+4;
+	Player1_y_face<=player1_y_t+32;  -- limite face vertical do player1
+	
+	
 	
    sq_player1_on <=
 		'1' when	((player1_x_l<=pix_x) and (pix_x<=player1_x_r) and
@@ -340,21 +333,32 @@ begin
 			 else
       '0';
 		
-	process(player1_x_reg,player1_x_r,player1_x_l,player1_y_reg,player1_y_b,player1_y_t,refr_tick,key_code)
+	process(player1_x_reg,player1_x_r,player1_x_l,player1_y_reg,player1_y_b,player1_y_t,refr_tick,key_code,
+				Player2_x_face, Player1_x_face, glove_p2L_x_l, glove_p2L_y_t, glove_p1L_y_t, glove_p1L_y_b, glove_P2R_x_l,
+				glove_P2R_y_t,glove_p2L_y_b, glove_P1R_y_t, glove_P2R_y_b, player2_x_l ,ko1_reg)
    begin
       player1_x_next <= player1_x_reg; -- no move
 		player1_y_next <= player1_y_reg;
       
 	--	if refr_tick='1' then
-         if key_code="0100" then
+			if (glove_p2L_x_l <= Player1_x_face and glove_p2L_y_t > glove_p1L_y_b and glove_p2L_y_b < glove_p1R_y_t) or
+	          (glove_p2R_x_l <= Player1_x_face and glove_p2R_y_t > glove_p1L_y_b and glove_p2R_y_b < glove_p1R_y_t) then
+				
+				 player1_x_next <= player1_x_reg -16;
+				
+				ko1_next<=ko1_reg+1;
+				ko2_next<=(others=>'0');
+				
+         elsif key_code="0100" then
             player1_y_next <= player1_y_reg + 16; -- move down
 		
          elsif key_code="0011" then
             player1_y_next <= player1_y_reg - 16; -- move up
 				
 			elsif key_code="0010" then
-            player1_x_next <= player1_x_reg + 16; 
-			
+				if(player1_x_r <= player2_x_l-48) then
+						player1_x_next <= player1_x_reg + 16;
+				end if;	
 			elsif key_code="0001" then 
             player1_x_next <= player1_x_reg - 16; 	
 				
@@ -370,6 +374,8 @@ begin
 	--ao alterar o "not" lemos os dados ao contrario
 	Player1_rom_bit<= PLAYER_1_ROM(to_integer(not Player1_rom_addr), to_integer( Player1_rom_col));
 	
+		
+	
 ----------------------------------------------------------
 --Posição do player 2
 ----------------------------------------------------------
@@ -380,6 +386,8 @@ begin
    player2_x_r <= player2_x_l + PLAYER_SIZE_X - 1;
    player2_y_b <= player2_y_t + PLAYER_SIZE_Y - 1;
 	
+	Player2_x_face<=player2_x_l-4; -- limite face horizontal do player2
+	Player2_y_face<=player2_y_t+32;  -- limite face vertical do player2
 	
    sq_player2_on <=
 		'1' when	((player2_x_l<=pix_x) and (pix_x<=player2_x_r) and
@@ -389,24 +397,34 @@ begin
       '0';
 		
 		
-			process(player2_x_reg, player2_x_r, player2_x_l, player2_y_reg, player2_y_b, player2_y_t, refr_tick, key_code)
+	process(player2_x_reg)
    begin
       player2_x_next <= player2_x_reg; -- no move
 		player2_y_next <= player2_y_reg;
       
 --		if refr_tick='1' then
-         if key_code="1000" then
-            -- player2_y_next <= player2_y_reg + BAR_V; -- move down
+				
+			if ((glove_p1L_x_r>= Player2_x_face) and (glove_p1L_y_b <= glove_p2L_y_t) and (glove_p1L_y_t >= glove_p2R_y_b)) or
+	          ((glove_p1R_x_r >= Player2_x_face ) and (glove_p1R_y_b <= glove_p2L_y_t) and (glove_p1R_y_t >= glove_p2R_y_b)) then
+				 
+				 player2_x_next <= player2_x_reg + 16;
+				 
+				ko2_next<=ko2_reg+1;
+				ko1_next<=(others=>'0');
+				 
+         elsif key_code="1000" then
+            
 				player2_y_next <= player2_y_reg + 16; -- move down
          elsif key_code="0111" then
-				--player2_y_next <= player2_y_reg - BAR_V; -- move up
+				
 				player2_y_next <= player2_y_reg - 16; -- move up
 			elsif key_code="1001" then
-            --player2_x_next <= player2_x_reg + BAR_V; 
+            
 				player2_x_next <= player2_x_reg + 16; 
 			elsif key_code="1010" then 
-            --player2_x_next <= player2_x_reg - BAR_V; 	
-				player2_x_next <= player2_x_reg - 16; 	
+					if(player2_x_l >= player1_x_r+48) then
+						player2_x_next <= player2_x_reg - 16;
+					end if;
          end if;
 --      end if;
    end process;
@@ -453,39 +471,50 @@ begin
    end process;
 	
 	--Glove_P1R_state_reg
-	process ( glove_p1R_x_reg, key_code,glove_P1R_y_reg,glove_p1L_x_reg, glove_p1L_y_reg)
+	process ( glove_p1R_x_reg, key_code,glove_P1R_y_reg,glove_p1L_x_reg, glove_p1L_y_reg,glove_p2L_x_l,
+		glove_P1R_x_r, glove_p2L_y_t, glove_P1R_y_t, glove_p1L_x_r, glove_p1L_y_t, glove_P2R_x_l,glove_P2R_y_t)
 	begin
 		glove_p1R_x_next <= glove_p1R_x_reg;
 		glove_p1R_y_next <= glove_p1R_y_reg;
 		glove_p1L_x_next <= glove_p1L_x_reg;
 		glove_p1L_y_next <= glove_p1L_y_reg;
+		
+		if key_code="1101" and glove_p1L_y_reg = 0 then
+					glove_p1L_y_next <= to_unsigned(16,10);
+					glove_p1R_y_next <= to_unsigned(32,10);
+					glove_p1R_x_next <= to_unsigned(32,10);
+					glove_p1L_x_next <= to_unsigned(32,10);	
+					
+		elsif key_code="1101" then					
+					glove_p1R_y_next <= to_unsigned(48,10);
+					glove_p1L_y_next <= to_unsigned(0,10);
 
-				if key_code="0101" and glove_p1L_x_reg = 32 then -- tecla correspondente à luva esquerda
+		elsif	((glove_p2L_x_l= glove_p1R_x_r and glove_p2L_y_t = glove_p1R_y_t)	or  -- luva esquerda com esquerda
+				(glove_p2L_x_l= glove_p1L_x_r and glove_p2L_y_t = glove_p1L_y_t)	or	 --luva esquerda com direita
+				(glove_p2R_x_l= glove_p1L_x_r and glove_p2R_y_t = glove_p1L_y_t) or 	--luva direita com esquerda
+				(glove_p2R_x_l= glove_p1R_x_r and glove_p2R_y_t = glove_p1R_y_t)) then	--luva direita com direita
+				
+				glove_p1R_x_next <= glove_p1R_x_reg;
+				glove_p1R_y_next <= glove_p1R_y_reg;
+				glove_p1L_x_next <= glove_p1L_x_reg;
+				glove_p1L_y_next <= glove_p1L_y_reg;
+				
+		elsif key_code="0101" and glove_p1L_x_reg = 32 then -- tecla correspondente à luva esquerda
 					glove_p1L_x_next <= to_unsigned(48,10);
 					glove_p1R_x_next <= to_unsigned(32,10);
 					glove_p1L_y_next <= to_unsigned(0,10);
 					glove_p1R_y_next <= to_unsigned(48,10);
-				elsif key_code="0101" then
+		elsif key_code="0101" then
 					glove_p1L_x_next <= to_unsigned(32,10); 
 					
-				elsif key_code="0110" and glove_p1R_x_reg = 32 then --tecla corresponde te à luva direita
+		elsif key_code="0110" and glove_p1R_x_reg = 32 then --tecla corresponde te à luva direita
 					glove_p1R_x_next <= to_unsigned(48,10);
 					glove_p1L_x_next <= to_unsigned(32,10);		
 					glove_p1L_y_next <= to_unsigned(0,10);
 					glove_p1R_y_next <= to_unsigned(48,10);
-				elsif key_code="0110" then
+		elsif key_code="0110" then
 					glove_p1R_x_next <= to_unsigned(32,10);
-					
-				elsif key_code="1101" and glove_p1L_y_reg = 0 then
-					glove_p1L_y_next <= to_unsigned(16,10);
-					glove_p1R_y_next <= to_unsigned(32,10);
-					glove_p1R_x_next <= to_unsigned(32,10);
-					glove_p1L_x_next <= to_unsigned(32,10);									
-				elsif key_code="1101" then					
-					glove_p1R_y_next <= to_unsigned(48,10);
-					glove_p1L_y_next <= to_unsigned(0,10);
-
-				end if;
+		end if;
 
 	end process;
 	
@@ -541,40 +570,49 @@ begin
    end process;
 	
 	--Glove_P2R_state_reg
-	process ( glove_p2R_x_reg, key_code,glove_P2R_y_reg,glove_p2L_x_reg, glove_p2L_y_reg)
+	process ( glove_p2R_x_reg, key_code,glove_P2R_y_reg,glove_p2L_x_reg, glove_p2L_y_reg,
+	glove_p2L_x_l, glove_P1R_x_r, glove_p2L_y_t, glove_P1R_y_t, glove_p1L_x_r, glove_p1L_y_t,glove_P2R_x_l,glove_P2R_y_t)
 	begin
-	--	Glove_P2R_state_next <= Glove_P2R_state_reg;
 		glove_p2R_x_next <= glove_p2R_x_reg;
 		glove_p2R_y_next <= glove_p2R_y_reg;
 		glove_p2L_x_next <= glove_p2L_x_reg;
 		glove_p2L_y_next <= glove_p2L_y_reg;
-
-				if key_code="1011" and glove_p2L_x_reg = 16 then -- tecla correspondente à luva esquerda
-					glove_p2L_x_next <= to_unsigned(32,10);
-					glove_p2R_x_next <= to_unsigned(16,10);
-					glove_p2L_y_next <= to_unsigned(48,10);
-					glove_p2R_y_next <= to_unsigned(0,10);
-				elsif key_code="1011" then
-					glove_p2L_x_next <= to_unsigned(16,10); 
-					
-				elsif key_code="1100" and glove_p2R_x_reg = 16 then --tecla corresponde te à luva direita
-					glove_p2R_x_next <= to_unsigned(32,10);
-					glove_p2L_x_next <= to_unsigned(16,10);		
-					glove_p2L_y_next <= to_unsigned(48,10);
-					glove_p2R_y_next <= to_unsigned(0,10);
-				elsif key_code="1100" then
-					glove_p2R_x_next <= to_unsigned(16,10);
-					
-				elsif key_code="1110" and glove_p2R_y_reg = 0 then
+		
+		if  key_code="1110" and glove_p2R_y_reg = 0 then
 					glove_p2L_y_next <= to_unsigned(32,10);
 					glove_p2R_y_next <= to_unsigned(16,10);
 					glove_p2R_x_next <= to_unsigned(16,10);
 					glove_p2L_x_next <= to_unsigned(16,10);									
-				elsif key_code="1110" then					
+		elsif key_code="1110" then					
 					glove_p2R_y_next <= to_unsigned(0,10);
 					glove_p2L_y_next <= to_unsigned(48,10);
+		
+		elsif ((glove_p2L_x_l= glove_p1R_x_r and glove_p2L_y_t = glove_p1R_y_t)	or  -- luva esquerda com esquerda
+				(glove_p2L_x_l= glove_p1L_x_r and glove_p2L_y_t = glove_p1L_y_t)	or	 --luva esquerda com direita
+				(glove_p2R_x_l= glove_p1L_x_r and glove_p2R_y_t = glove_p1L_y_t) or	--luva direita com esquerda
+				(glove_p2R_x_l= glove_p1R_x_r and glove_p2R_y_t = glove_p1R_y_t)) then	--luva direita com direita
+			
+			glove_p2R_x_next <= glove_p2R_x_reg;
+			glove_p2R_y_next <= glove_p2R_y_reg;
+			glove_p2L_x_next <= glove_p2L_x_reg;
+			glove_p2L_y_next <= glove_p2L_y_reg;
 
-				end if;
+		elsif key_code="1011" and glove_p2L_x_reg = 16 then -- tecla correspondente à luva esquerda
+					glove_p2L_x_next <= to_unsigned(32,10);
+					glove_p2R_x_next <= to_unsigned(16,10);
+					glove_p2L_y_next <= to_unsigned(48,10);
+					glove_p2R_y_next <= to_unsigned(0,10);
+		elsif key_code="1011" then
+					glove_p2L_x_next <= to_unsigned(16,10); 
+					
+		elsif key_code="1100" and glove_p2R_x_reg = 16 then --tecla corresponde te à luva direita
+					glove_p2R_x_next <= to_unsigned(32,10);
+					glove_p2L_x_next <= to_unsigned(16,10);		
+					glove_p2L_y_next <= to_unsigned(48,10);
+					glove_p2R_y_next <= to_unsigned(0,10);
+		elsif key_code="1100" then
+					glove_p2R_x_next <= to_unsigned(16,10);
+		end if;
 
 	end process;
 	
@@ -595,41 +633,128 @@ begin
    Glove_P2R_rom_addr <= pix_y(3 downto 0) - player2_y_t(3 downto 0);
    Glove_P2R_rom_col <= pix_x(3 downto 0) - player2_x_l(3 downto 0);
 	Glove_P2R_rom_bit<= GLOVE_ROM(to_integer(not Glove_P2R_rom_addr), to_integer(not Glove_P2R_rom_col));	
---*******************************   
 
---	process
---	begin
---		
---		if player1=l or player1=r or player1= t or player1=b then
---			score_play_2<= std_logic_vector( unsigned( score_play_2) + 1;
---		elsif player2=l or player2=r or player2=t or player2=b then
---			score_play_1<= std_logic_vector( unsigned( score_play_1) + 1;
---		elsif glovel_1 = player2 or glover_r = player2 then
---				ko2<=ko2+1;
---				ko1<= '0';
---				if ko2=3 then
---					score_play_1<= std_logic_vector( unsigned( score_play_1) + 1;
---				end if;
---		elsif
---			elsif glovel_2 = player1 or glover_2 = player1 then
---				ko1<=ko1+1;
---				ko2<= '0';
---				if ko1=3 then
---					score_play_2<= std_logic_vector( unsigned( score_play_2) + 1;
---				end if;
-		
-	score_play_1<="0001";
-	score_play_2<="0011";
+
+--**************************************************
+-- counter score and ko
+--**************************************************
+   -- registers
+
+	
+   process (clk,reset,ko_reset)
+   begin
+      if reset='1' or ko_reset ='1' then
+			ko1_reg<= (others=>'0');
+			ko2_reg<= (others=>'0');
+      elsif (clk'event and clk='1') then
+			ko1_reg<= ko1_next;
+			ko2_reg<= ko2_next;
+      end if;
+   end process;
+
+
+--**************************************************************
+-- Estados do jogo
+--**************************************************************
+process (clk,reset)
+   begin
+      if reset='1' then
+         state_reg <= newgame;
+			
+      elsif (clk'event and clk='1') then
+         state_reg <= state_next;
+      end if;
+ end process;
+ 
+	   process (clk,reset,score_rst)
+   begin
+      if reset='1' or score_rst='1' then
+         score_play_1_reg <= (others=>'0');
+         score_play_2_reg <= (others=>'0');
+			round_next<= (others=>'0');
+      elsif (clk'event and clk='1') then
+         score_play_1_reg <= score_play_1_next;
+         score_play_2_reg <= score_play_2_next;
+			round_reg<= round_next;
+      end if;
+   end process;
+	
+process(state_next,state_reg, timer_up, Player1_x_face, Player1_y_face, score_play_2_reg, round_reg,
+		Player2_x_face, Player2_y_face, score_play_1_reg, ko1_reg, ko2_reg, score_play_2,score_play_1)
+begin
+	state_next <= state_reg;
+	score_play_1_next <= score_play_1_reg;
+	score_play_2_next <= score_play_2_reg ;
+	round_next<=(others =>'0');
+	ko_reset<='1';	
+	score_rst<='1';
+	case state_reg is
+         when newgame =>
+
+				new_r<='1';
+				state_next <= play;
+			   time_start<='1';
+				
+         when play =>
+				new_r<='0';
+				--if  timer_up='1' then
+
+					if Player1_x_face <= Ring_in_x_L or Player1_y_face <= Ring_in_y_T or Player1_y_face >= Ring_in_y_B then
+						
+							score_play_2_next<=std_logic_vector(unsigned(score_play_2_reg)+1);
+							round_next <= round_reg+ 1;
+							state_next <= new_round;
+							
+					elsif Player2_x_face >= Ring_in_x_R or Player2_y_face <= Ring_in_y_T or Player2_y_face >= Ring_in_y_B then
+						
+						   score_play_1_next<=std_logic_vector(unsigned(score_play_1_reg)+1);
+							round_next <= round_reg+ 1;
+							state_next <= new_round;
+							
+					elsif ko1_reg>=3 then
+					      score_play_1_next<=std_logic_vector(unsigned(score_play_1_reg)+1);
+							round_next <= round_reg+ 1;
+							state_next <= new_round;
+							
+					elsif ko2_reg>=3 then
+					      score_play_2_next<=std_logic_vector(unsigned(score_play_2_reg)+1);	
+							round_next <= round_reg+ 1;
+							state_next <= new_round;
+					end if;
+			--	end if;
+				when new_round =>
+					if score_play_2(2 downto 0)="011" or score_play_1(2 downto 0)="011" then
+						state_next <= over;
+						time_start<='1';
+					else
+						ko_reset<='1';
+						new_r<='1';
+						state_next <= play;
+						--time_start<='1';
+					end if;
+          
+         when over =>
+            -- wait for 2 sec to display game over
+            --if timer_up='1' then
+                state_next <= newgame;
+           -- end if;
+       end case;
+   end process;
+ 
+ score_play_1<=score_play_1_reg;
+ score_play_2<=score_play_2_reg;
+
 	--***************************************************************************
 		
    -- rgb multiplexing circuit
    process(sq_player1_on,sq_player2_on, glove_L_P1_on, glove_L_P1_on, glove_L_P2_on, glove_R_P2_on,
 					Player1_rom_bit,Player2_rom_bit,Glove_P1L_rom_bit,Glove_P1R_rom_bit,Glove_P2L_rom_bit,
-					Glove_P2R_rom_bit, background_rgb,video_on)
+					Glove_P2R_rom_bit, background_rgb,video_on,glove_R_P1_on)
    begin
       if video_on='0' then
           graph_rgb <= "000"; --blank
       else
+	
 			if sq_player1_on='1' and Player1_rom_bit /= "111" then
 				graph_rgb <= Player1_rom_bit;
 			

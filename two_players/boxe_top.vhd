@@ -43,7 +43,7 @@ architecture arch of boxe_top is
    signal video_on, pixel_tick, clk: std_logic;
    signal rgb_reg, rgb_next: std_logic_vector(2 downto 0);
 	signal key_code: std_logic_vector(3 downto 0);
-	--signal timer_tick, timer_start, timer_up: std_logic;
+	signal timer_tick, timer_start, timer_up: std_logic;
 begin
 
   -- instantiate clock manager unit
@@ -66,7 +66,9 @@ begin
       port map (clk=>clk, reset=>reset,
                 key_code=>key_code, video_on=>video_on,
                 pixel_x=>pixel_x, pixel_y=>pixel_y,
-                graph_rgb=>rgb_next);				 
+                graph_rgb=>rgb_next,
+					 time_start=>timer_start,
+                timer_up=>timer_up);					 
 					 
 	-- instantiate KB_code				 
 		   kb_code_unit: entity work.kb_code
@@ -74,16 +76,16 @@ begin
                 ps2d=>ps2d, ps2c=>ps2c,
                 key_code=>key_code);
 					 
---	-- instantiate 2 sec timer
---   timer_tick <=  -- 60 Hz tick
---      '1' when pixel_x="0000000000" and
---               pixel_y="0000000000" else
---      '0';
---   timer_unit: entity work.timer
---      port map(clk=>clk, reset=>reset,
---               timer_tick=>timer_tick,
---               timer_start=>timer_start,
---               timer_up=>timer_up);
+	-- instantiate 2 sec timer
+   timer_tick <=  -- 60 Hz tick
+      '1' when pixel_x="0000000000" and
+               pixel_y="0000000000" else
+      '0';
+   timer_unit: entity work.timer
+      port map(clk=>clk, reset=>reset,
+               timer_tick=>timer_tick,
+               timer_start=>timer_start,
+               timer_up=>timer_up);
 		
    -- rgb buffer
    process (clk)
