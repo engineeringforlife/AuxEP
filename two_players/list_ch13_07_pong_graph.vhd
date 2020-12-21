@@ -22,9 +22,9 @@ architecture arch of pong_graph is
    constant MAX_Y: integer:=480;
 	signal background_rgb:std_logic_vector(2 downto 0);
 	signal score_play_1,score_play_2: std_logic_vector(3 downto 0);
-	signal score_play_1_next,score_play_1_reg,score_play_2_next,score_play_2_reg: std_logic_vector(3 downto 0);
+	signal score_play_1_next,score_play_1_reg,score_play_2_next,score_play_2_reg: unsigned(3 downto 0);
 	signal ko1_next, ko1_reg,ko2_next, ko2_reg,round_next,round_reg: unsigned(1 downto 0);
-	signal new_r,ko_reset,score_rst,winner_on: std_logic;
+	signal new_r,ko_reset,score_rst,winner_show_on: std_logic;
 	--******************************************
 	-- limites para score
 	constant center_x: integer:=320;
@@ -282,10 +282,10 @@ begin
       port map (clk=>clk, reset=>reset,
 --                video_on=>background_on,
                 pixel_x=>pixel_x, pixel_y=>pixel_y,
-                graph_rgb=>background_rgb
-				--	 score_play_1=>score_play_1,
-				--	 score_play_2=>score_play_2
-				--	 winner_on=>winner_on
+                graph_rgb=>background_rgb,
+					 score_play_1=>score_play_1,
+					 score_play_2=>score_play_2,
+					 winner_show_on=>winner_show_on
 					 );
 
    -- Players registers
@@ -397,7 +397,8 @@ begin
       '0';
 		
 		
-	process(player2_x_reg)
+	process(player2_x_reg,player2_y_reg, glove_p1L_x_r,Player2_x_face, glove_p1L_y_b, glove_p2L_y_t,
+		glove_p1L_y_t, glove_P2R_y_b, glove_P1R_x_r, glove_P1R_y_b, glove_P1R_y_t, ko2_reg, key_code, player2_x_l, player1_x_r)
    begin
       player2_x_next <= player2_x_reg; -- no move
 		player2_y_next <= player2_y_reg;
@@ -666,83 +667,77 @@ process (clk,reset)
       end if;
  end process;
  
-	   process (clk,reset,score_rst)
+	process (clk,reset,score_rst)
    begin
       if reset='1' or score_rst='1' then
          score_play_1_reg <= (others=>'0');
          score_play_2_reg <= (others=>'0');
-			round_next<= (others=>'0');
+		--	round_next<= (others=>'0');
       elsif (clk'event and clk='1') then
          score_play_1_reg <= score_play_1_next;
          score_play_2_reg <= score_play_2_next;
-			round_reg<= round_next;
+		--	round_reg<= round_next;
       end if;
    end process;
 	
-process(state_next,state_reg, timer_up, Player1_x_face, Player1_y_face, score_play_2_reg, round_reg,
-		Player2_x_face, Player2_y_face, score_play_1_reg, ko1_reg, ko2_reg, score_play_2,score_play_1)
+process(state_next,state_reg, score_play_1_reg, score_play_2_reg, Player1_x_face, Player1_y_face, ko2_reg,
+			Player2_x_face, Player2_y_face, ko1_reg, score_play_2, score_play_1, timer_up)
 begin
 	state_next <= state_reg;
 	score_play_1_next <= score_play_1_reg;
-	score_play_2_next <= score_play_2_reg ;
-	round_next<=(others =>'0');
-	ko_reset<='1';	
-	score_rst<='1';
+	score_play_2_next <= score_play_2_reg;
+	--round_next<=round_reg;
+	score_rst<='0';
+	time_start<='0';
 	case state_reg is
          when newgame =>
-
+				ko_reset<='1';	
+				score_rst<='1';
 				new_r<='1';
 				state_next <= play;
-			   time_start<='1';
+			   winner_show_on<='0';
 				
          when play =>
 				new_r<='0';
-				--if  timer_up='1' then
+				
 
-					if Player1_x_face <= Ring_in_x_L or Player1_y_face <= Ring_in_y_T or Player1_y_face >= Ring_in_y_B then
+					if ((Player1_x_face <= Ring_in_x_L or Player1_y_face <= Ring_in_y_T or Player1_y_face >= Ring_in_y_B) or ko2_reg>=3 )then
 						
-							score_play_2_next<=std_logic_vector(unsigned(score_play_2_reg)+1);
-							round_next <= round_reg+ 1;
+							score_play_2_next<=score_play_2_reg + 1;
+						--	round_next <= round_reg+ 1;
 							state_next <= new_round;
 							
-					elsif Player2_x_face >= Ring_in_x_R or Player2_y_face <= Ring_in_y_T or Player2_y_face >= Ring_in_y_B then
-						
-						   score_play_1_next<=std_logic_vector(unsigned(score_play_1_reg)+1);
-							round_next <= round_reg+ 1;
+					elsif (( Player2_x_face >= Ring_in_x_R or Player2_y_face <= Ring_in_y_T or Player2_y_face >= Ring_in_y_B) or ko1_reg>=3) then
+						   
+							score_play_1_next<=score_play_1_reg+1;
+							--round_next <= round_reg+ 1;
 							state_next <= new_round;
-							
-					elsif ko1_reg>=3 then
-					      score_play_1_next<=std_logic_vector(unsigned(score_play_1_reg)+1);
-							round_next <= round_reg+ 1;
-							state_next <= new_round;
-							
-					elsif ko2_reg>=3 then
-					      score_play_2_next<=std_logic_vector(unsigned(score_play_2_reg)+1);	
-							round_next <= round_reg+ 1;
-							state_next <= new_round;
+           
 					end if;
-			--	end if;
+				
 				when new_round =>
-					if score_play_2(2 downto 0)="011" or score_play_1(2 downto 0)="011" then
+					if score_play_2="0011" or score_play_1="0011" then
 						state_next <= over;
 						time_start<='1';
 					else
 						ko_reset<='1';
 						new_r<='1';
 						state_next <= play;
-						--time_start<='1';
+						
 					end if;
           
          when over =>
             -- wait for 2 sec to display game over
-            --if timer_up='1' then
+				winner_show_on<='1';
+            if timer_up='1' then
                 state_next <= newgame;
-           -- end if;
+					 
+            end if;
        end case;
    end process;
  
- score_play_1<=score_play_1_reg;
- score_play_2<=score_play_2_reg;
+ score_play_1<= std_logic_vector(score_play_1_reg);
+ score_play_2<=std_logic_vector(score_play_2_reg);
 
 	--***************************************************************************
 		

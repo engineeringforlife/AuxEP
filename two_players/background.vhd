@@ -25,9 +25,9 @@ entity background is
         clk, reset: in std_logic;
        -- video_on: in std_logic;
         pixel_x,pixel_y: in std_logic_vector(9 downto 0);
-        graph_rgb: out std_logic_vector(2 downto 0)
-		--  score_play_1,score_play_2: in std_logic_vector(3 downto 0)
-		--  winner_on: in std_logic
+        graph_rgb: out std_logic_vector(2 downto 0);
+	     score_play_1,score_play_2: in std_logic_vector(3 downto 0);
+		  winner_show_on: in std_logic
 			);
    
 end background;
@@ -126,15 +126,15 @@ architecture arch of background is
 --=======================================================
    -- winner
 --=======================================================
---	 signal winner_show_on: std_logic;
---	 signal winner_rgb: std_logic_vector(2 downto 0);
---	 signal winner_word: std_logic_vector(7 downto 0);
---	 signal winner_bit: std_logic;
---	 signal row_addr_winner: std_logic_vector(3 downto 0);
---  signal char_addr_winner: std_logic_vector(6 downto 0);
---  signal bit_addr_winner: std_logic_vector(2 downto 0);
---	 signal rom4_addr: std_logic_vector(10 downto 0);
---	 signal player_win: std_logic_vector(3 downto 0);
+	 signal winner_on: std_logic;
+	 signal winner_rgb: std_logic_vector(2 downto 0);
+	 signal winner_word: std_logic_vector(7 downto 0);
+	 signal winner_bit: std_logic;
+	 signal row_addr_winner: std_logic_vector(3 downto 0);
+    signal char_addr_winner: std_logic_vector(6 downto 0);
+    signal bit_addr_winner: std_logic_vector(2 downto 0);
+	 signal rom4_addr: std_logic_vector(10 downto 0);
+	 signal player_win: std_logic_vector(3 downto 0);
 	
 
 begin
@@ -281,95 +281,106 @@ players_bit <= players_word(to_integer(unsigned(not bit_addr_p)));
 			end if;
 	end process;
 
-	--**************************************************************************
-	-- Score
---	font3_unit: entity work.font_rom
---		port map(clk=>clk, reset=>reset, addr=>rom3_addr, data=>score_word);
---
---
---
---		
---   row_addr_score <= std_logic_vector(pix_y(4 downto 1));
---   bit_addr_score <= std_logic_vector(pix_x(3 downto 1));
---		
---   with pix_x(9 downto 4) select
---     char_addr_score <=	  
---			-- player 1 score:
---					"011" & score_play_1 when "000101", -- y
---		  -- player 2 score:
---					"011" & score_play_2 when "100000", -- y
---					"0100000" when  others; -- space
---
---
---score_on <=
---    '1' when pix_y(9 downto 5)=6 and   -- (9 downto 5) altura    =12 posição
---        5<= pix_x(9 downto 4) and pix_x(9 downto 4)<=32 else
---      '0';		  
---rom3_addr<=char_addr_score & row_addr_score;
---score_bit <= score_word(to_integer(unsigned(not bit_addr_score)));
---
---	process(score_bit)
---		begin
---			score_rgb <= "110";
---			if score_bit='1' then
---				score_rgb <= "000";
---			end if;
---	end process;
+--**************************************************************************
+-- Score
+	font3_unit: entity work.font_rom
+		port map(clk=>clk, reset=>reset, addr=>rom3_addr, data=>score_word);
+
+
+
+		
+   row_addr_score <= std_logic_vector(pix_y(4 downto 1));
+   bit_addr_score <= std_logic_vector(pix_x(3 downto 1));
+		
+   with pix_x(9 downto 4) select
+     char_addr_score <=	  
+			-- player 1 score:
+					"011" & score_play_1 when "000101", -- y
+		  -- player 2 score:
+					"011" & score_play_2 when "100000", -- y
+					"0100000" when  others; -- space
+
+
+score_on <=
+    '1' when pix_y(9 downto 5)=6 and   -- (9 downto 5) altura    =12 posição
+        5<= pix_x(9 downto 4) and pix_x(9 downto 4)<=32 else
+      '0';		  
+rom3_addr<=char_addr_score & row_addr_score;
+score_bit <= score_word(to_integer(unsigned(not bit_addr_score)));
+
+	process(score_bit)
+		begin
+			score_rgb <= "110";
+			if score_bit='1' then
+				score_rgb <= "000";
+			end if;
+	end process;
 	
 --	--*************************************************************************** 
 --	winner
 --*************************************************************************** 
 	 
---		 font4_unit: entity work.font_rom
---				port map(clk=>clk, reset=>reset, addr=>rom4_addr, data=>winner_word);
---
---   row_addr_winner <= std_logic_vector(pix_y(4 downto 1));
---   bit_addr_winner <= std_logic_vector(pix_x(3 downto 1));
---		
---   with pix_x(9 downto 4) select
---     char_addr_winner <=	  
---									"1010000" when "011101", -- P
---									"1101100" when "011110", -- L
---									"1100001" when "011111", -- a
---							      "1111001" when "100000", -- y
---							      "1100101" when "100001", -- e
---									"1110010" when "100010", -- r
---									"0100000" when "100011", -- space
---									"011" & player_win when "100100", -- 2
---									"0100000" when "100101", -- space
---									"1010111" when "100110", -- w x57
---									"1101001" when "100111", -- i 69
---									"1101110" when "101000", -- n
---									"0100000" when  others; -- space
---
---
---	player_win<="0011";
---
---	winner_show_on <=
---    '1' when pix_y(9 downto 5)=6 and   -- (9 downto 5) altura    =12 posição
---        10<= pix_x(9 downto 4) and pix_x(9 downto 4)<=27 else
---      '0';		  
---rom4_addr<=char_addr_score & row_addr_winner;
---winner_bit <= winner_word(to_integer(unsigned(not bit_addr_winner)));
---
---	process(winner_bit)
---		begin
---			winner_rgb <= "110";
---			if winner_bit='1' then
---				winner_rgb <= "000";
---			end if;
---	end process;	 
+	font4_unit: entity work.font_rom
+		port map(clk=>clk, reset=>reset, addr=>rom4_addr, data=>winner_word);
+
+   row_addr_winner <= std_logic_vector(pix_y(4 downto 1));
+   bit_addr_winner <= std_logic_vector(pix_x(3 downto 1));
+		
+   with pix_x(9 downto 4) select
+     char_addr_winner <=	  
+									"1010000" when "001101", -- P
+									"1101100" when "001110", -- L
+									"1100001" when "001111", -- a
+							      "1111001" when "010000", -- y
+							      "1100101" when "010001", -- e
+									"1110010" when "010010", -- r
+									"0100000" when "010011", -- space
+									"011" & player_win when "010100", 
+									"0100000" when "010101", -- space
+									"1010111" when "010110", -- w x57
+									"1101001" when "010111", -- i 69
+									"1101110" when "011000", -- n
+									"0100000" when  others; -- space
+
+process(score_play_1,score_play_2)
+begin
+	if score_play_1>score_play_2 then
+	player_win<="0001";
+	else
+	player_win<="0010";
+	end if;
+end process;
+	
+	
+	winner_on <=
+    '1' when pix_y(9 downto 5)=12 and   -- (9 downto 5) altura    =12 posição
+        12<= pix_x(9 downto 4) and pix_x(9 downto 4)<=25 else
+      '0';		  
+rom4_addr<=char_addr_winner & row_addr_winner;
+winner_bit <= winner_word(to_integer(unsigned(not bit_addr_winner)));
+
+	process(winner_bit)
+		begin
+			winner_rgb <= "110";
+			if winner_bit='1' then
+				winner_rgb <= "000";
+			end if;
+	end process;	 
 --		 
 		 
 
 --****************************************************************************************
-process(titulo_on,players_on,Ring_in_on,Ring_out_on,titulo_rgb, canto_on, players_rgb, score_on,score_rgb)
+process(titulo_on,players_on,Ring_in_on,Ring_out_on,titulo_rgb, canto_on, players_rgb, score_on,score_rgb,winner_show_on, winner_on, winner_rgb)
    begin
       --if video_on='0' then
       --    graph_rgb <= "000"; --blank
       --else
         	if	titulo_on='1' then
-				graph_rgb <= titulo_rgb;				
+				graph_rgb <= titulo_rgb;
+			
+			elsif	(winner_show_on='1' and winner_on='1') then
+				graph_rgb <= winner_rgb;
+		
 			elsif	canto_on='1' then
 				graph_rgb <= canto_rgb;
 			elsif	Ring_in_on='1' then
